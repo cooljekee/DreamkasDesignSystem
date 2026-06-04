@@ -1,0 +1,201 @@
+<!-- @dsCard group="Molecules" title="Table — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/badge/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Badge/badge.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/selection/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Selection/selection.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/table/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Table/table.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FAFAFA;
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 20px 16px 40px; }
+
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background: #FFF; border: 1px solid #ECECEC; padding: 1px 5px; border-radius: 2px; }
+
+  .section + .section { margin-top: 28px; }
+  .section-title {
+    font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px;
+  }
+  .section-note { font-size: 12px; color: rgba(0,0,0,0.54); margin: -6px 0 14px; line-height: 1.45; }
+
+  .tbl-wrap { background: #FFF; border: 1px solid #E5E5E5; border-radius: 10px; overflow: hidden; }
+  .scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .scroll-hint { font-size: 11px; color: rgba(0,0,0,0.45); margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+  .scroll-hint svg { width: 12px; height: 12px; }
+
+  .ic { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .foot { margin-top: 32px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background: #FFF; border: 1px solid #ECECEC; padding: 1px 5px; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Table — Mobile</div>
+  <div class="page-sub">На телефоне сетка не помещается. Основной паттерн — <code>tbl--stack</code>: строка превращается в карточку «поле: значение». Для редких случаев — горизонтальный скролл.</div>
+
+  <!-- ═══════ ПРИЁМКА — stack (редактируемая) ═══════ -->
+  <div class="section">
+    <div class="section-title">Приёмка — stack (редактируемая)</div>
+    <div class="section-note">Позиция = карточка. Поле ШК внутри строки, скан крупным тапом.</div>
+    <div class="tbl-wrap">
+      <table class="tbl tbl--stack tbl--touch">
+        <thead><tr><th>Название</th><th>ШК</th><th>Кол-во</th><th>Цена</th><th>Сумма</th></tr></thead>
+        <tbody>
+          <tr class="tr">
+            <td class="td td--row-title">Водка «Русская Классическая» 40% 0.5л</td>
+            <td class="td td--input" data-label="ШК"><input class="cell-input is-scan" type="text" placeholder="Сканировать" /></td>
+            <td class="td td--num" data-label="Кол-во">12 шт</td>
+            <td class="td td--num" data-label="Цена">399,90 ₽</td>
+            <td class="td td--num" data-label="Сумма">4 798,80 ₽</td>
+          </tr>
+          <tr class="tr">
+            <td class="td td--row-title">Виски Highland Reserve 40% 0.7л</td>
+            <td class="td td--input" data-label="ШК"><input class="cell-input" type="text" value="4600728512" /></td>
+            <td class="td td--num" data-label="Кол-во">6 шт</td>
+            <td class="td td--num" data-label="Цена">1 899,50 ₽</td>
+            <td class="td td--num" data-label="Сумма">11 397,00 ₽</td>
+          </tr>
+          <tr class="tr">
+            <td class="td td--row-title">Вино белое полусладкое 0.75л</td>
+            <td class="td td--input" data-label="ШК"><input class="cell-input" type="text" value="4607012398" /></td>
+            <td class="td td--num" data-label="Кол-во">8 шт</td>
+            <td class="td td--num" data-label="Цена">549,00 ₽</td>
+            <td class="td td--num" data-label="Сумма">4 392,00 ₽</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="tr tr--total"><td>Итого · 6 позиций</td><td class="td--num">33 603,90 ₽</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════ STACK — основной мобильный паттерн ═══════ -->
+  <div class="section">
+    <div class="section-title">Stack — история чеков (рекомендуется)</div>
+    <div class="section-note">Каждый чек — отдельная строка-карточка. Тап раскрывает детали. Подписи берутся из <code>data-label</code>.</div>
+    <div class="tbl-wrap">
+      <table class="tbl tbl--stack">
+        <thead>
+          <tr><th>Чек</th><th>Дата</th><th>Кассир</th><th>Оплата</th><th>Статус</th><th>Сумма</th></tr>
+        </thead>
+        <tbody>
+          <tr class="tr">
+            <td class="td td--row-title">Чек №1024</td>
+            <td class="td" data-label="Дата">28.05 14:32</td>
+            <td class="td" data-label="Кассир">Анна П.</td>
+            <td class="td" data-label="Оплата">СБП</td>
+            <td class="td" data-label="Статус"><span class="badge badge--sm badge--success">Оплачено</span></td>
+            <td class="td td--num" data-label="Сумма">2 659 ₽</td>
+          </tr>
+          <tr class="tr tr--selected">
+            <td class="td td--row-title">Чек №1023</td>
+            <td class="td" data-label="Дата">28.05 14:18</td>
+            <td class="td" data-label="Кассир">Иван В.</td>
+            <td class="td" data-label="Оплата">Карта</td>
+            <td class="td" data-label="Статус"><span class="badge badge--sm badge--success">Оплачено</span></td>
+            <td class="td td--num" data-label="Сумма">890 ₽</td>
+          </tr>
+          <tr class="tr tr--error">
+            <td class="td td--row-title">Чек №1021</td>
+            <td class="td" data-label="Дата">28.05 13:40</td>
+            <td class="td" data-label="Кассир">Иван В.</td>
+            <td class="td" data-label="Оплата">Карта</td>
+            <td class="td" data-label="Статус"><span class="badge badge--sm badge--danger">Нет синхр.</span></td>
+            <td class="td td--num" data-label="Сумма">3 100 ₽</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="tr tr--total"><td>Итого · 68 чеков</td><td class="td--num">84 320 ₽</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════ HORIZONTAL SCROLL — запасной ═══════ -->
+  <div class="section">
+    <div class="section-title">Горизонтальный скролл — запасной</div>
+    <div class="section-note">Когда важно сохранить табличную сетку (сверка, сравнение). Первая колонка не закреплена в этом демо.</div>
+    <div class="scroll-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg> Прокрутите вбок</div>
+    <div class="tbl-wrap scroll-wrap">
+      <table class="tbl tbl--compact" style="min-width: 560px;">
+        <thead>
+          <tr>
+            <th class="th">Чек</th><th class="th">Дата / время</th><th class="th">Кассир</th>
+            <th class="th">Оплата</th><th class="th th--center">Статус</th><th class="th th--num">Сумма</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tr"><td class="td td--num">1024</td><td class="td td--secondary">28.05 14:32</td><td class="td">Анна П.</td><td class="td td--secondary">СБП</td><td class="td td--center"><span class="badge badge--sm badge--success">Оплачено</span></td><td class="td td--num">2 659 ₽</td></tr>
+          <tr class="tr"><td class="td td--num">1023</td><td class="td td--secondary">28.05 14:18</td><td class="td">Иван В.</td><td class="td td--secondary">Карта</td><td class="td td--center"><span class="badge badge--sm badge--success">Оплачено</span></td><td class="td td--num">890 ₽</td></tr>
+          <tr class="tr"><td class="td td--num">1022</td><td class="td td--secondary">28.05 13:55</td><td class="td">Анна П.</td><td class="td td--secondary">Наличные</td><td class="td td--center"><span class="badge badge--sm badge--warning">Ожидание</span></td><td class="td td--num">1 240 ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════ LOADING — stack skeleton ═══════ -->
+  <div class="section">
+    <div class="section-title">Loading — skeleton</div>
+    <div class="section-note">Плейсхолдеры в форме карточек: заголовок + строки.</div>
+    <div class="tbl-wrap">
+      <div style="padding: 4px 0;">
+        <div style="padding: 12px 14px; border-bottom: 1px solid var(--divider-default); display:flex; flex-direction:column; gap:8px;">
+          <div class="skeleton-cell" style="width: 45%; height: 14px;"></div>
+          <div class="skeleton-cell" style="width: 70%;"></div>
+          <div class="skeleton-cell" style="width: 55%;"></div>
+        </div>
+        <div style="padding: 12px 14px; border-bottom: 1px solid var(--divider-default); display:flex; flex-direction:column; gap:8px;">
+          <div class="skeleton-cell" style="width: 50%; height: 14px;"></div>
+          <div class="skeleton-cell" style="width: 65%;"></div>
+          <div class="skeleton-cell" style="width: 60%;"></div>
+        </div>
+        <div style="padding: 12px 14px; display:flex; flex-direction:column; gap:8px;">
+          <div class="skeleton-cell" style="width: 40%; height: 14px;"></div>
+          <div class="skeleton-cell" style="width: 72%;"></div>
+          <div class="skeleton-cell" style="width: 50%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ EMPTY ═══════ -->
+  <div class="section">
+    <div class="section-title">Empty — нет данных</div>
+    <div class="tbl-wrap">
+      <div class="tbl-empty">
+        <span class="empty-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M3 12l9 4 9-4"/></svg></span>
+        <div style="font-weight:600;color:var(--text-primary);">Чеков пока нет</div>
+        <div>За выбранный период продаж не было. Измените фильтр или дату.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Mobile-паттерн: <code>tbl--stack</code> (строка → карточка) — основной. Горизонтальный скролл — запасной. Те же токены, что Web/Tablet; меняется только раскладка строки.<br>
+    Файлы: <code>Mobile/Components/Molecules/Table/table.css</code>
+  </div>
+
+</body>
+</html>

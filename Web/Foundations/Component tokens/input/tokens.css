@@ -1,0 +1,68 @@
+/* ============================================================
+ * Dreamkas — Input Component Tokens (Web)
+ *
+ * Лежат поверх Semantic tokens (colors / spacing / radius / typography).
+ * Используются только внутри input.css.
+ * ============================================================ */
+
+:root {
+
+  /* ── Size: высота × padding × font × icon ─────────── */
+  --input-height-sm:      32px;
+  --input-height-md:      40px;
+  --input-height-lg:      48px;
+
+  --input-padding-x-sm:   12px;
+  --input-padding-x-md:   12px;
+  --input-padding-x-lg:   14px;
+
+  --input-font-sm:        var(--font-size-13);
+  --input-font-md:        var(--font-size-14);
+  --input-font-lg:        var(--font-size-16);
+
+  --input-icon-sm:        var(--size-icon-sm);   /* 16 */
+  --input-icon-md:        var(--size-icon-md);   /* 20 */
+  --input-icon-lg:        var(--size-icon-md);   /* 20 */
+
+  --input-gap:            8px;
+
+  /* ── Textarea ────────────────────────────────────── */
+  --input-textarea-padding-y-md: 10px;
+  --input-textarea-min-rows:     3;
+
+  /* ── Shape ──────────────────────────────────────── */
+  --input-radius:               var(--radius-control);          /* 6 */
+  --input-border-width:         var(--border-width-default);    /* 1 */
+  --input-border-width-focus:   var(--border-width-focus);      /* 2 */
+
+  /* ── Typography ──────────────────────────────────── */
+  --input-font-family:    var(--text-body-family);
+  --input-font-weight:    var(--font-weight-regular);
+  --input-line-height:    var(--line-height-normal);
+
+  /* ── Background / Border / Text по состояниям ────── */
+  --input-bg:                  var(--surface-default);
+  --input-bg-disabled:         var(--surface-disabled);
+  --input-bg-readonly:         var(--surface-sunken);
+
+  --input-border:              var(--border-default);
+  --input-border-hover:        var(--border-hover);
+  --input-border-focus:        var(--border-focus);
+  --input-border-error:        var(--border-error);
+  --input-border-disabled:     var(--border-disabled);
+
+  --input-text:                var(--text-primary);
+  --input-text-placeholder:    var(--text-secondary);
+  --input-text-disabled:       var(--text-disabled);
+
+  --input-label:               var(--text-primary);
+  --input-label-required:      var(--color-red-600);
+  --input-helper:              var(--text-secondary);
+  --input-error:               var(--color-red-700);
+
+  --input-icon:                var(--icon-secondary);
+  --input-icon-focus:          var(--icon-primary);
+  --input-icon-disabled:       var(--icon-disabled);
+
+  --input-suffix:              var(--text-secondary);
+}

@@ -1,0 +1,41 @@
+/* ============================================================
+ * Dreamkas Design System — Primitive Typography Tokens
+ * 
+ * Raw values for font-family, size, weight, line-height, letter-spacing.
+ * Do NOT use directly in product code — use semantic tokens.
+ * ============================================================ */
+
+:root {
+
+  /* ── font-family ──────────────────────────────────── */
+  --font-family-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-family-mono: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+  /* ── font-size (rem-friendly px values) ───────────── */
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+
+  /* ── font-weight ──────────────────────────────────── */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ── line-height ──────────────────────────────────── */
+  --line-height-flat: 1;       /* для кнопок */
+  --line-height-tight: 1.25;   /* для крупных заголовков */
+  --line-height-snug: 1.3;
+  --line-height-normal: 1.4;   /* для подписей */
+  --line-height-relaxed: 1.5;  /* для body */
+
+  /* ── letter-spacing ───────────────────────────────── */
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.06em;     /* UPPERCASE кнопки */
+  --letter-spacing-wider: 0.08em;    /* OVERLINE */
+}

@@ -1,0 +1,163 @@
+<!-- @dsCard group="Atoms" title="Selection — Tablet" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/selection/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Atoms/Selection/selection.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 40px; }
+
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background: #FAFAFA; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+
+  .section + .section { margin-top: 36px; }
+  .section-title {
+    font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 18px;
+  }
+
+  .matrix {
+    display: grid;
+    grid-template-columns: 110px repeat(3, minmax(120px, max-content));
+    column-gap: 48px; row-gap: 18px;
+    align-items: center;
+  }
+  .matrix-head {
+    display: grid;
+    grid-template-columns: 110px repeat(3, minmax(120px, max-content));
+    column-gap: 48px;
+    padding-bottom: 8px; border-bottom: 1px solid #F2F2F2; margin-bottom: 6px;
+  }
+  .col-h { font-size: 12px; font-weight: 600; color: rgba(0,0,0,0.87); }
+  .col-h small { display: block; margin-top: 2px; font-weight: 400; font-family: ui-monospace, monospace; color: rgba(0,0,0,0.45); }
+  .state-label { font-family: ui-monospace, monospace; font-size: 11px; color: rgba(0,0,0,0.54); }
+  .cell { display: flex; align-items: center; }
+
+  .foot { margin-top: 32px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background: #FAFAFA; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Selection — Tablet</div>
+  <div class="page-sub">Checkbox · Radio · Switch. 3 размера (sm 18 / md 22 / lg 26), состояния off / on / disabled. Все цвета и размеры — через semantic-токены. Tablet/Mobile — без focus (тач).</div>
+
+  <!-- ═══════ CHECKBOX ═══════ -->
+  <div class="section">
+    <div class="section-title">Checkbox</div>
+    <div class="matrix-head">
+      <div></div>
+      <div class="col-h">Small <small>box 18</small></div>
+      <div class="col-h">Medium <small>box 22</small></div>
+      <div class="col-h">Large <small>box 26</small></div>
+    </div>
+    <div class="matrix">
+      <div class="state-label">off</div>
+      <div class="cell"><label class="ctl ctl--sm"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--md"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+
+      <div class="state-label">on</div>
+      <div class="cell"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+
+      <div class="state-label">disabled off</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+
+      <div class="state-label">disabled on</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled is-checked"><span class="ctl-box ctl-box--check"></span><span class="ctl-label">Опция</span></label></div>
+    </div>
+  </div>
+
+  <!-- ═══════ RADIO ═══════ -->
+  <div class="section">
+    <div class="section-title">Radio</div>
+    <div class="matrix-head">
+      <div></div>
+      <div class="col-h">Small <small>box 18</small></div>
+      <div class="col-h">Medium <small>box 22</small></div>
+      <div class="col-h">Large <small>box 26</small></div>
+    </div>
+    <div class="matrix">
+      <div class="state-label">off</div>
+      <div class="cell"><label class="ctl ctl--sm"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--md"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+
+      <div class="state-label">on</div>
+      <div class="cell"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+
+      <div class="state-label">disabled off</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+
+      <div class="state-label">disabled on</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled is-checked"><span class="ctl-box ctl-box--radio"></span><span class="ctl-label">Вариант</span></label></div>
+    </div>
+  </div>
+
+  <!-- ═══════ SWITCH ═══════ -->
+  <div class="section">
+    <div class="section-title">Switch</div>
+    <div class="matrix-head">
+      <div></div>
+      <div class="col-h">Small <small>18 × 32</small></div>
+      <div class="col-h">Medium <small>22 × 39</small></div>
+      <div class="col-h">Large <small>26 × 46</small></div>
+    </div>
+    <div class="matrix">
+      <div class="state-label">off</div>
+      <div class="cell"><label class="ctl ctl--sm"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--md"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+
+      <div class="state-label">on</div>
+      <div class="cell"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+
+      <div class="state-label">disabled off</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+
+      <div class="state-label">disabled on</div>
+      <div class="cell"><label class="ctl ctl--sm is-disabled is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--md is-disabled is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+      <div class="cell"><label class="ctl ctl--lg is-disabled is-checked"><span class="ctl-box ctl-box--switch"></span><span class="ctl-label">Уведомления</span></label></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Токены: box — <code>--size-select-sm/md/lg</code>, checked-фон — <code>--bg-brand-default</code>, обводка — <code>--border-strong</code>, метка — <code>--text-on-brand</code>, disabled — <code>--surface-disabled</code> / <code>--bg-brand-disabled</code>.<br>
+    Файлы: <code>Tablet/Foundations/Component tokens/selection/tokens.css</code> · <code>Tablet/Components/Atoms/Selection/selection.css</code>
+  </div>
+
+</body>
+</html>

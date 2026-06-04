@@ -1,0 +1,365 @@
+{
+  "scales": {
+    "neutral": {
+      "0": "#FFFFFF",
+      "50": "#F8F8F8",
+      "100": "#F2F2F2",
+      "200": "#E0E0E0",
+      "300": "#C2C2C2",
+      "400": "#969696",
+      "500": "#6B6B6B",
+      "600": "#4A4A4A",
+      "700": "#2F3838",
+      "800": "#283232",
+      "900": "#1A2424",
+      "950": "#001113"
+    },
+    "brand": {
+      "50": "#E0F3F4",
+      "100": "#B2E1E5",
+      "200": "#80CBC4",
+      "300": "#4DB6BB",
+      "400": "#26A0A7",
+      "500": "#0097A7",
+      "600": "#00838F",
+      "700": "#006978",
+      "800": "#00505C",
+      "900": "#003841"
+    },
+    "green": {
+      "50": "#E1ECD3",
+      "100": "#C8E6C9",
+      "200": "#A5D6A7",
+      "300": "#7FCE7F",
+      "400": "#66B96A",
+      "500": "#4E9D53",
+      "600": "#3A8540",
+      "700": "#186E28",
+      "800": "#0F571B",
+      "900": "#053F0F"
+    },
+    "red": {
+      "50": "#F6DFDF",
+      "100": "#FFCDD2",
+      "200": "#EF9A9A",
+      "300": "#E57373",
+      "400": "#EF5350",
+      "500": "#E03131",
+      "600": "#C62828",
+      "700": "#B71C1C",
+      "800": "#951515",
+      "900": "#6E0E0E"
+    },
+    "amber": {
+      "50": "#FFF8E1",
+      "100": "#F5E8CE",
+      "200": "#FFE082",
+      "300": "#FFD54F",
+      "400": "#FAB930",
+      "500": "#F7AA13",
+      "600": "#DA8F0A",
+      "700": "#B57305",
+      "800": "#8A5800",
+      "900": "#5C3A00"
+    },
+    "blue": {
+      "50": "#E3F2FD",
+      "100": "#BBDEFB",
+      "200": "#90CAF9",
+      "300": "#64B5F6",
+      "400": "#42A5F5",
+      "500": "#1E88E5",
+      "600": "#0E61C8",
+      "700": "#0D47A1",
+      "800": "#0A3678",
+      "900": "#062954"
+    }
+  },
+  "alphas": {
+    "black-87": "rgba(0, 0, 0, 0.87)",
+    "black-54": "rgba(0, 0, 0, 0.54)",
+    "black-24": "rgba(0, 0, 0, 0.24)",
+    "black-60": "rgba(0, 17, 19, 0.60)",
+    "white-100": "#FFFFFF"
+  },
+  "semantic": {
+    "bg": {
+      "primary": {
+        "ref": "neutral-0",
+        "note": "Bg_Primary — основной фон страницы"
+      },
+      "secondary": {
+        "ref": "neutral-100",
+        "note": "Bg_Secondary — дополнительный фон"
+      },
+      "hover": {
+        "ref": "neutral-100",
+        "note": "Hover на нейтральном фоне (строка таблицы, элемент списка)"
+      },
+      "pressed": {
+        "ref": "neutral-200",
+        "note": "Активное нажатие на нейтральном фоне"
+      },
+      "disabled": {
+        "ref": "neutral-100",
+        "note": "Фон заблокированного элемента"
+      },
+      "selected": {
+        "ref": "brand-50",
+        "note": "Фон выбранной строки таблицы / элемента списка"
+      },
+      "selected-hover": {
+        "ref": "brand-100",
+        "note": "Hover на уже выбранную строку"
+      },
+      "skeleton": {
+        "ref": "neutral-100",
+        "note": "База skeleton-плашек на время загрузки"
+      },
+      "skeleton-shine": {
+        "ref": "neutral-200",
+        "note": "Бегущая подсветка skeleton (shimmer)"
+      }
+    },
+    "surface": {
+      "default": {
+        "ref": "neutral-0",
+        "note": "Поверхность карточки/листа"
+      },
+      "raised": {
+        "ref": "neutral-0",
+        "note": "Приподнятая поверхность (попап, модал)"
+      },
+      "sunken": {
+        "ref": "neutral-100",
+        "note": "Утоплённая поверхность (input bg, fieldset)"
+      },
+      "hover": {
+        "ref": "neutral-50",
+        "note": "Hover на белой поверхности (карточка, плашка)"
+      },
+      "pressed": {
+        "ref": "neutral-100",
+        "note": "Активное нажатие на белой поверхности"
+      },
+      "disabled": {
+        "ref": "neutral-50",
+        "note": "Заблокированная поверхность (инпут, карточка)"
+      }
+    },
+    "text": {
+      "primary": {
+        "ref": "alpha-black-87",
+        "note": "Text_Primary — основной текст"
+      },
+      "secondary": {
+        "ref": "alpha-black-54",
+        "note": "Text_Secondary — второстепенный текст"
+      },
+      "disabled": {
+        "ref": "alpha-black-24",
+        "note": "Заблокированный текст"
+      },
+      "active": {
+        "ref": "brand-500",
+        "note": "Text_Active — активный раздел меню"
+      },
+      "link": {
+        "ref": "blue-600",
+        "note": "Link — ссылка"
+      }
+    },
+    "icon": {
+      "primary": {
+        "ref": "alpha-black-87",
+        "note": "Icon_Primary"
+      },
+      "secondary": {
+        "ref": "neutral-400",
+        "note": "Icon_Secondary (#969696)"
+      },
+      "active": {
+        "ref": "brand-500",
+        "note": "Icon_Active — выбранная иконка в меню"
+      },
+      "disabled": {
+        "ref": "alpha-black-24",
+        "note": "Icon_Disabled"
+      }
+    },
+    "border": {
+      "default": {
+        "ref": "neutral-300",
+        "note": "Stroke_button — основная обводка"
+      },
+      "subtle": {
+        "ref": "neutral-200",
+        "note": "Stroke_card — обводка карточек/таблиц"
+      },
+      "strong": {
+        "ref": "neutral-400",
+        "note": "Усиленная обводка"
+      },
+      "focus": {
+        "ref": "brand-500",
+        "note": "Кольцо фокуса"
+      }
+    },
+    "status": {
+      "success": {
+        "ref": "green-700",
+        "note": "Цвет акцента для success-плашек и сообщений (Color_Success)"
+      },
+      "warning": {
+        "ref": "amber-500",
+        "note": "Цвет акцента для warning-плашек (Color_Warning)"
+      },
+      "danger": {
+        "ref": "red-600",
+        "note": "Цвет акцента для ошибок и деструктивных действий (Color_Error)"
+      },
+      "info": {
+        "ref": "brand-500",
+        "note": "Цвет акцента для нейтральных info-сообщений"
+      }
+    },
+    "overlay": {
+      "mask": {
+        "ref": "alpha-black-60",
+        "note": "Dark_mask — затемнение под диалогами"
+      }
+    },
+    "nav": {
+      "item-bg-default": {
+        "ref": "transparent",
+        "note": "Фон обычного пункта (без подсветки)"
+      },
+      "item-bg-hover": {
+        "ref": "neutral-100",
+        "note": "Hover на обычный пункт"
+      },
+      "item-bg-pressed": {
+        "ref": "neutral-200",
+        "note": "Клик/тап на обычный пункт"
+      },
+      "item-bg-selected": {
+        "ref": "brand-50",
+        "note": "Текущий выбранный пункт (current page)"
+      },
+      "item-bg-selected-hover": {
+        "ref": "brand-100",
+        "note": "Hover на уже выбранный пункт"
+      },
+      "item-bg-disabled": {
+        "ref": "transparent",
+        "note": "Заблокированный пункт"
+      },
+      "item-text-default": {
+        "ref": "alpha-black-87",
+        "note": "Текст обычного пункта"
+      },
+      "item-text-hover": {
+        "ref": "alpha-black-87",
+        "note": "Текст при hover (не меняется)"
+      },
+      "item-text-selected": {
+        "ref": "brand-500",
+        "note": "Текст выбранного пункта (= Text_Active)"
+      },
+      "item-text-disabled": {
+        "ref": "alpha-black-24",
+        "note": "Текст заблокированного пункта"
+      },
+      "item-icon-default": {
+        "ref": "neutral-400",
+        "note": "Иконка обычного пункта (= Icon_Secondary)"
+      },
+      "item-icon-hover": {
+        "ref": "alpha-black-87",
+        "note": "Иконка при hover становится контрастнее"
+      },
+      "item-icon-selected": {
+        "ref": "brand-500",
+        "note": "Иконка выбранного пункта (= Icon_Active)"
+      },
+      "item-icon-disabled": {
+        "ref": "alpha-black-24",
+        "note": "Иконка заблокированного пункта"
+      }
+    },
+    "bg-brand": {
+      "default": {
+        "ref": "brand-500",
+        "note": "Основная брендовая кнопка по умолчанию (= Color_Primary)"
+      },
+      "hover": {
+        "ref": "brand-600",
+        "note": "Hover на брендовой кнопке (на 1 стоп темнее)"
+      },
+      "pressed": {
+        "ref": "brand-700",
+        "note": "Нажатие на брендовой кнопке (= Color_Primary_Dark)"
+      },
+      "disabled": {
+        "ref": "neutral-200",
+        "note": "Заблокированная брендовая кнопка"
+      }
+    },
+    "bg-danger": {
+      "default": {
+        "ref": "red-600",
+        "note": "Деструктивная кнопка по умолчанию (= Color_Error)"
+      },
+      "hover": {
+        "ref": "red-700",
+        "note": "Hover на деструктивной кнопке"
+      },
+      "pressed": {
+        "ref": "red-800",
+        "note": "Нажатие на деструктивной кнопке"
+      },
+      "disabled": {
+        "ref": "neutral-200",
+        "note": "Заблокированная деструктивная кнопка"
+      }
+    },
+    "text-on": {
+      "brand": {
+        "ref": "alpha-white-100",
+        "note": "Текст на брендовой кнопке (белый)"
+      },
+      "brand-disabled": {
+        "ref": "alpha-black-24",
+        "note": "Текст на заблокированной брендовой кнопке"
+      },
+      "danger": {
+        "ref": "alpha-white-100",
+        "note": "Текст на деструктивной кнопке (белый)"
+      }
+    },
+    "text-link": {
+      "hover": {
+        "ref": "blue-700",
+        "note": "Hover на ссылке"
+      },
+      "pressed": {
+        "ref": "blue-800",
+        "note": "Нажатие на ссылке"
+      },
+      "disabled": {
+        "ref": "alpha-black-24",
+        "note": "Заблокированная ссылка"
+      }
+    },
+    "divider": {
+      "default": {
+        "ref": "neutral-200",
+        "note": "Тонкая горизонтальная линия между строками/блоками"
+      },
+      "strong": {
+        "ref": "neutral-300",
+        "note": "Жирная линия между крупными секциями"
+      }
+    }
+  }
+}

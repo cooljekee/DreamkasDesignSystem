@@ -1,0 +1,34 @@
+/* ============================================================
+ * Dreamkas — Form Field Component Tokens (Web) — Molecule
+ *
+ * Обвязка над любым контролом (input / select / textarea / группа):
+ * label + required/optional + helper + error + counter.
+ * Цвета и размеры — через semantic.
+ * ============================================================ */
+
+:root {
+
+  /* ── Вертикальные зазоры ──────────────────────────── */
+  --ff-gap-label:     6px;    /* label → control */
+  --ff-gap-message:   6px;    /* control → helper/error */
+  --ff-gap-row:       16px;   /* между полями в группе */
+  --ff-gap-col:       16px;   /* между полями в строке */
+
+  /* ── Label ────────────────────────────────────────── */
+  --ff-label-size:    var(--font-size-13);
+  --ff-label-weight:  var(--font-weight-medium);
+  --ff-label-color:   var(--text-primary);
+  --ff-label-w-inline: 160px;  /* ширина label при раскладке «слева» */
+
+  /* ── Required / Optional ──────────────────────────── */
+  --ff-required:      var(--color-red-600);
+  --ff-optional:      var(--text-secondary);
+
+  /* ── Helper / Error / Counter ─────────────────────── */
+  --ff-helper-size:   var(--font-size-12);
+  --ff-helper-color:  var(--text-secondary);
+  --ff-error-color:   var(--status-danger-text);
+  --ff-success-color: var(--status-success-text);
+  --ff-counter-color: var(--text-secondary);
+  --ff-message-icon:  14px;
+}

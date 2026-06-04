@@ -1,0 +1,170 @@
+<!-- @dsCard group="Spacing" title="Shadow Scale" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Shadow scale</title>
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #F8F8F8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 40px 32px 56px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px 28px;
+    max-width: 980px;
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .swatch {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 240px;
+    background: #FFFFFF;
+    border-radius: 8px;
+  }
+
+  .meta {
+    width: 100%;
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .name {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .level {
+    font-size: 11px;
+    font-family: ui-monospace, monospace;
+    color: rgba(0,0,0,0.54);
+  }
+  .role {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.45;
+  }
+  .role strong { color: rgba(0,0,0,0.87); font-weight: 600; }
+
+  /* Focus-ring section */
+  .focus-section {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid #E0E0E0;
+  }
+  .focus-section-title {
+    font-size: 11px;
+    font-family: ui-monospace, monospace;
+    font-weight: 600;
+    color: rgba(0,0,0,0.54);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 720px;
+  }
+  .focus-cell {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .focus-control {
+    height: 40px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(0,0,0,0.87);
+  }
+</style>
+</head>
+<body>
+
+  <div class="grid">
+
+    <div class="cell">
+      <div class="swatch" style="box-shadow: var(--shadow-sm);"></div>
+      <div class="meta">
+        <div class="name">--shadow-sm</div>
+        <div class="level">2-layer · 1+3px</div>
+        <div class="role"><strong>Карточки в покое.</strong> Edge-lift, чтобы поверхность отделилась от фона страницы</div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="swatch" style="box-shadow: var(--shadow-md);"></div>
+      <div class="meta">
+        <div class="name">--shadow-md</div>
+        <div class="level">2-layer · 6+24px</div>
+        <div class="role"><strong>Floating-элементы.</strong> Dropdown, popover, меню, tooltip, fab, sticky-хедер, card-hover</div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="swatch" style="box-shadow: var(--shadow-lg);"></div>
+      <div class="meta">
+        <div class="name">--shadow-lg</div>
+        <div class="level">2-layer · 16+56px</div>
+        <div class="role"><strong>Оверлейные поверхности.</strong> Модалка, диалог, drawer, toast — поверх overlay-маски</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="focus-section">
+    <div class="focus-section-title">Focus rings</div>
+
+    <div class="focus-grid">
+
+      <div class="focus-cell">
+        <div class="focus-control" style="box-shadow: var(--shadow-focus-ring); border-color: #0097A7;">
+          Active input
+        </div>
+        <div class="meta">
+          <div class="name">--shadow-focus-ring</div>
+          <div class="level">3px ring · brand-500 / 24%</div>
+          <div class="role">Стандартное кольцо фокуса для интерактивных контролов</div>
+        </div>
+      </div>
+
+      <div class="focus-cell">
+        <div class="focus-control" style="box-shadow: var(--shadow-focus-ring-danger); border-color: #E53935;">
+          Invalid input
+        </div>
+        <div class="meta">
+          <div class="name">--shadow-focus-ring-danger</div>
+          <div class="level">3px ring · red-600 / 24%</div>
+          <div class="role">Фокус на контроле с ошибкой валидации</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* ============================================================
+ * Dreamkas — Badge / Tag Component Tokens (Web)
+ *
+ * Status badge — статус записи. Tag — метка/категория.
+ * Стили: soft (светлый фон + цветной текст) · outline (обводка).
+ * ============================================================ */
+
+:root {
+
+  /* ── Size: высота × padding × font × dot × icon ───── */
+  --badge-h-sm:        18px;
+  --badge-h-md:        22px;
+  --badge-h-lg:        26px;
+
+  --badge-pad-x-sm:    6px;
+  --badge-pad-x-md:    8px;
+  --badge-pad-x-lg:    10px;
+
+  --badge-font-sm:     var(--font-size-10);
+  --badge-font-md:     var(--font-size-12);
+  --badge-font-lg:     var(--font-size-13);
+
+  --badge-dot-sm:      6px;
+  --badge-dot-md:      6px;
+  --badge-dot-lg:      8px;
+
+  --badge-icon-sm:     var(--size-icon-xs);   /* 12 */
+  --badge-icon-md:     var(--size-icon-sm);   /* 16 */
+  --badge-icon-lg:     var(--size-icon-sm);   /* 16 */
+
+  --badge-gap:         4px;
+
+  /* ── Shape ──────────────────────────────────────── */
+  --badge-radius:          var(--radius-sm);             /* 4 — tag */
+  --badge-radius-pill:     var(--radius-full);           /* pill — status */
+  --badge-border-width:    var(--border-width-default);  /* 1 */
+  --badge-font-weight:     var(--font-weight-medium);
+
+  /* ── Цвета по статусам — soft (bg + text) ─────────── */
+  --badge-success-bg:      var(--status-success-bg);
+  --badge-success-text:    var(--status-success-text);
+  --badge-success-border:  var(--status-success-border);
+
+  --badge-warning-bg:      var(--status-warning-bg);
+  --badge-warning-text:    var(--status-warning-text);
+  --badge-warning-border:  var(--status-warning-border);
+
+  --badge-danger-bg:       var(--status-danger-bg);
+  --badge-danger-text:     var(--status-danger-text);
+  --badge-danger-border:   var(--status-danger-border);
+
+  --badge-info-bg:         var(--status-info-bg);
+  --badge-info-text:       var(--status-info-text);
+  --badge-info-border:     var(--status-info-border);
+
+  /* ── Neutral (для тегов / категорий) ──────────────── */
+  --badge-neutral-bg:      var(--color-neutral-100);
+  --badge-neutral-text:    var(--text-secondary);
+  --badge-neutral-border:  var(--border-default);
+
+  /* ── Tag interactive (крестик удаления) ───────────── */
+  --badge-remove:          var(--icon-secondary);
+  --badge-remove-hover:    var(--text-primary);
+}

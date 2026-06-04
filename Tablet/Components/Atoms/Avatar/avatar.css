@@ -1,0 +1,101 @@
+/* ============================================================
+ * Dreamkas — Avatar (Web)
+ *
+ *   <span class="avatar avatar--md">АП</span>                 инициалы
+ *   <span class="avatar avatar--md avatar--brand">АП</span>   брендовый фон
+ *   <span class="avatar avatar--md"><img src=…></span>        фото
+ *   <span class="avatar avatar--md avatar--icon">…svg…</span> иконка
+ *   <span class="avatar avatar--md avatar--square">…</span>   квадратный
+ *
+ * Статус: добавить <span class="avatar-dot avatar-dot--online"></span> внутрь .avatar
+ * Группа: обернуть в <div class="avatar-group">…</div>
+ *
+ * Размеры: avatar--xs | sm | md | lg | xl
+ * ЗАВИСИМОСТИ: color/typography/spacing primitive+semantic, avatar/tokens.css
+ * ============================================================ */
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--avatar-radius);
+  background: var(--avatar-bg);
+  color: var(--avatar-text);
+  font-family: var(--font-family-sans);
+  font-weight: var(--avatar-font-weight);
+  line-height: 1;
+  overflow: visible;
+  user-select: none;
+}
+.avatar--square { border-radius: var(--avatar-radius-square); }
+.avatar--brand { background: var(--avatar-bg-brand); color: var(--avatar-text-brand); }
+
+/* картинка/иконка обрезаются по форме */
+.avatar > img,
+.avatar.avatar--icon { border-radius: inherit; }
+.avatar > img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.avatar.avatar--icon { color: var(--avatar-text); }
+.avatar.avatar--icon svg { width: 55%; height: 55%; }
+
+/* ── Sizes ────────────────────────────────────────── */
+.avatar--xs { width: var(--avatar-xs); height: var(--avatar-xs); font-size: var(--avatar-font-xs); }
+.avatar--sm { width: var(--avatar-sm); height: var(--avatar-sm); font-size: var(--avatar-font-sm); }
+.avatar--md { width: var(--avatar-md); height: var(--avatar-md); font-size: var(--avatar-font-md); }
+.avatar--lg { width: var(--avatar-lg); height: var(--avatar-lg); font-size: var(--avatar-font-lg); }
+.avatar--xl { width: var(--avatar-xl); height: var(--avatar-xl); font-size: var(--avatar-font-xl); }
+
+/* для overflow картинки нужен clip — добавляем на обёртку картинки */
+.avatar:has(> img) { overflow: hidden; }
+/* но точка статуса должна торчать → выносим её поверх через отдельный слой */
+
+/* ── Status dot ───────────────────────────────────── */
+.avatar-dot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--avatar-dot-ring);
+  box-sizing: border-box;
+}
+.avatar--xs .avatar-dot { width: 8px;  height: 8px; }
+.avatar--sm .avatar-dot { width: 10px; height: 10px; }
+.avatar--md .avatar-dot { width: 12px; height: 12px; }
+.avatar--lg .avatar-dot { width: 14px; height: 14px; }
+.avatar--xl .avatar-dot { width: 16px; height: 16px; }
+
+.avatar-dot--online  { background: var(--avatar-dot-online); }
+.avatar-dot--offline { background: var(--avatar-dot-offline); }
+.avatar-dot--busy    { background: var(--avatar-dot-busy); }
+
+/* когда есть фото (overflow hidden) — точку рендерим вне clip через обёртку */
+.avatar-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.avatar-wrap > .avatar-dot {
+  z-index: 1;
+}
+
+/* ── Group (стек) ─────────────────────────────────── */
+.avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+.avatar-group > .avatar,
+.avatar-group > .avatar-wrap {
+  margin-left: var(--avatar-stack-overlap);
+  box-shadow: 0 0 0 var(--avatar-ring-width) var(--avatar-ring);
+  border-radius: var(--avatar-radius);
+}
+.avatar-group > .avatar:first-child,
+.avatar-group > .avatar-wrap:first-child { margin-left: 0; }
+
+/* +N счётчик */
+.avatar--more { background: var(--color-neutral-100); color: var(--text-secondary); }

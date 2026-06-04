@@ -1,0 +1,198 @@
+/* ============================================================
+ * Dreamkas — Select / Dropdown (Web)
+ *
+ * Триггер:
+ *   <div class="select select--md">
+ *     <div class="select-trigger">
+ *       <span class="select-value">Выбрано</span>
+ *       <span class="select-chevron">▾</span>
+ *     </div>
+ *   </div>
+ *
+ * Состояния-классы на .select: is-open · is-error · is-disabled · is-filled
+ * Меню (.select-menu) — отдельный блок, в превью показываем раскрытым.
+ *
+ * ЗАВИСИМОСТИ: color/typography/spacing/shadow primitive+semantic, select/tokens.css
+ * ============================================================ */
+
+.select {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--select-font-family);
+  width: 280px;
+  position: relative;
+}
+.select--fluid { width: 100%; }
+
+/* ── Trigger ───────────────────────────────────────── */
+.select-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--select-bg);
+  border: var(--select-border-width) solid var(--select-border);
+  border-radius: var(--select-radius);
+  color: var(--select-text);
+  cursor: pointer;
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+.select--sm .select-trigger { min-height: var(--select-h-sm); padding: 0 var(--select-pad-x-sm); font-size: var(--select-font-sm); }
+.select--md .select-trigger { min-height: var(--select-h-md); padding: 0 var(--select-pad-x-md); font-size: var(--select-font-md); }
+.select--lg .select-trigger { min-height: var(--select-h-lg); padding: 0 var(--select-pad-x-lg); font-size: var(--select-font-lg); }
+
+.select-value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.select.is-placeholder .select-value { color: var(--select-text-placeholder); }
+
+.select-chevron {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--select-chevron);
+  transition: transform .15s ease;
+}
+.select--sm .select-chevron { width: var(--select-icon-sm); height: var(--select-icon-sm); }
+.select--md .select-chevron { width: var(--select-icon-md); height: var(--select-icon-md); }
+.select--lg .select-chevron { width: var(--select-icon-lg); height: var(--select-icon-lg); }
+.select-chevron svg { width: 100%; height: 100%; }
+
+/* ── Trigger states ────────────────────────────────── */
+.select-trigger:hover { border-color: var(--select-border-hover); }
+
+.select.is-open .select-trigger,
+.select-trigger:focus-visible {
+  border-color: var(--select-border-focus);
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+.select.is-open .select-chevron { transform: rotate(180deg); }
+
+.select.is-error .select-trigger { border-color: var(--select-border-error); }
+.select.is-error.is-open .select-trigger { box-shadow: var(--shadow-focus-danger); }
+
+.select.is-disabled .select-trigger {
+  background: var(--select-bg-disabled);
+  border-color: var(--select-border-disabled);
+  color: var(--select-text-disabled);
+  cursor: not-allowed;
+}
+.select.is-disabled .select-chevron { color: var(--select-chevron-disabled); }
+
+/* ── Menu ──────────────────────────────────────────── */
+.select-menu {
+  background: var(--select-menu-bg);
+  border: 1px solid var(--select-menu-border);
+  border-radius: var(--select-menu-radius);
+  box-shadow: var(--select-menu-shadow);
+  padding: var(--select-menu-pad);
+  min-width: 240px;
+  z-index: 10;
+}
+/* в реальном проде — абсолютное позиционирование под триггером */
+.select-menu--attached {
+  position: absolute;
+  top: calc(100% + var(--select-menu-gap));
+  left: 0;
+  right: 0;
+}
+
+/* ── Search field ──────────────────────────────────── */
+.select-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--select-search-bg);
+  border: 1px solid var(--select-search-border);
+  border-radius: var(--radius-sm);
+  padding: 0 10px;
+  height: 36px;
+  margin-bottom: var(--select-menu-pad);
+}
+.select-search svg { width: 16px; height: 16px; color: var(--select-search-icon); flex-shrink: 0; }
+.select-search input {
+  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+  font-family: inherit; font-size: var(--select-font-md); color: var(--select-text);
+}
+.select-search input::placeholder { color: var(--select-text-placeholder); }
+
+/* ── Option ────────────────────────────────────────── */
+.select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 var(--select-opt-pad-x);
+  border-radius: var(--select-opt-radius);
+  color: var(--select-opt-text);
+  cursor: pointer;
+  font-size: var(--select-font-md);
+}
+.select--sm .select-option { min-height: var(--select-opt-h-sm); }
+.select--md .select-option { min-height: var(--select-opt-h-md); }
+.select--lg .select-option { min-height: var(--select-opt-h-lg); }
+
+.select-option-icon { flex-shrink: 0; width: 20px; height: 20px; color: var(--select-opt-icon); display: inline-flex; }
+.select-option-icon svg { width: 100%; height: 100%; }
+
+.select-option-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.select-option-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.select-option-desc { font-size: var(--font-size-12); color: var(--select-opt-desc); }
+
+.select-option-check { flex-shrink: 0; width: 20px; height: 20px; color: var(--select-opt-check); display: none; }
+.select-option-check svg { width: 100%; height: 100%; }
+
+/* checkbox для multi */
+.select-option-cb {
+  flex-shrink: 0; width: 18px; height: 18px;
+  border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+  position: relative; box-sizing: border-box;
+}
+
+/* ── Option states ─────────────────────────────────── */
+.select-option:hover { background: var(--select-opt-bg-hover); }
+
+.select-option.is-selected { background: var(--select-opt-bg-selected); color: var(--select-opt-text-selected); }
+.select-option.is-selected:hover { background: var(--select-opt-bg-selected-hover); }
+.select-option.is-selected .select-option-check { display: inline-flex; }
+
+/* multi: чек состояние */
+.select-option.is-selected .select-option-cb {
+  background: var(--bg-brand-default);
+  border-color: var(--bg-brand-default);
+}
+.select-option.is-selected .select-option-cb::after {
+  content: "";
+  position: absolute; inset: 0;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 72% no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 72% no-repeat;
+  background: var(--text-on-brand);
+}
+
+.select-option.is-disabled {
+  color: var(--select-opt-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.select-option.is-disabled .select-option-cb { border-color: var(--border-disabled); }
+
+/* ── Group header / divider ────────────────────────── */
+.select-group-header {
+  padding: 8px var(--select-opt-pad-x) 4px;
+  font-size: var(--select-group-font);
+  font-weight: var(--font-weight-medium);
+  color: var(--select-group-text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.select-divider {
+  height: 1px;
+  background: var(--select-divider);
+  margin: var(--select-menu-pad) 0;
+}
+
+/* ── Chips для multi (в триггере) ──────────────────── */
+.select-chips { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; min-width: 0; }
+.select-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--bg-selected); color: var(--text-primary);
+  border-radius: var(--radius-sm); padding: 2px 6px; font-size: var(--font-size-13);
+}
+.select-chip-x { cursor: pointer; color: var(--icon-secondary); display: inline-flex; }
+.select-chip-x svg { width: 12px; height: 12px; }

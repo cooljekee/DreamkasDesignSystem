@@ -1,0 +1,43 @@
+/* ============================================================
+ * Dreamkas — Card Component Tokens (Web)
+ *
+ * Molecule. Композирует атомы (Button, Badge, Avatar, Switch).
+ * Зависит от платформы только padding'ом.
+ * ============================================================ */
+
+:root {
+
+  /* ── Padding ─────────────────────────────────────── */
+  --card-pad:           var(--padding-card);     /* 16 */
+  --card-pad-compact:   var(--space-12);         /* 12 — настройка/строка */
+  --card-gap:           var(--space-12);
+
+  /* ── Shape ──────────────────────────────────────── */
+  --card-radius:        var(--radius-card);       /* 8 */
+  --card-border-width:  var(--border-width-default);
+
+  /* ── Surface / elevation ─────────────────────────── */
+  --card-bg:            var(--surface-default);
+  --card-border:        var(--border-subtle);
+  --card-shadow:        var(--shadow-card);
+  --card-shadow-hover:  var(--shadow-card-hover);
+
+  /* ── States ──────────────────────────────────────── */
+  --card-bg-hover:      var(--surface-hover);
+  --card-bg-selected:   var(--bg-selected);
+  --card-border-selected: var(--border-focus);
+  --card-border-width-selected: var(--border-width-focus);
+
+  /* ── Header / footer divider ─────────────────────── */
+  --card-divider:       var(--divider-default);
+  --card-footer-align:  flex-end;
+
+  /* ── Selected ring (inset — без reflow) ──────────── */
+  --card-selected-ring: 2px;
+
+  /* ── Typography ──────────────────────────────────── */
+  --card-title:         var(--text-primary);
+  --card-subtitle:      var(--text-secondary);
+  --card-title-size:    var(--font-size-16);
+  --card-subtitle-size: var(--font-size-13);
+}

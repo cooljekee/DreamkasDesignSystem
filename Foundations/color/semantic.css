@@ -1,0 +1,132 @@
+/* ============================================================
+ * Dreamkas Design System — Semantic Color Tokens
+ * 
+ * Role-based tokens. USE THESE in product code, not primitives.
+ * Each semantic token references a primitive (single source of truth).
+ * 
+ * Mapped 1:1 from Figma "Базовые цвета UI" tables.
+ * ============================================================ */
+
+:root {
+
+  /* ── bg ─────────────────────────────────────── */
+  --bg-primary: var(--color-neutral-0);  /* Bg_Primary — основной фон страницы */
+  --bg-secondary: var(--color-neutral-100);  /* Bg_Secondary — дополнительный фон */
+  --bg-hover: var(--color-neutral-100);  /* Hover на нейтральном фоне (строка таблицы, элемент списка) */
+  --bg-pressed: var(--color-neutral-200);  /* Активное нажатие на нейтральном фоне */
+  --bg-disabled: var(--color-neutral-100);  /* Фон заблокированного элемента */
+  --bg-selected: var(--color-brand-50);  /* Фон выбранной строки таблицы / элемента списка */
+  --bg-selected-hover: var(--color-brand-100);  /* Hover на уже выбранную строку */
+  --bg-skeleton: var(--color-neutral-100);  /* База skeleton-плашек на время загрузки */
+  --bg-skeleton-shine: var(--color-neutral-200);  /* Бегущая подсветка skeleton (shimmer) */
+
+  /* ── surface ─────────────────────────────────────── */
+  --surface-default: var(--color-neutral-0);  /* Поверхность карточки/листа */
+  --surface-raised: var(--color-neutral-0);  /* Приподнятая поверхность (попап, модал) */
+  --surface-sunken: var(--color-neutral-100);  /* Утоплённая поверхность (input bg, fieldset) */
+  --surface-inverse: var(--color-neutral-900);  /* Тёмная поверхность на светлой теме (tooltip, поповер-подсказка) */
+  --text-on-inverse: var(--color-alpha-white-100);  /* Текст/иконка на тёмной inverse-поверхности */
+  --surface-hover: var(--color-neutral-50);  /* Hover на белой поверхности (карточка, плашка) */
+  --surface-pressed: var(--color-neutral-100);  /* Активное нажатие на белой поверхности */
+  --surface-disabled: var(--color-neutral-50);  /* Заблокированная поверхность (инпут, карточка) */
+
+  /* ── text ─────────────────────────────────────── */
+  --text-primary: var(--color-alpha-black-87);  /* Text_Primary — основной текст */
+  --text-secondary: var(--color-alpha-black-54);  /* Text_Secondary — второстепенный текст */
+  --text-disabled: var(--color-alpha-black-24);  /* Заблокированный текст */
+  --text-active: var(--color-brand-500);  /* Text_Active — активный раздел меню */
+  --text-link: var(--color-blue-600);  /* Link — ссылка */
+
+  /* ── icon ─────────────────────────────────────── */
+  --icon-primary: var(--color-alpha-black-87);  /* Icon_Primary */
+  --icon-secondary: var(--color-neutral-400);  /* Icon_Secondary (#969696) */
+  --icon-active: var(--color-brand-500);  /* Icon_Active — выбранная иконка в меню */
+  --icon-disabled: var(--color-alpha-black-24);  /* Icon_Disabled */
+
+  /* ── border ─────────────────────────────────────── */
+  --border-default: var(--color-neutral-300);  /* Stroke_button — основная обводка */
+  --border-subtle: var(--color-neutral-200);  /* Stroke_card — обводка карточек/таблиц */
+  --border-strong: var(--color-neutral-400);  /* Усиленная обводка */
+  --border-focus: var(--color-brand-500);  /* Кольцо фокуса */
+  --border-hover: var(--color-neutral-400);  /* Обводка при hover (инпут, кнопка) */
+  --border-disabled: var(--color-neutral-200);  /* Обводка заблокированного контрола */
+  --border-error: var(--color-red-600);  /* Обводка инпута с ошибкой */
+
+  /* ── status ─────────────────────────────────────── */
+  --status-success-bg: var(--color-green-50);  /* Цвет фона положительных статусов */
+  --status-success-text: var(--color-green-700);  /* Color_Success */
+  --status-success-border: var(--color-green-700);
+  --status-warning-bg: var(--color-amber-100);  /* Цвет фона предупреждений */
+  --status-warning-text: var(--color-amber-700);
+  --status-warning-border: var(--color-amber-500);  /* Color_Warning */
+  --status-danger-bg: var(--color-red-50);  /* Цвет фона ошибок */
+  --status-danger-text: var(--color-red-600);  /* Color_Error */
+  --status-danger-border: var(--color-red-600);
+  --status-info-bg: var(--color-brand-50);  /* Color_Light_Blue_Bg */
+  --status-info-text: var(--color-brand-700);
+  --status-info-border: var(--color-brand-500);
+  --status-notify-bg: var(--color-amber-100);  /* Color_Notify — нейтральные сообщения */
+  --status-notify-text: var(--color-alpha-black-87);
+  --status-notify-border: var(--color-amber-200);
+
+
+  /* ── overlay ─────────────────────────────────────── */
+  --overlay-mask: var(--color-alpha-black-60);  /* Dark_mask — затемнение под диалогами */
+
+  /* ── nav (navigation item states) ───────────────── */
+  --nav-item-bg-default: transparent;  /* Фон обычного пункта (без подсветки) */
+  --nav-item-bg-hover: var(--color-neutral-100);  /* Hover на обычный пункт */
+  --nav-item-bg-pressed: var(--color-neutral-200);  /* Клик/тап на обычный пункт */
+  --nav-item-bg-selected: var(--color-brand-50);  /* Текущий выбранный пункт (current page) */
+  --nav-item-bg-selected-hover: var(--color-brand-100);  /* Hover на уже выбранный пункт */
+  --nav-item-bg-disabled: transparent;  /* Заблокированный пункт */
+  --nav-item-text-default: var(--color-alpha-black-87);  /* Текст обычного пункта */
+  --nav-item-text-hover: var(--color-alpha-black-87);  /* Текст при hover (не меняется) */
+  --nav-item-text-selected: var(--color-brand-500);  /* Текст выбранного пункта (= Text_Active) */
+  --nav-item-text-disabled: var(--color-alpha-black-24);  /* Текст заблокированного пункта */
+  --nav-item-icon-default: var(--color-neutral-400);  /* Иконка обычного пункта (= Icon_Secondary) */
+  --nav-item-icon-hover: var(--color-alpha-black-87);  /* Иконка при hover становится контрастнее */
+  --nav-item-icon-selected: var(--color-brand-500);  /* Иконка выбранного пункта (= Icon_Active) */
+  --nav-item-icon-disabled: var(--color-alpha-black-24);  /* Иконка заблокированного пункта */
+
+  /* ── bg-brand (brand-filled action states) ─────────────────────── */
+  --bg-brand-default: var(--color-brand-500);  /* Основная брендовая кнопка по умолчанию (= Color_Primary) */
+  --bg-brand-hover: var(--color-brand-600);  /* Hover на брендовой кнопке (на 1 стоп темнее) */
+  --bg-brand-pressed: var(--color-brand-700);  /* Нажатие на брендовой кнопке (= Color_Primary_Dark) */
+  --bg-brand-disabled: var(--color-neutral-200);  /* Заблокированная брендовая кнопка */
+
+  /* ── bg-danger (destructive action states) ─────────────────────── */
+  --bg-danger-default: var(--color-red-600);  /* Деструктивная кнопка по умолчанию (= Color_Error) */
+  --bg-danger-hover: var(--color-red-700);  /* Hover на деструктивной кнопке */
+  --bg-danger-pressed: var(--color-red-800);  /* Нажатие на деструктивной кнопке */
+  --bg-danger-disabled: var(--color-neutral-200);  /* Заблокированная деструктивная кнопка */
+
+  /* ── bg-commerce (positive / purchase actions) ─────────────────── */
+  --bg-commerce-default: var(--color-green-600);  /* Зелёная CTA (Купить, Оплатить) */
+  --bg-commerce-hover: var(--color-green-700);
+  --bg-commerce-pressed: var(--color-green-800);
+  --bg-commerce-disabled: var(--color-neutral-200);
+
+  /* ── bg-button-secondary / muted (subtle filled) ───────────────── */
+  --bg-button-secondary: var(--color-neutral-200);
+  --bg-button-secondary-hover: var(--color-neutral-300);
+  --bg-button-secondary-pressed: var(--color-neutral-400);
+  --bg-button-muted: var(--color-neutral-100);
+  --bg-button-muted-hover: var(--color-neutral-200);
+  --bg-button-muted-pressed: var(--color-neutral-300);
+
+  /* ── text-on (text/icon on colored bg) ─────────────────────── */
+  --text-on-brand: var(--color-alpha-white-100);  /* Текст на брендовой кнопке (белый) */
+  --text-on-brand-disabled: var(--color-alpha-black-24);  /* Текст на заблокированной брендовой кнопке */
+  --text-on-danger: var(--color-alpha-white-100);  /* Текст на деструктивной кнопке (белый) */
+  --text-on-commerce: var(--color-alpha-white-100);  /* Текст на commerce-кнопке (белый) */
+
+  /* ── text-link (interactive link states) ─────────────────────── */
+  --text-link-hover: var(--color-blue-700);  /* Hover на ссылке */
+  --text-link-pressed: var(--color-blue-800);  /* Нажатие на ссылке */
+  --text-link-disabled: var(--color-alpha-black-24);  /* Заблокированная ссылка */
+
+  /* ── divider (separators) ─────────────────────────── */
+  --divider-default: var(--color-neutral-200);  /* Тонкая горизонтальная линия между строками/блоками */
+  --divider-strong: var(--color-neutral-300);  /* Жирная линия между крупными секциями */
+}

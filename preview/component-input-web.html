@@ -1,0 +1,398 @@
+<!-- @dsCard group="Atoms" title="Input — Web" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/input/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Input/input.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 40px; }
+
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.87);
+    margin-bottom: 4px;
+  }
+  .page-sub {
+    font-size: 12px;
+    color: rgba(0,0,0,0.54);
+    margin-bottom: 24px;
+  }
+  .page-sub code {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.87);
+    background: #FAFAFA;
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  .section + .section { margin-top: 36px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .section-title .meta {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.45);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* matrix: state-label + 3 sizes */
+  .matrix {
+    display: grid;
+    grid-template-columns: 100px repeat(3, minmax(260px, 1fr));
+    column-gap: 32px;
+    row-gap: 24px;
+    align-items: start;
+  }
+  .matrix .field { width: 100%; }
+  .matrix-head {
+    display: grid;
+    grid-template-columns: 100px repeat(3, minmax(260px, 1fr));
+    column-gap: 32px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #F2F2F2;
+    margin-bottom: 4px;
+  }
+  .matrix-head .col-h {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+  }
+  .matrix-head .col-h small {
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+    font-family: ui-monospace, monospace;
+    color: rgba(0,0,0,0.45);
+  }
+  .state-label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+  }
+
+  /* types section: 2-column grid */
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 320px));
+    gap: 24px 32px;
+  }
+  .type-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .type-item-title {
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    font-family: ui-monospace, monospace;
+    margin-bottom: 2px;
+  }
+
+  /* SVG icons */
+  .ic {
+    width: 100%; height: 100%;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foot {
+    margin-top: 32px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    line-height: 1.5;
+  }
+  .foot code {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.87);
+    background: #FAFAFA;
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Input — Web</div>
+  <div class="page-sub">Text-field в паре с Button. 3 размера (sm 32 / md 40 / lg 48), 6 состояний, типы Text/Password/Email/Phone/Textarea. Все цвета и размеры — через semantic-токены. Tablet/Mobile — см. соответствующие карточки.</div>
+
+  <!-- ───── STATES × SIZES ───── -->
+  <div class="section">
+    <div class="section-title">
+      <span>Состояния × Размеры</span>
+      <span class="meta">type=text · label=top</span>
+    </div>
+
+    <div class="matrix-head">
+      <div></div>
+      <div class="col-h">Small <small>height 32</small></div>
+      <div class="col-h">Medium <small>height 40</small></div>
+      <div class="col-h">Large <small>height 48</small></div>
+    </div>
+
+    <div class="matrix">
+      <!-- Default -->
+      <div class="state-label">default</div>
+      <div>
+        <div class="field field--sm">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+
+      <!-- Focus -->
+      <div class="state-label">focus</div>
+      <div>
+        <div class="field field--sm is-focus">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md is-focus">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg is-focus">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com"/></div>
+        </div>
+      </div>
+
+      <!-- Filled -->
+      <div class="state-label">filled</div>
+      <div>
+        <div class="field field--sm">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru"/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru"/></div>
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div class="state-label">error</div>
+      <div>
+        <div class="field field--sm field--error">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="invalid@"/></div>
+          <div class="field-helper">Введите корректный email</div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md field--error">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="invalid@"/></div>
+          <div class="field-helper">Введите корректный email</div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg field--error">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="invalid@"/></div>
+          <div class="field-helper">Введите корректный email</div>
+        </div>
+      </div>
+
+      <!-- Disabled -->
+      <div class="state-label">disabled</div>
+      <div>
+        <div class="field field--sm field--disabled">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com" disabled/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md field--disabled">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com" disabled/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg field--disabled">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" placeholder="name@example.com" disabled/></div>
+        </div>
+      </div>
+
+      <!-- Read-only -->
+      <div class="state-label">read-only</div>
+      <div>
+        <div class="field field--sm field--readonly">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru" readonly/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--md field--readonly">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru" readonly/></div>
+        </div>
+      </div>
+      <div>
+        <div class="field field--lg field--readonly">
+          <label class="field-label">Email</label>
+          <div class="field-control"><input class="field-input" type="text" value="anna@dreamkas.ru" readonly/></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── TYPES ───── -->
+  <div class="section">
+    <div class="section-title">
+      <span>Типы и доп. элементы</span>
+      <span class="meta">размер medium · 40</span>
+    </div>
+
+    <div class="types-grid">
+
+      <!-- Text + clear icon -->
+      <div class="type-item">
+        <div class="type-item-title">Text · с очисткой</div>
+        <div class="field field--md">
+          <label class="field-label">Имя</label>
+          <div class="field-control">
+            <input class="field-input" type="text" value="Анна"/>
+            <span class="field-icon is-action" title="Очистить"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text + suffix ₽ -->
+      <div class="type-item">
+        <div class="type-item-title">Text · suffix ₽</div>
+        <div class="field field--md">
+          <label class="field-label">Цена</label>
+          <div class="field-control">
+            <input class="field-input" type="text" value="1 290" inputmode="numeric"/>
+            <span class="field-suffix">₽</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Password + eye -->
+      <div class="type-item">
+        <div class="type-item-title">Password · toggle</div>
+        <div class="field field--md">
+          <label class="field-label">Пароль <span class="req">*</span></label>
+          <div class="field-control">
+            <input class="field-input" type="password" value="●●●●●●●●●"/>
+            <span class="field-icon is-action" title="Показать"><svg class="ic" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          </div>
+          <div class="field-helper">Минимум 8 символов</div>
+        </div>
+      </div>
+
+      <!-- Email + suffix -->
+      <div class="type-item">
+        <div class="type-item-title">Email · suffix домен</div>
+        <div class="field field--md">
+          <label class="field-label">Email</label>
+          <div class="field-control">
+            <input class="field-input" type="text" placeholder="anna"/>
+            <span class="field-suffix">@dreamkas.ru</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="type-item">
+        <div class="type-item-title">Phone · маска</div>
+        <div class="field field--md">
+          <label class="field-label">Телефон</label>
+          <div class="field-control">
+            <input class="field-input" type="tel" placeholder="+7 (___) ___-__-__"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text + success check -->
+      <div class="type-item">
+        <div class="type-item-title">Text · проверено</div>
+        <div class="field field--md">
+          <label class="field-label">ИНН</label>
+          <div class="field-control">
+            <input class="field-input" type="text" value="7842556328"/>
+            <span class="field-icon" style="color: var(--color-green-600);" title="Валидно"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="type-item" style="grid-column: 1 / -1; max-width: 640px;">
+        <div class="type-item-title">Textarea · многострочный</div>
+        <div class="field field--md field--textarea field--fluid">
+          <label class="field-label">Комментарий</label>
+          <div class="field-control" style="padding: 0 12px;">
+            <textarea class="field-textarea" placeholder="Опишите проблему подробно..."></textarea>
+          </div>
+          <div class="field-helper">0/500</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    Базовые токены: фон — <code>--surface-default</code>, обводка — <code>--border-default/hover/focus/error/disabled</code>, текст — <code>--text-primary</code>, placeholder — <code>--text-secondary</code>, иконки — <code>--icon-secondary</code>. Полный список — <code>Web/Foundations/Component tokens/input/tokens.css</code>.<br>
+    Компонент: <code>Web/Components/Atoms/Input/input.css</code>
+  </div>
+
+</body>
+</html>
