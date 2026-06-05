@@ -1,0 +1,334 @@
+<!-- @dsCard group="Spacing" title="Breakpoints" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 36px; }
+
+  .intro {
+    font-size: 12px;
+    color: rgba(0,0,0,0.54);
+    line-height: 1.45;
+    margin-bottom: 22px;
+    max-width: 580px;
+  }
+
+  /* ───── header ───── */
+  .head {
+    display: grid;
+    grid-template-columns: 180px 1fr 120px 120px 180px;
+    gap: 16px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #E5E5E5;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ───── row ───── */
+  .row {
+    display: grid;
+    grid-template-columns: 180px 1fr 120px 120px 180px;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .row:last-child { border-bottom: 0; }
+
+  .device {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .device .icon {
+    flex: 0 0 28px;
+    height: 28px;
+    color: #0097A7;
+  }
+  .device .info { line-height: 1.3; }
+  .device .info b {
+    display: block;
+    font-size: 13px;
+    color: rgba(0,0,0,0.87);
+  }
+  .device .info span {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+  }
+
+  /* horizontal bar showing window vs content */
+  .bar {
+    position: relative;
+    height: 36px;
+    background: #ECECEC;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar .menu {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    background: #9E9E9E;
+  }
+  .bar .content {
+    position: absolute;
+    top: 6px; bottom: 6px;
+    background: #0097A7;
+    opacity: 0.85;
+    border-radius: 2px;
+  }
+  .bar .px-label {
+    position: absolute;
+    top: 10px;
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    color: #fff;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .bar .scale {
+    position: absolute;
+    bottom: 2px;
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    color: rgba(0,0,0,0.5);
+  }
+
+  .bp-val,
+  .align-val {
+    font-size: 12px;
+    color: rgba(0,0,0,0.87);
+  }
+  .bp-val {
+    font-family: ui-monospace, monospace;
+    font-weight: 600;
+  }
+  .bp-val small {
+    display: block;
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.45);
+    margin-top: 2px;
+  }
+  .align-val small {
+    display: block;
+    font-size: 10px;
+    color: rgba(0,0,0,0.45);
+    margin-top: 2px;
+  }
+  .note {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.4;
+  }
+
+  /* ───── legend + formula ───── */
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+  }
+  .legend .item {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .legend .sw {
+    width: 14px; height: 10px; border-radius: 2px;
+  }
+  .legend .sw.menu { background: #9E9E9E; }
+  .legend .sw.window { background: #ECECEC; border: 1px solid #DCDCDC; }
+  .legend .sw.content { background: #0097A7; opacity: 0.85; }
+
+  .formula {
+    margin-top: 22px;
+    padding: 12px 14px;
+    background: #FAFAFA;
+    border-left: 3px solid #0097A7;
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.5;
+  }
+  .formula b { color: rgba(0,0,0,0.87); }
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    Каждая строка — отдельный диапазон ширины окна. В каждой полосе видно окно (серое), меню (тёмное слева) и контент (бирюзовый).
+  </div>
+
+  <div class="legend">
+    <div class="item"><span class="sw window"></span> Окно браузера</div>
+    <div class="item"><span class="sw menu"></span> Меню</div>
+    <div class="item"><span class="sw content"></span> Контентная область</div>
+  </div>
+
+  <div class="head">
+    <div>Устройство</div>
+    <div>Window / Content</div>
+    <div>Breakpoint</div>
+    <div>Align</div>
+    <div>Note</div>
+  </div>
+
+  <!-- ───── < 760 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="7" y="2" width="10" height="20" rx="2"/>
+        <line x1="11" y1="18" x2="13" y2="18"/>
+      </svg>
+      <div class="info">
+        <b>Mobile</b>
+        <span>&lt; 760</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- весь bar = 760px, меню фикс ~80, контент = почти весь bar -->
+      <div class="menu" style="width: 11%;"></div>
+      <div class="content" style="left: 13%; right: 2%;"></div>
+      <div class="scale" style="right: 6px;">760</div>
+    </div>
+    <div class="bp-val">—<small>контент по окну</small></div>
+    <div class="align-val">Vertical<small>+ horiz. scroll</small></div>
+    <div class="note">Меню зафиксировано, горизонтальный скролл.</div>
+  </div>
+
+  <!-- ───── 760 – 1260 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="2" width="12" height="20" rx="1.5"/>
+        <line x1="11" y1="19" x2="13" y2="19"/>
+      </svg>
+      <div class="info">
+        <b>Tablet (portrait)</b>
+        <span>760 – 1260</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- bar = 1260px. меню ~240 (19%), контент 660 left:240 → ~52% -->
+      <div class="menu" style="width: 19%;"></div>
+      <div class="content" style="left: 21%; width: 52.4%;"></div>
+      <div class="scale" style="right: 6px;">1260</div>
+    </div>
+    <div class="bp-val">660<small>контент</small></div>
+    <div class="align-val">Vertical<small>1 колонка</small></div>
+    <div class="note">Одноколоночные раскладки.</div>
+  </div>
+
+  <!-- ───── Tablet landscape 1024 – 1366 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="5" width="20" height="14" rx="1.5" transform="rotate(0 12 12)"/>
+        <line x1="20" y1="10" x2="20" y2="14"/>
+      </svg>
+      <div class="info">
+        <b>Tablet (landscape)</b>
+        <span>1024 – 1366</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- bar = 1366. меню ~240 (17.6%), контент 960+ от left:240, width ~70% -->
+      <div class="menu" style="width: 17.6%;"></div>
+      <div class="content" style="left: 19.5%; width: 68%;"></div>
+      <div class="scale" style="right: 6px;">1366</div>
+    </div>
+    <div class="bp-val">960<small>контент</small></div>
+    <div class="align-val">Mixed<small>2 колонки</small></div>
+    <div class="note">Поворот iPad / 10–11″ лэптоп, меню видно.</div>
+  </div>
+
+  <!-- ───── 1260 – 1440 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="5" width="20" height="12" rx="1"/>
+        <line x1="8" y1="20" x2="16" y2="20"/>
+        <line x1="2" y1="17" x2="22" y2="17"/>
+      </svg>
+      <div class="info">
+        <b>Small Desktop</b>
+        <span>1260 – 1440</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- bar = 1440. меню ~240 (17%), контент 960 left:240, width 67% -->
+      <div class="menu" style="width: 17%;"></div>
+      <div class="content" style="left: 19%; width: 66.7%;"></div>
+      <div class="scale" style="right: 6px;">1440</div>
+    </div>
+    <div class="bp-val">960<small>контент</small></div>
+    <div class="align-val">Mixed<small>часть горизонт.</small></div>
+    <div class="note">Часть элементов выстраивается в строку.</div>
+  </div>
+
+  <!-- ───── 1440 – 2560 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="4" width="20" height="13" rx="1"/>
+        <line x1="2" y1="17" x2="22" y2="17"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+      </svg>
+      <div class="info">
+        <b>Desktop</b>
+        <span>1440 – 2560</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- bar = 2560. меню ~240 (9.4%), контент 1340 left:240, width 52% -->
+      <div class="menu" style="width: 9.4%;"></div>
+      <div class="content" style="left: 11%; width: 52.3%;"></div>
+      <div class="scale" style="right: 6px;">2560</div>
+    </div>
+    <div class="bp-val">1340<small>контент</small></div>
+    <div class="align-val">Horizontal<small>основная</small></div>
+    <div class="note">Базовая desktop-раскладка.</div>
+  </div>
+
+  <!-- ───── > 2560 ───── -->
+  <div class="row">
+    <div class="device">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="3" width="22" height="13" rx="1"/>
+        <line x1="1" y1="16" x2="23" y2="16"/>
+        <line x1="7" y1="20" x2="17" y2="20"/>
+      </svg>
+      <div class="info">
+        <b>Wide</b>
+        <span>&gt; 2560</span>
+      </div>
+    </div>
+    <div class="bar">
+      <!-- bar = 3072. меню 240 (7.8%), контент 2260 центр: (3072-2260)/2=406 left=13.2%, width=73.6% -->
+      <div class="menu" style="width: 7.8%;"></div>
+      <div class="content" style="left: 13.2%; width: 73.6%;"></div>
+      <div class="scale" style="right: 6px;">3072+</div>
+    </div>
+    <div class="bp-val">2260<small>контент</small></div>
+    <div class="align-val">Horizontal<small>+ background</small></div>
+    <div class="note">По краям добавляется фон.</div>
+  </div>
+
+  <div class="formula">
+    <b>breakpoint = window&nbsp;width − menu&nbsp;width</b><br>
+    Меню берём в открытом или свёрнутом состоянии — в зависимости от текущего режима.
+  </div>
+
+</body>
+</html>

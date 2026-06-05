@@ -1,0 +1,99 @@
+/* ============================================================
+ * Dreamkas Design System — Primitive Color Tokens
+ * 
+ * Raw color values. Do NOT use directly in product code —
+ * use semantic tokens from semantic.css instead.
+ * 
+ * Generated from Figma "Базовые цвета UI" + extended via OKLCH.
+ * Anchor values (from Figma) are marked in comments.
+ * ============================================================ */
+
+:root {
+
+  /* ── neutral ─────────────────────────────────────── */
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #F8F8F8;
+  --color-neutral-100: #F2F2F2;
+  --color-neutral-200: #E0E0E0;
+  --color-neutral-300: #C2C2C2;
+  --color-neutral-400: #969696;
+  --color-neutral-500: #6B6B6B;
+  --color-neutral-600: #4A4A4A;
+  --color-neutral-700: #2F3838;
+  --color-neutral-800: #283232;
+  --color-neutral-900: #1A2424;
+  --color-neutral-950: #001113;
+
+  /* ── brand ─────────────────────────────────────── */
+  --color-brand-50: #E0F3F4;
+  --color-brand-100: #B2E1E5;
+  --color-brand-200: #80CBC4;
+  --color-brand-300: #4DB6BB;
+  --color-brand-400: #26A0A7;
+  --color-brand-500: #0097A7;
+  --color-brand-600: #00838F;
+  --color-brand-700: #006978;
+  --color-brand-800: #00505C;
+  --color-brand-900: #003841;
+
+  /* ── green ─────────────────────────────────────── */
+  --color-green-50: #E1ECD3;
+  --color-green-100: #C8E6C9;
+  --color-green-200: #A5D6A7;
+  --color-green-300: #7FCE7F;
+  --color-green-400: #66B96A;
+  --color-green-500: #4E9D53;
+  --color-green-600: #3A8540;
+  --color-green-700: #186E28;
+  --color-green-800: #0F571B;
+  --color-green-900: #053F0F;
+
+  /* ── red ─────────────────────────────────────── */
+  --color-red-50: #F6DFDF;
+  --color-red-100: #FFCDD2;
+  --color-red-200: #EF9A9A;
+  --color-red-300: #E57373;
+  --color-red-400: #EF5350;
+  --color-red-500: #E03131;
+  --color-red-600: #C62828;
+  --color-red-700: #B71C1C;
+  --color-red-800: #951515;
+  --color-red-900: #6E0E0E;
+
+  /* ── amber ─────────────────────────────────────── */
+  --color-amber-50: #FFF8E1;
+  --color-amber-100: #F5E8CE;
+  --color-amber-200: #FFE082;
+  --color-amber-300: #FFD54F;
+  --color-amber-400: #FAB930;
+  --color-amber-500: #F7AA13;
+  --color-amber-600: #DA8F0A;
+  --color-amber-700: #B57305;
+  --color-amber-800: #8A5800;
+  --color-amber-900: #5C3A00;
+
+  /* ── blue ─────────────────────────────────────── */
+  --color-blue-50: #E3F2FD;
+  --color-blue-100: #BBDEFB;
+  --color-blue-200: #90CAF9;
+  --color-blue-300: #64B5F6;
+  --color-blue-400: #42A5F5;
+  --color-blue-500: #1E88E5;
+  --color-blue-600: #0E61C8;
+  --color-blue-700: #0D47A1;
+  --color-blue-800: #0A3678;
+  --color-blue-900: #062954;
+
+
+  /* ── alpha (overlays on light bg) ──────────────────── */
+  --color-alpha-black-87: rgba(0, 0, 0, 0.87);
+  --color-alpha-black-54: rgba(0, 0, 0, 0.54);
+  --color-alpha-black-24: rgba(0, 0, 0, 0.24);
+  --color-alpha-black-60: rgba(0, 17, 19, 0.60);
+  --color-alpha-white-100: #FFFFFF;
+  --color-alpha-white-70: rgba(255, 255, 255, 0.70);  /* приглушённый текст/иконка на тёмной поверхности */
+  --color-alpha-white-60: rgba(255, 255, 255, 0.60);  /* светлый scrim поверх белой поверхности */
+  --color-alpha-white-35: rgba(255, 255, 255, 0.35);  /* дорожка прогресса на тёмной поверхности */
+  --color-alpha-white-20: rgba(255, 255, 255, 0.20);  /* разделитель на тёмной поверхности */
+  --color-alpha-white-12: rgba(255, 255, 255, 0.12);  /* слабый hover-вуаль на тёмной поверхности */
+}

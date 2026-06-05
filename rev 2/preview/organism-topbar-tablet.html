@@ -1,0 +1,125 @@
+<!-- @dsCard group="Organisms" title="Topbar — Tablet" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/avatar/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Avatar/avatar.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/topbar/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Organisms/Topbar/topbar.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 24px 28px 48px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; max-width: 720px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; color:rgba(0,0,0,0.87); }
+  .section + .section { margin-top: 28px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .frame { border: 1px solid #E5E5E5; border-radius: 10px; overflow: hidden; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .foot { margin-top: 28px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Topbar — Tablet</div>
+  <div class="page-sub">Organism — верхняя панель backoffice: бургер, заголовок, глобальный поиск, индикатор смены, статус сети, уведомления, профиль. Offline показываем <b>двумя путями</b>: чип в панели всегда + красный баннер при потере сети.</div>
+
+  <!-- ОНЛАЙН, СМЕНА ОТКРЫТА -->
+  <div class="section">
+    <div class="section-title">Онлайн · смена открыта</div>
+    <div class="frame">
+      <header class="tb">
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="tb-title">Товары</div>
+        <div class="tb-search">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="text" placeholder="Поиск по названию или ШК"/>
+          <kbd>/</kbd>
+        </div>
+        <div class="tb-spacer"></div>
+        <span class="tb-shift is-open">Смена открыта</span>
+        <span class="tb-status tb-status--online"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l1.5-2a8 8 0 0111 0l1.5 2M8.5 16l1-1.3a4 4 0 015 0l1 1.3M12 19.5h.01"/></svg>Онлайн</span>
+        <button class="tb-icon-btn tb-bell"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="tb-bell-count">3</span></button>
+        <div class="tb-sep"></div>
+        <div class="tb-profile">
+          <span class="avatar avatar--sm">АП</span>
+          <span class="tb-profile-info"><span class="tb-profile-name">Анна Петрова</span><span class="tb-profile-role">Администратор</span></span>
+          <span class="tb-profile-chevron"><svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <!-- СИНХРОНИЗАЦИЯ -->
+  <div class="section">
+    <div class="section-title">Синхронизация (восстановление связи)</div>
+    <div class="frame">
+      <header class="tb">
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="tb-title">Чеки</div>
+        <div class="tb-search">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="text" placeholder="Поиск чека"/>
+        </div>
+        <div class="tb-spacer"></div>
+        <span class="tb-shift is-open">Смена открыта</span>
+        <span class="tb-status tb-status--sync"><svg class="ic" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6M3.5 9a9 9 0 0114.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0020.5 15"/></svg>Синхронизация…</span>
+        <button class="tb-icon-btn tb-bell"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="tb-bell-dot"></span></button>
+        <div class="tb-sep"></div>
+        <div class="tb-profile">
+          <span class="avatar avatar--sm">ИВ</span>
+          <span class="tb-profile-info"><span class="tb-profile-name">Иван Волков</span><span class="tb-profile-role">Кассир</span></span>
+          <span class="tb-profile-chevron"><svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <!-- OFFLINE — чип + баннер -->
+  <div class="section">
+    <div class="section-title">Оффлайн · чип в панели + баннер</div>
+    <div class="frame">
+      <header class="tb">
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="tb-title">Касса №1</div>
+        <div class="tb-search">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="text" placeholder="Поиск товара"/>
+        </div>
+        <div class="tb-spacer"></div>
+        <span class="tb-shift is-open">Смена открыта</span>
+        <span class="tb-status tb-status--offline"><svg class="ic" viewBox="0 0 24 24"><path d="M1 1l22 22M16.7 11.7A8 8 0 0019 10M5 12.5l1.5-2a8 8 0 014-2.3M8.5 16l1-1.3a4 4 0 013.3-.6M12 19.5h.01"/></svg>Оффлайн</span>
+        <button class="tb-icon-btn tb-bell"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="tb-bell-dot"></span></button>
+        <div class="tb-sep"></div>
+        <div class="tb-profile">
+          <span class="avatar avatar--sm">ИВ</span>
+          <span class="tb-profile-info"><span class="tb-profile-name">Иван Волков</span><span class="tb-profile-role">Кассир</span></span>
+          <span class="tb-profile-chevron"><svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+      </header>
+      <div class="tb-banner">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M1 1l22 22M16.7 11.7A8 8 0 0019 10M5 12.5l1.5-2a8 8 0 014-2.3M8.5 16l1-1.3a4 4 0 013.3-.6M12 19.5h.01"/></svg>
+        Нет соединения. Продажи сохраняются локально и уйдут в ОФД при восстановлении сети. <span class="tb-banner-count">· в очереди 4 чека</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Композирует Avatar, поле поиска, Badge-подобные чипы. Статус сети — <code>--status-success/danger/warning</code>, смена — <code>--status-success-bg</code>, баннер — <code>--color-red-600</code> + белый текст. Колокол — точка/счётчик на <code>--bg-danger-default</code>.<br>
+    Файлы: <code>Web/Foundations/Component tokens/topbar/tokens.css</code> · <code>Web/Components/Organisms/Topbar/topbar.css</code>
+  </div>
+
+</body>
+</html>

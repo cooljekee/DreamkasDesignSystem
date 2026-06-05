@@ -1,0 +1,676 @@
+<!-- @dsCard group="Colors" title="Color Scales" -->
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8" /><style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 20px 24px; }
+  .family {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+  }
+  .family + .family { border-top: 1px solid #F2F2F2; }
+  .family-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    text-transform: capitalize;
+  }
+  .family-meta {
+    font-size: 9px;
+    color: rgba(0,0,0,0.54);
+    margin-top: 2px;
+    font-family: ui-monospace, monospace;
+  }
+  .scale-row { display: flex; gap: 4px; }
+  .swatch {
+    flex: 1;
+    min-width: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #E0E0E0;
+    position: relative;
+  }
+  .sw-color { aspect-ratio: 1.6; width: 100%; }
+  .sw-meta { padding: 3px 5px 5px; background: #fff; }
+  .sw-stop {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.87);
+    font-variant-numeric: tabular-nums;
+  }
+  .sw-hex {
+    font-size: 8px;
+    color: rgba(0,0,0,0.54);
+    font-family: ui-monospace, monospace;
+    margin-top: 1px;
+    text-transform: lowercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .anchor-dot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 1.5px #0097A7;
+  }
+</style></head>
+<body>
+    <div class="family">
+      <div>
+        <div class="family-name">brand</div>
+        <div class="family-meta">10 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#E0F3F4"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#e0f3f4</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#B2E1E5"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#b2e1e5</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#80CBC4"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#80cbc4</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#4DB6BB"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#4db6bb</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#26A0A7"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#26a0a7</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#0097A7"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#0097a7</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#00838F"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#00838f</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#006978"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#006978</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#00505C"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#00505c</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#003841"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#003841</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="family">
+      <div>
+        <div class="family-name">neutral</div>
+        <div class="family-meta">12 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#FFFFFF"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">0</div>
+          <div class="sw-hex">#ffffff</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#F8F8F8"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#f8f8f8</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#F2F2F2"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#f2f2f2</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#E0E0E0"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#e0e0e0</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#C2C2C2"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#c2c2c2</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#969696"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#969696</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#6B6B6B"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#6b6b6b</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#4A4A4A"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#4a4a4a</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#2F3838"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#2f3838</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#283232"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#283232</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#1A2424"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#1a2424</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#001113"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">950</div>
+          <div class="sw-hex">#001113</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="family">
+      <div>
+        <div class="family-name">green</div>
+        <div class="family-meta">10 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#E1ECD3"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#e1ecd3</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#C8E6C9"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#c8e6c9</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#A5D6A7"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#a5d6a7</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#7FCE7F"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#7fce7f</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#66B96A"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#66b96a</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#4E9D53"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#4e9d53</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#3A8540"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#3a8540</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#186E28"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#186e28</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#0F571B"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#0f571b</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#053F0F"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#053f0f</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="family">
+      <div>
+        <div class="family-name">red</div>
+        <div class="family-meta">10 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#F6DFDF"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#f6dfdf</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#FFCDD2"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#ffcdd2</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#EF9A9A"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#ef9a9a</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#E57373"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#e57373</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#EF5350"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#ef5350</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#E03131"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#e03131</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#C62828"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#c62828</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#B71C1C"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#b71c1c</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#951515"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#951515</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#6E0E0E"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#6e0e0e</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="family">
+      <div>
+        <div class="family-name">amber</div>
+        <div class="family-meta">10 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#FFF8E1"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#fff8e1</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#F5E8CE"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#f5e8ce</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#FFE082"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#ffe082</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#FFD54F"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#ffd54f</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#FAB930"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#fab930</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#F7AA13"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#f7aa13</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#DA8F0A"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#da8f0a</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#B57305"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#b57305</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#8A5800"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#8a5800</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#5C3A00"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#5c3a00</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="family">
+      <div>
+        <div class="family-name">blue</div>
+        <div class="family-meta">10 stops</div>
+      </div>
+      <div class="scale-row">
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#E3F2FD"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">50</div>
+          <div class="sw-hex">#e3f2fd</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#BBDEFB"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">100</div>
+          <div class="sw-hex">#bbdefb</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#90CAF9"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">200</div>
+          <div class="sw-hex">#90caf9</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#64B5F6"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">300</div>
+          <div class="sw-hex">#64b5f6</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#42A5F5"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">400</div>
+          <div class="sw-hex">#42a5f5</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#1E88E5"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">500</div>
+          <div class="sw-hex">#1e88e5</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        <span class="anchor-dot"></span>
+        <div class="sw-color" style="background:#0E61C8"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">600</div>
+          <div class="sw-hex">#0e61c8</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#0D47A1"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">700</div>
+          <div class="sw-hex">#0d47a1</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#0A3678"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">800</div>
+          <div class="sw-hex">#0a3678</div>
+        </div>
+      </div>
+    
+      <div class="swatch">
+        
+        <div class="sw-color" style="background:#062954"></div>
+        <div class="sw-meta">
+          <div class="sw-stop">900</div>
+          <div class="sw-hex">#062954</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body></html>

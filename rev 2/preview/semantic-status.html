@@ -1,0 +1,130 @@
+<!-- @dsCard group="Colors" title="Semantic — Status" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+  }
+  .status-group {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #F2F2F2;
+  }
+  .status-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .status-sw {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;
+    flex-shrink: 0;
+  }
+  .status-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.87);
+  }
+  .status-title-en {
+    font-size: 13px;
+    color: rgba(0,0,0,0.54);
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  .status-meta {
+    margin-bottom: 12px;
+  }
+  .status-key {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    line-height: 1.4;
+  }
+  .status-ref {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    margin-top: 3px;
+  }
+  .status-usage {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid">
+
+  <div class="status-group">
+    <div class="status-head">
+      <div class="status-sw" style="background:#186E28"></div>
+      <div class="status-title">Success<span class="status-title-en">— успех</span></div>
+    </div>
+    <div class="status-meta">
+      <div class="status-key">--status-success</div>
+      <div class="status-ref">→ green-700 · #186E28</div>
+    </div>
+    <div class="status-usage">Положительные действия: заказ оформлен, платёж прошёл, данные сохранены. Используется как акцент в плашках, бэйджах, индикаторах.</div>
+  </div>
+
+  <div class="status-group">
+    <div class="status-head">
+      <div class="status-sw" style="background:#F7AA13"></div>
+      <div class="status-title">Warning<span class="status-title-en">— предупреждение</span></div>
+    </div>
+    <div class="status-meta">
+      <div class="status-key">--status-warning</div>
+      <div class="status-ref">→ amber-500 · #F7AA13</div>
+    </div>
+    <div class="status-usage">Требует внимания пользователя: подтвердите номер, истекает срок, низкий остаток. Не блокирующее предупреждение.</div>
+  </div>
+
+  <div class="status-group">
+    <div class="status-head">
+      <div class="status-sw" style="background:#C62828"></div>
+      <div class="status-title">Danger<span class="status-title-en">— ошибка</span></div>
+    </div>
+    <div class="status-meta">
+      <div class="status-key">--status-danger</div>
+      <div class="status-ref">→ red-600 · #C62828</div>
+    </div>
+    <div class="status-usage">Критические ошибки и деструктивные действия: отказ платежа, неверный логин, удаление, валидация полей.</div>
+  </div>
+
+  <div class="status-group">
+    <div class="status-head">
+      <div class="status-sw" style="background:#0097A7"></div>
+      <div class="status-title">Info<span class="status-title-en">— информация</span></div>
+    </div>
+    <div class="status-meta">
+      <div class="status-key">--status-info</div>
+      <div class="status-ref">→ brand-500 · #0097A7</div>
+    </div>
+    <div class="status-usage">Нейтральные информационные сообщения: подсказки, новости, обновления сервиса. Использует брендовый бирюзовый.</div>
+  </div>
+
+</div>
+
+</body>
+</html>

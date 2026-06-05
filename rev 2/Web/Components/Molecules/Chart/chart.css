@@ -1,0 +1,161 @@
+/* ============================================================
+ * Dreamkas — KPI / Stat + Bar Chart (Web) — Molecule
+ *
+ * KPI:
+ *   <div class="kpi">
+ *     <div class="kpi-head"><span class="kpi-label">Выручка</span>…</div>
+ *     <div class="kpi-value">84 320 <span class="kpi-unit">₽</span></div>
+ *     <div class="kpi-trend kpi-trend--up">▲ 12% <span>к вчера</span></div>
+ *   </div>
+ *
+ * Bar chart:
+ *   <div class="bars">
+ *     <div class="bars-plot">
+ *       <div class="bar" style="--v:70%"><span class="bar-fill"></span></div> …
+ *     </div>
+ *     <div class="bars-axis"><span>Пн</span>…</div>
+ *   </div>
+ *
+ * Sparkline — инлайн SVG-polyline на токенах (только данные, без декора).
+ *
+ * ЗАВИСИМОСТИ: foundation (вкл. chart-палитру), chart/tokens.css
+ * ============================================================ */
+
+/* ════════ KPI ════════ */
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--kpi-pad);
+  background: var(--kpi-bg);
+  border: 1px solid var(--kpi-border);
+  border-radius: var(--kpi-radius);
+  font-family: var(--font-family-sans);
+}
+.kpi-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.kpi-label { font-size: var(--kpi-label-size); color: var(--kpi-label); }
+.kpi-icon {
+  width: var(--kpi-icon-size); height: var(--kpi-icon-size); flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-control); background: var(--kpi-icon-bg); color: var(--kpi-icon-color);
+}
+.kpi-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.kpi-value {
+  font-size: var(--kpi-value-size);
+  font-weight: var(--kpi-value-weight);
+  color: var(--kpi-value);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-unit { font-size: 16px; font-weight: var(--font-weight-medium); color: var(--kpi-unit); }
+
+.kpi-trend {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: var(--kpi-trend-size); font-weight: var(--font-weight-medium);
+}
+.kpi-trend span { color: var(--text-secondary); font-weight: var(--font-weight-regular); }
+.kpi-trend--up   { color: var(--kpi-trend-up); }
+.kpi-trend--down { color: var(--kpi-trend-down); }
+.kpi-trend--flat { color: var(--kpi-trend-flat); }
+.kpi-trend svg { width: 12px; height: 12px; }
+
+/* KPI со спарклайном справа */
+.kpi--spark { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; }
+.kpi--spark .kpi-main { display: flex; flex-direction: column; gap: 6px; }
+.kpi-spark { width: 96px; height: var(--spark-h); }
+.kpi-spark svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.kpi-spark .spark-line { fill: none; stroke: var(--spark-stroke); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.kpi-spark .spark-area { fill: var(--spark-fill); stroke: none; opacity: .7; }
+
+/* ════════ BAR CHART ════════ */
+.bars { font-family: var(--font-family-sans); }
+.bars-plot {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--bar-gap);
+  height: var(--bar-plot-h);
+  padding-top: 8px;
+  /* горизонтальная сетка через градиент */
+  background-image: repeating-linear-gradient(to top, transparent 0, transparent calc(25% - 1px), var(--bar-grid) calc(25% - 1px), var(--bar-grid) 25%);
+}
+.bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+}
+.bar-fill {
+  width: 100%;
+  height: var(--v, 50%);
+  background: var(--bar-color);
+  border-radius: var(--bar-radius) var(--bar-radius) 0 0;
+  transition: height .3s ease;
+}
+.bar--muted .bar-fill { background: var(--bar-color-muted); }
+.bar--accent .bar-fill { background: var(--chart-3); }   /* выделить столбец */
+
+.bars-axis {
+  display: flex;
+  gap: var(--bar-gap);
+  margin-top: 8px;
+}
+.bars-axis span {
+  flex: 1;
+  text-align: center;
+  font-size: var(--bar-label-size);
+  color: var(--bar-label);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* значение над столбцом (опц.) */
+.bar { position: relative; }
+.bar-val {
+  position: absolute; bottom: var(--v, 50%); left: 50%; transform: translate(-50%, -4px);
+  font-size: 11px; font-weight: 600; color: var(--text-primary);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* ── Легенда (общая для chart-блоков) ──────────────── */
+.chart-legend { display: flex; flex-wrap: wrap; gap: 14px; }
+.chart-legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: var(--font-size-12); color: var(--text-secondary); }
+.chart-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+/* ════════ DONUT ════════ */
+.donut { display: inline-flex; align-items: center; gap: 20px; font-family: var(--font-family-sans); }
+.donut-ring { position: relative; width: 140px; height: 140px; flex-shrink: 0; }
+.donut-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut-seg { fill: none; stroke-width: 10; stroke-linecap: butt; }      /* stroke-dasharray задаётся инлайн */
+.donut-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+}
+.donut-total { font-size: 16px; font-weight: var(--font-weight-bold); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.donut-cap { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
+
+/* легенда доната — с значениями */
+.donut-legend { display: flex; flex-direction: column; gap: 10px; }
+.donut-legend-row { display: flex; align-items: center; gap: 8px; font-size: var(--font-size-13); }
+.donut-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.donut-legend-name { color: var(--text-primary); }
+.donut-legend-val { margin-left: auto; color: var(--text-secondary); font-variant-numeric: tabular-nums; padding-left: 20px; }
+
+/* ════════ LINE / AREA ════════ */
+.line-chart { font-family: var(--font-family-sans); }
+.line-plot {
+  position: relative;
+  width: 100%;
+  height: var(--bar-plot-h);
+  background-image: repeating-linear-gradient(to top, transparent 0, transparent calc(25% - 1px), var(--chart-grid) calc(25% - 1px), var(--chart-grid) 25%);
+}
+.line-plot svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.line-area { stroke: none; opacity: .14; }
+.line-stroke { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.line-dot { stroke: var(--surface-default); stroke-width: 2; }
+.line-axis { display: flex; justify-content: space-between; margin-top: 8px; }
+.line-axis span { font-size: var(--bar-label-size); color: var(--bar-label); }

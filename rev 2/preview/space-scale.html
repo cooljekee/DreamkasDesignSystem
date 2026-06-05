@@ -1,0 +1,156 @@
+<!-- @dsCard group="Spacing" title="Space Scale" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px; }
+  .space-row {
+    display: grid;
+    grid-template-columns: 110px 56px 140px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .space-row:last-child { border-bottom: 0; }
+  .space-name {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    white-space: nowrap;
+  }
+  .space-px {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    text-align: right;
+  }
+  .space-bar-cell {
+    display: flex;
+    align-items: center;
+    height: 16px;
+  }
+  .space-bar {
+    height: 16px;
+    background: #0097A7;
+    border-radius: 2px;
+    max-width: 100%;
+  }
+  .space-usage {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body>
+
+  <div class="space-row">
+    <div class="space-name">--space-0</div>
+    <div class="space-px">0px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:0px;"></div></div>
+    <div class="space-usage">Сброс отступов, default для inline-элементов</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-2</div>
+    <div class="space-px">2px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:2px;"></div></div>
+    <div class="space-usage">Микро-зазор между прижатыми элементами</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-4</div>
+    <div class="space-px">4px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:4px;"></div></div>
+    <div class="space-usage">Gap между иконкой и текстом, мелкие зазоры</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-8</div>
+    <div class="space-px">8px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:8px;"></div></div>
+    <div class="space-usage">Отступы внутри компонентов, gap кнопок</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-12</div>
+    <div class="space-px">12px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:12px;"></div></div>
+    <div class="space-usage">Стандартный padding инпутов и кнопок</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-16</div>
+    <div class="space-px">16px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:16px;"></div></div>
+    <div class="space-usage">Padding карточек, отступы между элементами</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-20</div>
+    <div class="space-px">20px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:20px;"></div></div>
+    <div class="space-usage">Padding средних карточек, gap групп</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-24</div>
+    <div class="space-px">24px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:24px;"></div></div>
+    <div class="space-usage">Отступы между секциями страницы</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-32</div>
+    <div class="space-px">32px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:32px;"></div></div>
+    <div class="space-usage">Page-padding на desktop, отступы блоков</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-40</div>
+    <div class="space-px">40px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:40px;"></div></div>
+    <div class="space-usage">Отступы между крупными разделами</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-48</div>
+    <div class="space-px">48px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:48px;"></div></div>
+    <div class="space-usage">Hero-блоки, отступы крупных секций</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-64</div>
+    <div class="space-px">64px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:64px;"></div></div>
+    <div class="space-usage">Большие hero-блоки и разделители страниц</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-80</div>
+    <div class="space-px">80px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:80px;"></div></div>
+    <div class="space-usage">Очень крупные hero-блоки</div>
+  </div>
+
+  <div class="space-row">
+    <div class="space-name">--space-96</div>
+    <div class="space-px">96px</div>
+    <div class="space-bar-cell"><div class="space-bar" style="width:96px;"></div></div>
+    <div class="space-usage">Hero-блоки лендинга (максимум)</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* ============================================================
+ * Dreamkas — Tabs Component Tokens (Mobile) — Molecule
+ *
+ * 3 стиля: underline (разделы) · pills (сегменты) · boxed (папки).
+ * Доп: counter-badge, иконка, disabled, прокрутка.
+ * ============================================================ */
+
+:root {
+
+  /* ── Size ─────────────────────────────────────────── */
+  --tab-h:              48px;
+  --tab-pad-x:          14px;
+  --tab-gap:            6px;        /* иконка/бейдж ↔ текст */
+  --tab-row-gap:        4px;        /* между табами (pills/boxed) */
+  --tab-font:           var(--font-size-14);
+  --tab-icon:           var(--size-icon-md);   /* 20 */
+
+  /* ── Typography ───────────────────────────────────── */
+  --tab-font-family:    var(--font-family-sans);
+  --tab-weight:         var(--font-weight-medium);
+
+  /* ── Colors: текст ────────────────────────────────── */
+  --tab-text:           var(--text-secondary);
+  --tab-text-hover:     var(--text-primary);
+  --tab-text-active:    var(--text-active);       /* brand-500 */
+  --tab-text-disabled:  var(--text-disabled);
+
+  /* ── Underline ────────────────────────────────────── */
+  --tab-underline:      var(--bg-brand-default);
+  --tab-underline-w:    var(--border-width-strong);  /* 2 */
+  --tab-rail:           var(--divider-default);      /* линия-основание */
+
+  /* ── Pills (сегменты) ─────────────────────────────── */
+  --tab-pills-bg:        var(--bg-secondary);
+  --tab-pills-active-bg: var(--surface-default);
+  --tab-pills-active-shadow: var(--shadow-card);
+  --tab-pills-radius:    var(--radius-control);
+
+  /* ── Boxed (папки) ────────────────────────────────── */
+  --tab-boxed-border:    var(--divider-default);
+  --tab-boxed-active-bg: var(--surface-default);
+  --tab-boxed-radius:    var(--radius-control);
+
+  /* ── Hover / badge ────────────────────────────────── */
+  --tab-bg-hover:       var(--bg-hover);
+  --tab-badge-bg:       var(--bg-secondary);
+  --tab-badge-text:     var(--text-secondary);
+  --tab-badge-active-bg: var(--color-brand-50);
+  --tab-badge-active-text: var(--bg-brand-default);
+}

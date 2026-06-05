@@ -1,0 +1,186 @@
+<!-- @dsCard group="Molecules" title="Table Toolbar — Web" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<!-- atoms -->
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/input/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Input/input.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/badge/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Badge/badge.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/selection/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Selection/selection.css">
+<!-- molecule -->
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/table-toolbar/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Molecules/TableToolbar/table-toolbar.css">
+<!-- table (для контекста) -->
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/table/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Molecules/Table/table.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FAFAFA;
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 48px; }
+
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 28px; max-width: 680px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background: #FFF; border: 1px solid #ECECEC; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+
+  .section + .section { margin-top: 36px; }
+  .section-title {
+    font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 16px;
+  }
+  .section-note { font-size: 12px; color: rgba(0,0,0,0.54); margin: -6px 0 14px; }
+
+  .frame { background:#FFF; border:1px solid #E5E5E5; border-radius:8px; overflow:hidden; }
+
+  .ic { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-btn {
+    width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border-default); background: var(--surface-default); border-radius: var(--radius-control);
+    cursor: pointer; color: var(--icon-secondary);
+  }
+  .icon-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+  .icon-btn svg { width: 18px; height: 18px; }
+
+  /* search field shorthand */
+  .ttb-search .field-control { min-height: 36px; }
+
+  .foot { margin-top: 36px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background: #FFF; border: 1px solid #ECECEC; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Table Toolbar — Web</div>
+  <div class="page-sub">Шапка над таблицей: поиск по названию/ШК, фильтры-чипы, кнопка «Фильтры», переключатель плотности, экспорт и первичная кнопка. Плюс bulk-режим (выбрано N) — встроенный и плавающей панелью. Композирует Input, Button, Badge, Select.</div>
+
+  <!-- ═══════ ПОЛНЫЙ ТУЛБАР ═══════ -->
+  <div class="section">
+    <div class="section-title">Полный тулбар</div>
+    <div class="frame">
+      <div class="ttb">
+        <div class="ttb-left">
+          <div class="ttb-search field field--md">
+            <div class="field-control">
+              <span class="field-icon" style="margin-left:0;margin-right:8px;color:var(--icon-secondary);"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>
+              <input class="field-input" type="text" placeholder="Поиск по названию или ШК"/>
+            </div>
+          </div>
+          <button class="btn btn--outline btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg></span>Фильтры</button>
+        </div>
+        <div class="ttb-right">
+          <button class="icon-btn" title="Экспорт"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></button>
+          <button class="btn btn--primary btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>Добавить</button>
+        </div>
+      </div>
+      <!-- table stub -->
+      <table class="tbl tbl--compact tbl--zebra">
+        <thead><tr><th class="th th--check"></th><th class="th">Товар</th><th class="th">Категория</th><th class="th th--num">Остаток</th><th class="th th--num">Цена</th></tr></thead>
+        <tbody>
+          <tr class="tr"><td class="td td--check"><label class="ctl ctl--sm"><span class="ctl-box ctl-box--check"></span></label></td><td class="td">Кофе Lavazza 1кг</td><td class="td td--secondary">Бакалея</td><td class="td td--num">124</td><td class="td td--num">1 290 ₽</td></tr>
+          <tr class="tr"><td class="td td--check"><label class="ctl ctl--sm"><span class="ctl-box ctl-box--check"></span></label></td><td class="td">Сахар-песок 1кг</td><td class="td td--secondary">Бакалея</td><td class="td td--num">8</td><td class="td td--num">79 ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════ С ФИЛЬТРАМИ-ЧИПАМИ + ПЛОТНОСТЬ ═══════ -->
+  <div class="section">
+    <div class="section-title">Активные фильтры + плотность</div>
+    <div class="frame">
+      <div class="ttb">
+        <div class="ttb-left">
+          <div class="ttb-search field field--md" style="width:240px;">
+            <div class="field-control">
+              <span class="field-icon" style="margin-left:0;margin-right:8px;color:var(--icon-secondary);"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>
+              <input class="field-input" type="text" value="кофе"/>
+            </div>
+          </div>
+          <div class="ttb-chips">
+            <span class="badge badge--md badge--tag badge--neutral">Статус: В наличии<span class="badge-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></span>
+            <span class="badge badge--md badge--tag badge--neutral">Категория: Бакалея<span class="badge-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></span>
+            <button class="ttb-chip-clear">Сбросить всё</button>
+          </div>
+        </div>
+        <div class="ttb-right">
+          <div class="ttb-seg" role="group" aria-label="Плотность">
+            <button class="ttb-seg-btn is-active" title="Компактно"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 10h18M3 14h18M3 18h18"/></svg></button>
+            <button class="ttb-seg-btn" title="Обычно"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+          </div>
+          <div class="ttb-sep"></div>
+          <button class="icon-btn" title="Экспорт"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></button>
+          <button class="btn btn--primary btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ BULK-РЕЖИМ (встроенный) ═══════ -->
+  <div class="section">
+    <div class="section-title">Bulk-режим — выбраны строки</div>
+    <div class="section-note">Тулбар перекрашивается, поиск/фильтры скрыты, появляются массовые действия.</div>
+    <div class="frame">
+      <div class="ttb ttb--bulk">
+        <div class="ttb-left">
+          <button class="ttb-bulk-clear" title="Снять выделение"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          <span class="ttb-bulk-count">Выбрано 3</span>
+        </div>
+        <div class="ttb-right">
+          <button class="btn btn--ghost btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span>Экспорт</button>
+          <button class="btn btn--ghost btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg></span>Изменить категорию</button>
+          <button class="btn btn--danger btn--md"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></span>Удалить</button>
+        </div>
+      </div>
+      <table class="tbl tbl--compact">
+        <thead><tr><th class="th th--check"></th><th class="th">Товар</th><th class="th">Категория</th><th class="th th--num">Цена</th></tr></thead>
+        <tbody>
+          <tr class="tr tr--selected"><td class="td td--check"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--check"></span></label></td><td class="td">Кофе Lavazza 1кг</td><td class="td td--secondary">Бакалея</td><td class="td td--num">1 290 ₽</td></tr>
+          <tr class="tr tr--selected"><td class="td td--check"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--check"></span></label></td><td class="td">Сахар-песок 1кг</td><td class="td td--secondary">Бакалея</td><td class="td td--num">79 ₽</td></tr>
+          <tr class="tr tr--selected"><td class="td td--check"><label class="ctl ctl--sm is-checked"><span class="ctl-box ctl-box--check"></span></label></td><td class="td">Молоко 3.2% 1л</td><td class="td td--secondary">Молочное</td><td class="td td--num">89 ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════ ПЛАВАЮЩАЯ ПАНЕЛЬ ═══════ -->
+  <div class="section">
+    <div class="section-title">Плавающая selection-панель</div>
+    <div class="section-note">Альтернатива bulk-тулбару: панель всплывает снизу, тулбар с поиском остаётся на месте.</div>
+    <div style="display:flex; justify-content:center; padding: 24px; background: #F2F2F2; border-radius: 8px;">
+      <div class="ttb-float">
+        <span class="ttb-float-count">Выбрано 3</span>
+        <div class="ttb-float-sep"></div>
+        <div class="ttb-float-actions">
+          <button class="ttb-float-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Экспорт</button>
+          <button class="ttb-float-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Категория</button>
+          <button class="ttb-float-btn is-danger"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Удалить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Композирует Input (поиск), Button (фильтры/экспорт/добавить/bulk-actions), Badge (фильтр-чипы), сегментированный переключатель плотности. Bulk: <code>--ttb-bulk-bg</code>, плавающая — <code>--surface-inverse</code>.<br>
+    Файлы: <code>Web/Foundations/Component tokens/table-toolbar/tokens.css</code> · <code>Web/Components/Molecules/TableToolbar/table-toolbar.css</code>
+  </div>
+
+</body>
+</html>

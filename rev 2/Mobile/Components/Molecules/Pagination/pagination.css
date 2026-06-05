@@ -1,0 +1,87 @@
+/* ============================================================
+ * Dreamkas — Pagination (Web) — Molecule
+ *
+ *   <nav class="pg">
+ *     <span class="pg-info">1–20 из 1 248</span>
+ *     <div class="pg-pages">
+ *       <button class="pg-item pg-nav">‹</button>
+ *       <button class="pg-item is-active">1</button>
+ *       <button class="pg-item">2</button>
+ *       <span class="pg-ellipsis">…</span>
+ *       <button class="pg-item pg-nav">›</button>
+ *     </div>
+ *     <div class="pg-perpage"> Select «20 / стр» </div>
+ *   </nav>
+ *
+ * Mobile: .pg--simple — только ‹ Стр N из M › + «Показать ещё».
+ *
+ * ЗАВИСИМОСТИ: foundation primitive+semantic, pagination/tokens.css
+ * ============================================================ */
+
+.pg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pg-bar-gap);
+  flex-wrap: wrap;
+  font-family: var(--font-family-sans);
+  padding: 12px 16px;
+}
+
+/* ── Range info ───────────────────────────────────── */
+.pg-info {
+  font-size: var(--pg-info-font);
+  color: var(--pg-info);
+  white-space: nowrap;
+}
+.pg-info b { color: var(--text-primary); font-weight: var(--font-weight-medium); font-variant-numeric: tabular-nums; }
+
+/* ── Page items ───────────────────────────────────── */
+.pg-pages { display: inline-flex; align-items: center; gap: var(--pg-gap); }
+
+.pg-item {
+  min-width: var(--pg-size);
+  height: var(--pg-size);
+  padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: var(--pg-bg);
+  border-radius: var(--pg-radius);
+  font-family: inherit; font-size: var(--pg-font);
+  color: var(--pg-text);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+  transition: background-color .1s ease, color .1s ease;
+}
+.pg-item:hover { background: var(--pg-bg-hover); }
+
+.pg-item.is-active {
+  background: var(--pg-bg-active);
+  color: var(--pg-text-active);
+}
+.pg-item.is-active:hover { background: var(--pg-bg-active); }
+
+.pg-item:disabled,
+.pg-item[disabled] {
+  color: var(--pg-text-disabled);
+  cursor: not-allowed;
+}
+.pg-item:disabled:hover { background: transparent; }
+
+.pg-nav svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.pg-ellipsis {
+  min-width: var(--pg-size);
+  height: var(--pg-size);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--pg-ellipsis);
+  user-select: none;
+}
+
+/* ── Per-page ─────────────────────────────────────── */
+.pg-perpage { display: inline-flex; align-items: center; gap: 8px; }
+.pg-perpage-label { font-size: var(--pg-info-font); color: var(--pg-info); white-space: nowrap; }
+
+/* ── Simple (mobile) ──────────────────────────────── */
+.pg--simple { justify-content: center; }
+.pg--simple .pg-pages { gap: 8px; }
+.pg-simple-label { font-size: var(--font-size-14); color: var(--text-primary); min-width: 120px; text-align: center; font-variant-numeric: tabular-nums; }

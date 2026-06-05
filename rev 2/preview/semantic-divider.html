@@ -1,0 +1,214 @@
+<!-- @dsCard group="Colors" title="Semantic — Divider" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px; }
+
+  .group-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.54);
+    margin-bottom: 14px;
+  }
+  .group-title:not(:first-child) { margin-top: 28px; }
+  .group-sub {
+    font-size: 12px;
+    color: rgba(0,0,0,0.54);
+    margin-top: -8px;
+    margin-bottom: 12px;
+  }
+
+  .state {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F2F2F2;
+    align-items: center;
+  }
+  .state:last-of-type { border-bottom: 0; }
+
+  /* === Table rows === */
+  .table-demo {
+    width: 280px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  .row {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .row:last-child { border-bottom: 0; }
+  .row-default { background: #FFFFFF; }
+  .row-selected { background: #E0F3F4; color: #006978; font-weight: 500; }
+  .row-selected-hover { background: #B2E1E5; color: #006978; font-weight: 500; }
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid #C2C2C2;
+    flex-shrink: 0;
+    background: #FFFFFF;
+  }
+  .checkbox.checked {
+    background: #0097A7;
+    border-color: #0097A7;
+    position: relative;
+  }
+  .checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  /* === Skeleton === */
+  .skeleton-demo {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+  }
+  .skeleton-bar {
+    height: 12px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #F2F2F2 0%, #E0E0E0 50%, #F2F2F2 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+  .skeleton-bar.short { width: 70%; }
+  .skeleton-bar.medium { width: 85%; }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .skeleton-static {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+  }
+  .skeleton-bar-static {
+    height: 12px;
+    border-radius: 4px;
+    background: #F2F2F2;
+  }
+  .skeleton-bar-static.short { width: 70%; }
+  .skeleton-bar-static.medium { width: 85%; }
+
+  /* === Divider === */
+  .divider-demo {
+    width: 280px;
+    padding: 0 14px;
+    font-size: 13px;
+    color: rgba(0,0,0,0.87);
+  }
+  .divider-row {
+    padding: 10px 0;
+  }
+  .divider-line-default {
+    height: 1px;
+    background: #E0E0E0;
+  }
+  .divider-line-strong {
+    height: 1px;
+    background: #C2C2C2;
+  }
+
+  .meta-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.87);
+  }
+  .meta-title-en {
+    font-size: 13px;
+    color: rgba(0,0,0,0.54);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .meta-usage {
+    font-size: 13px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+  .meta-tokens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    margin-top: 6px;
+  }
+  .tok {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #F8F8F8;
+    border: 1px solid #E0E0E0;
+    color: rgba(0,0,0,0.7);
+  }
+  .tok-bg { background: #E0F3F4; border-color: #B2E1E5; color: #006978; }
+</style>
+</head>
+<body>
+<div class="group-title">Divider — разделители</div>
+  <div class="group-sub">Линии между контентом — не обводки, а именно разделители</div>
+
+  <div class="state">
+    <div class="divider-demo">
+      <div class="divider-row">Имя</div>
+      <div class="divider-line-default"></div>
+      <div class="divider-row">Адрес</div>
+      <div class="divider-line-default"></div>
+      <div class="divider-row">Телефон</div>
+    </div>
+    <div>
+      <div class="meta-title">Default</div>
+      <div class="meta-usage">Между строками таблицы, пунктами меню, полями формы. Тонкая, ненавязчивая.</div>
+      <div class="meta-tokens"><span class="tok">divider-default</span></div>
+    </div>
+  </div>
+
+  <div class="state">
+    <div class="divider-demo">
+      <div class="divider-row">Личные данные</div>
+      <div class="divider-line-strong"></div>
+      <div class="divider-row">Доставка</div>
+      <div class="divider-line-strong"></div>
+      <div class="divider-row">Оплата</div>
+    </div>
+    <div>
+      <div class="meta-title">Strong</div>
+      <div class="meta-usage">Между крупными секциями (блоки формы, страницы настроек). Жирнее на 1 стоп.</div>
+      <div class="meta-tokens"><span class="tok">divider-strong</span></div>
+    </div>
+  </div>
+</body>
+</html>

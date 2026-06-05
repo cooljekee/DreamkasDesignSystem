@@ -1,0 +1,113 @@
+/* ============================================================
+ * Dreamkas — Button Component Tokens (Mobile)
+ *
+ * Лежат поверх Semantic tokens (colors / spacing / radius / typography).
+ * Используются только внутри button.css.
+ *
+ * Варианты: primary / secondary / muted / tertiary / outline / commerce / danger
+ * Размеры под тач-таргеты мобайла (минимум 44px hit area).
+ * ============================================================ */
+
+:root {
+
+  /* ── Size: высота × padding × font × icon × gap ──── */
+  --btn-height-sm:      40px;
+  --btn-height-md:      48px;
+  --btn-height-lg:      56px;
+
+  --btn-padding-x-sm:   16px;
+  --btn-padding-x-md:   20px;
+  --btn-padding-x-lg:   24px;
+
+  --btn-font-sm:        var(--font-size-14);
+  --btn-font-md:        var(--font-size-16);
+  --btn-font-lg:        var(--font-size-16);
+
+  --btn-icon-sm:        var(--size-icon-md);   /* 20 */
+  --btn-icon-md:        var(--size-icon-lg);   /* 24 */
+  --btn-icon-lg:        var(--size-icon-lg);   /* 24 */
+
+  --btn-gap-sm:          8px;
+  --btn-gap-md:          8px;
+  --btn-gap-lg:         10px;
+
+  --btn-square-sm:      40px;
+  --btn-square-md:      48px;
+  --btn-square-lg:      56px;
+
+  /* ── Typography ──────────────────────────────────── */
+  --btn-font-family:    var(--text-button-text-family);
+  --btn-font-weight:    var(--text-button-text-weight);
+  --btn-line-height:    var(--text-button-text-line-height);
+  --btn-letter-spacing: var(--text-button-text-letter-spacing);
+
+  /* ── Shape ──────────────────────────────────────── */
+  --btn-radius:               var(--radius-lg);
+  --btn-border-width:         var(--border-width-default);
+  --btn-border-width-focus:   var(--border-width-focus);
+  --btn-focus-ring-offset:    2px;
+
+  /* ════════════════ VARIANTS ════════════════ */
+
+  /* ── Primary (brand-filled) ──────────────────────── */
+  --btn-primary-bg:           var(--bg-brand-default);
+  --btn-primary-bg-hover:     var(--bg-brand-hover);
+  --btn-primary-bg-pressed:   var(--bg-brand-pressed);
+  --btn-primary-bg-disabled:  var(--bg-brand-disabled);
+  --btn-primary-text:         var(--text-on-brand);
+  --btn-primary-text-disabled:var(--text-on-brand-disabled);
+
+  /* ── Secondary (filled neutral, более заметный) ──── */
+  --btn-secondary-bg:           var(--bg-button-secondary);
+  --btn-secondary-bg-hover:     var(--bg-button-secondary-hover);
+  --btn-secondary-bg-pressed:   var(--bg-button-secondary-pressed);
+  --btn-secondary-bg-disabled:  var(--bg-disabled);
+  --btn-secondary-text:         var(--text-primary);
+  --btn-secondary-text-disabled:var(--text-disabled);
+
+  /* ── Muted (приглушённый, менее заметный) ────────── */
+  --btn-muted-bg:           var(--bg-button-muted);
+  --btn-muted-bg-hover:     var(--bg-button-muted-hover);
+  --btn-muted-bg-pressed:   var(--bg-button-muted-pressed);
+  --btn-muted-bg-disabled:  var(--bg-disabled);
+  --btn-muted-text:         var(--text-secondary);
+  --btn-muted-text-disabled:var(--text-disabled);
+
+  /* ── Tertiary (без фона, текстовая кнопка) ───────── */
+  --btn-tertiary-bg:            transparent;
+  --btn-tertiary-bg-hover:      var(--bg-hover);
+  --btn-tertiary-bg-pressed:    var(--bg-pressed);
+  --btn-tertiary-bg-disabled:   transparent;
+  --btn-tertiary-text:          var(--text-primary);
+  --btn-tertiary-text-disabled: var(--text-disabled);
+
+  /* ── Outline (обводка без фона) ──────────────────── */
+  --btn-outline-bg:                transparent;
+  --btn-outline-bg-hover:          var(--bg-hover);
+  --btn-outline-bg-pressed:        var(--bg-pressed);
+  --btn-outline-bg-disabled:       transparent;
+  --btn-outline-text:              var(--text-primary);
+  --btn-outline-text-disabled:     var(--text-disabled);
+  --btn-outline-border:            var(--border-default);
+  --btn-outline-border-hover:      var(--border-hover);
+  --btn-outline-border-disabled:   var(--border-disabled);
+
+  /* ── Commerce (зелёная CTA) ──────────────────────── */
+  --btn-commerce-bg:           var(--bg-commerce-default);
+  --btn-commerce-bg-hover:     var(--bg-commerce-hover);
+  --btn-commerce-bg-pressed:   var(--bg-commerce-pressed);
+  --btn-commerce-bg-disabled:  var(--bg-commerce-disabled);
+  --btn-commerce-text:         var(--text-on-commerce);
+  --btn-commerce-text-disabled:var(--text-on-brand-disabled);
+
+  /* ── Danger (деструктивные действия) ─────────────── */
+  --btn-danger-bg:           var(--bg-danger-default);
+  --btn-danger-bg-hover:     var(--bg-danger-hover);
+  --btn-danger-bg-pressed:   var(--bg-danger-pressed);
+  --btn-danger-bg-disabled:  var(--bg-danger-disabled);
+  --btn-danger-text:         var(--text-on-danger);
+  --btn-danger-text-disabled:var(--text-on-brand-disabled);
+
+  /* ── Focus ring ──────────────────────────────────── */
+  --btn-focus-ring:           var(--border-focus);
+}

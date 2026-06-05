@@ -1,0 +1,102 @@
+<!-- @dsCard group="Organisms" title="Sidebar — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/avatar/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Avatar/avatar.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/sidebar/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Organisms/Sidebar/sidebar.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 40px; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 20px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .section + .section { margin-top: 26px; }
+  /* телефон-рамка для drawer */
+  .phone { position: relative; width: 358px; height: 460px; border: 1px solid #E5E5E5; border-radius: 14px; overflow: hidden; background:#fff; }
+  .phone-content { padding: 16px; }
+  .ph-line { height: 12px; border-radius: 4px; background:#F2F2F2; margin-bottom:10px; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .foot { margin-top: 24px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Sidebar — Mobile</div>
+  <div class="page-sub">На телефоне навигация — два паттерна: <b>выезжающий drawer</b> (полное меню поверх контента) и <b>нижнее таб-меню</b> (4–5 главных разделов всегда под рукой). Те же токены состояний, что Web/Tablet.</div>
+
+  <!-- DRAWER -->
+  <div class="section">
+    <div class="section-title">Выезжающий drawer (по бургеру)</div>
+    <div class="phone">
+      <div class="sb-overlay">
+        <aside class="sb" style="width:280px;">
+          <div class="sb-logo">
+            <span class="sb-logo-mark">D</span>
+            <span class="sb-logo-text">Dreamkas</span>
+            <button class="sb-collapse"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </div>
+          <nav class="sb-nav">
+            <div class="sb-group">Основное</div>
+            <a class="sb-item is-active"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span><span class="sb-item-label">Товары</span><span class="sb-item-badge">1 248</span></a>
+            <a class="sb-item"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M9 2v4M15 2v4M4 6h16v15H4zM8 11h8M8 15h5"/></svg></span><span class="sb-item-label">Чеки</span></a>
+            <a class="sb-item"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7"/></svg></span><span class="sb-item-label">Склад</span><span class="sb-item-badge">94</span></a>
+            <a class="sb-item"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-5"/></svg></span><span class="sb-item-label">Отчёты</span></a>
+            <div class="sb-group">Управление</div>
+            <a class="sb-item"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21a8 8 0 0116 0"/></svg></span><span class="sb-item-label">Сотрудники</span></a>
+            <a class="sb-item"><span class="sb-item-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1l2-1.5-2-3.5-2.4.7a7 7 0 00-1.7-1L14 3h-4l-.8 2.7a7 7 0 00-1.7 1L5.1 6l-2 3.5L5.1 11a7 7 0 000 2l-2 1.5 2 3.5 2.4-.7a7 7 0 001.7 1L10 21h4l.8-2.7a7 7 0 001.7-1l2.4.7 2-3.5-2-1.5z"/></svg></span><span class="sb-item-label">Настройки</span></a>
+          </nav>
+          <div class="sb-footer">
+            <div class="sb-profile">
+              <span class="avatar avatar--sm">АП</span>
+              <span class="sb-profile-info"><span class="sb-profile-name">Анна Петрова</span><span class="sb-profile-role">Администратор</span></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="section">
+    <div class="section-title">Нижнее таб-меню</div>
+    <div class="phone" style="height:auto;">
+      <div class="phone-content">
+        <div class="ph-line" style="width:60%; height:16px;"></div>
+        <div class="ph-line"></div>
+        <div class="ph-line" style="width:85%;"></div>
+        <div class="ph-line" style="width:70%;"></div>
+        <div class="ph-line" style="width:90%;"></div>
+        <div class="ph-line" style="width:50%;"></div>
+      </div>
+      <nav class="sb-bottom">
+        <a class="sb-bottom-item is-active"><span class="sb-bottom-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span><span class="sb-bottom-label">Товары</span></a>
+        <a class="sb-bottom-item"><span class="sb-bottom-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M9 2v4M15 2v4M4 6h16v15H4zM8 11h8M8 15h5"/></svg></span><span class="sb-bottom-label">Чеки</span></a>
+        <a class="sb-bottom-item"><span class="sb-bottom-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7"/></svg></span><span class="sb-bottom-dot"></span><span class="sb-bottom-label">Склад</span></a>
+        <a class="sb-bottom-item"><span class="sb-bottom-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-5"/></svg></span><span class="sb-bottom-label">Отчёты</span></a>
+        <a class="sb-bottom-item"><span class="sb-bottom-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span><span class="sb-bottom-label">Ещё</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="foot">
+    Drawer — полное меню (как Web, поверх контента + затемнение <code>--overlay-mask</code>). Нижнее меню — 4–5 разделов, тач 56px, активный — <code>--text-active</code>, точка-индикатор на <code>--bg-danger-default</code>. «Ещё» открывает drawer с остальным.<br>
+    Файлы: <code>Mobile/Foundations/Component tokens/sidebar/tokens.css</code> · <code>Mobile/Components/Organisms/Sidebar/sidebar.css</code>
+  </div>
+
+</body>
+</html>

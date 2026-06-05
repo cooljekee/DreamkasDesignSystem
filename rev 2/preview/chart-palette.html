@@ -1,0 +1,77 @@
+<!-- @dsCard group="Colors" title="Chart Palette" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FFFFFF; font-family:'Dreamkas Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 24px 28px 36px; }
+  .intro { font-size: 12px; color: rgba(0,0,0,0.54); line-height: 1.45; max-width: 560px; margin-bottom: 22px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .section + .section { margin-top: 28px; }
+
+  /* серии */
+  .series { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .swatch { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #F2F2F2; border-radius: 6px; }
+  .dot { width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0; }
+  .swatch .meta { line-height: 1.3; }
+  .swatch .name { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 600; }
+  .swatch .role { font-size: 11px; color: rgba(0,0,0,0.54); }
+
+  /* utility tokens */
+  .util-row { display: grid; grid-template-columns: 180px 70px 1fr; gap: 14px; align-items: center; padding: 9px 0; border-bottom: 1px solid #F2F2F2; }
+  .util-row:last-child { border-bottom: 0; }
+  .util-name { font-family: ui-monospace, monospace; font-size: 12px; font-weight: 600; }
+  .util-chip { height: 22px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.06); }
+  .util-desc { font-size: 12px; color: rgba(0,0,0,0.7); }
+
+  /* демо: бары в палитре */
+  .demo { display: flex; align-items: flex-end; gap: 10px; height: 120px; padding: 12px; background: #FAFAFA; border-radius: 6px; }
+  .bar { flex: 1; border-radius: 3px 3px 0 0; }
+</style>
+</head>
+<body>
+
+  <div class="intro">Палитра для графиков и дашбордов. 6 серий (первая — бренд), плюс служебные токены сетки, осей и трендов. Использовать как тему для любой chart-молекулы или библиотеки.</div>
+
+  <div class="section">
+    <div class="section-title">Серии данных</div>
+    <div class="series">
+      <div class="swatch"><span class="dot" style="background:var(--chart-1)"></span><span class="meta"><div class="name">--chart-1</div><div class="role">brand · основная</div></span></div>
+      <div class="swatch"><span class="dot" style="background:var(--chart-2)"></span><span class="meta"><div class="name">--chart-2</div><div class="role">blue</div></span></div>
+      <div class="swatch"><span class="dot" style="background:var(--chart-3)"></span><span class="meta"><div class="name">--chart-3</div><div class="role">amber</div></span></div>
+      <div class="swatch"><span class="dot" style="background:var(--chart-4)"></span><span class="meta"><div class="name">--chart-4</div><div class="role">green</div></span></div>
+      <div class="swatch"><span class="dot" style="background:var(--chart-5)"></span><span class="meta"><div class="name">--chart-5</div><div class="role">red</div></span></div>
+      <div class="swatch"><span class="dot" style="background:var(--chart-6)"></span><span class="meta"><div class="name">--chart-6</div><div class="role">neutral</div></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Служебные</div>
+    <div class="util-row"><span class="util-name">--chart-grid</span><span class="util-chip" style="background:var(--chart-grid)"></span><span class="util-desc">Линии сетки</span></div>
+    <div class="util-row"><span class="util-name">--chart-axis</span><span class="util-chip" style="background:var(--chart-axis)"></span><span class="util-desc">Оси X / Y</span></div>
+    <div class="util-row"><span class="util-name">--chart-label</span><span class="util-chip" style="background:var(--chart-label)"></span><span class="util-desc">Подписи осей и значений</span></div>
+    <div class="util-row"><span class="util-name">--chart-track</span><span class="util-chip" style="background:var(--chart-track)"></span><span class="util-desc">Фон-дорожка (progress, пустая часть)</span></div>
+    <div class="util-row"><span class="util-name">--chart-positive</span><span class="util-chip" style="background:var(--chart-positive)"></span><span class="util-desc">Рост / положительный тренд</span></div>
+    <div class="util-row"><span class="util-name">--chart-negative</span><span class="util-chip" style="background:var(--chart-negative)"></span><span class="util-desc">Падение / отрицательный тренд</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">На примере (серии в баре)</div>
+    <div class="demo">
+      <div class="bar" style="height:70%; background:var(--chart-1)"></div>
+      <div class="bar" style="height:90%; background:var(--chart-2)"></div>
+      <div class="bar" style="height:55%; background:var(--chart-3)"></div>
+      <div class="bar" style="height:80%; background:var(--chart-4)"></div>
+      <div class="bar" style="height:40%; background:var(--chart-5)"></div>
+      <div class="bar" style="height:60%; background:var(--chart-6)"></div>
+    </div>
+  </div>
+
+</body>
+</html>

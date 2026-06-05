@@ -1,0 +1,28 @@
+/* ============================================================
+ * Dreamkas — Tooltip Component Tokens (Web)
+ *
+ * Короткая подсказка при наведении. Тёмный фон, стрелка.
+ * ============================================================ */
+
+:root {
+
+  /* ── Size ─────────────────────────────────────────── */
+  --tooltip-pad-y:      6px;
+  --tooltip-pad-x:      10px;
+  --tooltip-font:       var(--font-size-12);
+  --tooltip-line:       var(--line-height-normal);
+  --tooltip-max-width:  240px;
+  --tooltip-radius:     var(--radius-sm);    /* 4 */
+  --tooltip-gap:        8px;     /* отступ от триггера */
+  --tooltip-arrow:      6px;     /* размер стрелки */
+
+  /* ── Colors (светлый тултип) ─────────────────────── */
+  --tooltip-bg:         var(--surface-raised);
+  --tooltip-text:       var(--text-primary);
+  --tooltip-border:     var(--border-subtle);
+  --tooltip-shadow:     var(--shadow-tooltip);
+
+  /* ── Typography ──────────────────────────────────── */
+  --tooltip-font-family: var(--font-family-sans);
+  --tooltip-font-weight: var(--font-weight-regular);
+}

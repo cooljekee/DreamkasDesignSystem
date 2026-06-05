@@ -1,0 +1,55 @@
+/* ============================================================
+ * Dreamkas — Table Component Tokens (Mobile)
+ *
+ * Data-heavy таблица backoffice. Плотность compact / regular.
+ * Числа — табличные, вправо. Sticky-хедер, выбор строк, итого.
+ * ============================================================ */
+
+:root {
+
+  /* ── Row height (плотность) ───────────────────────── */
+  --table-row-h-compact:  48px;
+  --table-row-h-regular:  60px;
+  --table-head-h:         48px;
+
+  /* ── Cell padding ─────────────────────────────────── */
+  --table-cell-pad-x:     12px;
+  --table-cell-pad-x-first: 16px;   /* первая/последняя колонка — больше */
+
+  /* ── Typography ───────────────────────────────────── */
+  --table-font:           var(--font-size-13);
+  --table-font-compact:   var(--font-size-13);
+  --table-head-font:      var(--font-size-12);
+  --table-num-font:       var(--font-family-mono);   /* табличные числа */
+
+  /* ── Colors ───────────────────────────────────────── */
+  --table-bg:             var(--surface-default);
+  --table-head-bg:        var(--bg-secondary);
+  --table-head-text:      var(--text-secondary);
+  --table-text:           var(--text-primary);
+  --table-text-secondary: var(--text-secondary);
+
+  --table-border:         var(--divider-default);     /* линии между строками */
+  --table-border-strong:  var(--divider-strong);      /* под хедером / над итого */
+
+  --table-row-hover:      var(--bg-hover);
+  --table-row-selected:   var(--bg-selected);
+  --table-row-selected-hover: var(--bg-selected-hover);
+  --table-row-zebra:      var(--color-neutral-50);
+
+  /* ── Error row (нет синхронизации и т.п.) ─────────── */
+  --table-row-error-bg:   var(--status-danger-bg);
+  --table-row-error-accent: var(--status-danger-border);
+
+  /* ── Total row ────────────────────────────────────── */
+  --table-total-bg:       var(--bg-secondary);
+  --table-total-text:     var(--text-primary);
+
+  /* ── Sort icon ────────────────────────────────────── */
+  --table-sort-icon:      var(--icon-secondary);
+  --table-sort-icon-active: var(--icon-active);
+
+  /* ── Skeleton ─────────────────────────────────────── */
+  --table-skeleton:       var(--bg-skeleton);
+  --table-skeleton-shine: var(--bg-skeleton-shine);
+}

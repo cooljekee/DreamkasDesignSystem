@@ -1,0 +1,54 @@
+/* ============================================================
+ * Dreamkas — Modal / Dialog Component Tokens (Web) — Organism
+ *
+ * Overlay + диалог. Размеры sm/md. Композирует Card-обвязку,
+ * Form Field, Button. На mobile → bottom-sheet.
+ * ============================================================ */
+
+:root {
+
+  /* ── Overlay ──────────────────────────────────────── */
+  --modal-overlay:      var(--overlay-mask);
+  --modal-overlay-pad:  24px;        /* отступ от краёв экрана (desktop) */
+
+  /* ── Surface ──────────────────────────────────────── */
+  --modal-bg:           var(--surface-raised);
+  --modal-radius:       var(--radius-surface);   /* 12 */
+  --modal-shadow:       var(--shadow-modal);
+
+  /* ── Размеры ──────────────────────────────────────── */
+  --modal-w-sm:         400px;
+  --modal-w-md:         560px;
+  --modal-w-lg:         720px;
+  --modal-max-h:        88vh;
+
+  /* ── Success icon ─────────────────────────────────── */
+  --modal-icon-success-bg: var(--status-success-bg);
+  --modal-icon-success:    var(--status-success-text);
+
+  /* ── Loading overlay (поверх тела при сохранении) ─── */
+  --modal-loading-veil: var(--overlay-veil-light);
+
+  /* ── Внутренние отступы ───────────────────────────── */
+  --modal-pad-x:        20px;
+  --modal-pad-y:        18px;
+  --modal-gap:          16px;
+
+  /* ── Header / footer ──────────────────────────────── */
+  --modal-title-size:   var(--font-size-16);
+  --modal-title-weight: var(--font-weight-bold);
+  --modal-divider:      var(--divider-default);
+  --modal-close:        var(--icon-secondary);
+  --modal-close-hover:  var(--text-primary);
+
+  /* ── Иконка типа (confirm/info) ───────────────────── */
+  --modal-icon-size:    40px;
+  --modal-icon-danger-bg:  var(--status-danger-bg);
+  --modal-icon-danger:     var(--status-danger-text);
+  --modal-icon-info-bg:    var(--status-info-bg);
+  --modal-icon-info:       var(--status-info-text);
+
+  /* ── Bottom-sheet (mobile) ────────────────────────── */
+  --sheet-radius:       var(--radius-surface);
+  --sheet-handle:       var(--color-neutral-300);
+}

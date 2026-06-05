@@ -1,0 +1,80 @@
+<!-- @dsCard group="Organisms" title="Topbar — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/avatar/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Avatar/avatar.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/topbar/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Organisms/Topbar/topbar.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 40px; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 20px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .section + .section { margin-top: 24px; }
+  .frame { width: 358px; border: 1px solid #E5E5E5; border-radius: 12px; overflow: hidden; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .foot { margin-top: 24px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Topbar — Mobile</div>
+  <div class="page-sub">На телефоне топбар компактный: бургер + заголовок + иконки поиска/колокола/профиля. Поиск разворачивается отдельным экраном. Offline-баннер — на всю ширину под панелью.</div>
+
+  <!-- ОНЛАЙН -->
+  <div class="section">
+    <div class="section-title">Онлайн</div>
+    <div class="frame">
+      <header class="tb tb--mobile">
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="tb-title">Товары</div>
+        <div class="tb-spacer"></div>
+        <span class="tb-status tb-status--online" style="padding:0 6px;"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l1.5-2a8 8 0 0111 0l1.5 2M8.5 16l1-1.3a4 4 0 015 0l1 1.3M12 19.5h.01"/></svg></span>
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></button>
+        <button class="tb-icon-btn tb-bell"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="tb-bell-dot"></span></button>
+        <span class="avatar avatar--sm">ИВ</span>
+      </header>
+    </div>
+  </div>
+
+  <!-- OFFLINE + БАННЕР -->
+  <div class="section">
+    <div class="section-title">Оффлайн · баннер на всю ширину</div>
+    <div class="frame">
+      <header class="tb tb--mobile">
+        <button class="tb-icon-btn"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="tb-title">Касса №1</div>
+        <div class="tb-spacer"></div>
+        <span class="tb-status tb-status--offline" style="padding:0 8px;"><svg class="ic" viewBox="0 0 24 24"><path d="M1 1l22 22M16.7 11.7A8 8 0 0019 10M5 12.5l1.5-2a8 8 0 014-2.3M8.5 16l1-1.3a4 4 0 013.3-.6M12 19.5h.01"/></svg></span>
+        <button class="tb-icon-btn tb-bell"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="tb-bell-dot"></span></button>
+        <span class="avatar avatar--sm">ИВ</span>
+      </header>
+      <div class="tb-banner" style="font-size:12px; text-align:left; justify-content:flex-start;">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M1 1l22 22M16.7 11.7A8 8 0 0019 10M5 12.5l1.5-2a8 8 0 014-2.3M8.5 16l1-1.3a4 4 0 013.3-.6M12 19.5h.01"/></svg>
+        Нет сети · 4 чека в очереди
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Тот же организм — на mobile сворачивается: подписи смены/сети прячутся в иконки-чипы, поиск → отдельная иконка. Баннер offline остаётся на всю ширину (контекст кассы без сети).<br>
+    Файлы: <code>Mobile/Components/Organisms/Topbar/topbar.css</code>
+  </div>
+
+</body>
+</html>

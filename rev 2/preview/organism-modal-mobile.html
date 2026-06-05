@@ -1,0 +1,279 @@
+<!-- @dsCard group="Organisms" title="Modal — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/input/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Input/input.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/select/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Select/select.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/selection/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Selection/selection.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/form-field/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Molecules/FormField/form-field.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/table/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Table/table.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/alert/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Molecules/Alert/alert.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/modal/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Organisms/Modal/modal.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FFFFFF; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 48px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; max-width: 720px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FAFAFA; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; color:rgba(0,0,0,0.87); }
+
+  /* таблица: колонка модалки + колонка описания */
+  .mtable { width: 100%; border-collapse: collapse; }
+  .mtable thead th {
+    text-align: left; font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 0 0 10px; border-bottom: 1px solid #E5E5E5;
+  }
+  .mtable thead { display: none; }
+  .mtable, .mtable tbody, .mtable tr, .mtable td { display: block; width: 100%; }
+  .mtable tr { padding: 18px 0; border-bottom: 1px solid #F2F2F2; }
+  .mtable td { padding: 0; border: 0; }
+  .mtable td.desc { padding-left: 0; padding-top: 14px; }
+
+  /* мини-сцена под модалку — лёгкая, без жирного оверлея */
+  .demo-modal {
+    background: var(--surface-raised);
+    border: 1px solid var(--divider-default);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-modal);
+    overflow: hidden;
+    max-width: 460px;
+  }
+  .demo-modal--sm { max-width: 360px; }
+
+  .d-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .d-name .sz { font-family: ui-monospace, monospace; font-size: 11px; font-weight: 500; color: rgba(0,0,0,0.45); margin-left: 8px; }
+  .d-why { font-size: 13px; color: rgba(0,0,0,0.7); line-height: 1.5; }
+  .d-why b { color: rgba(0,0,0,0.87); font-weight: 600; }
+  .d-when { margin-top: 10px; font-size: 12px; color: rgba(0,0,0,0.54); line-height: 1.45; }
+  .d-when .tag { display:inline-block; font-family: ui-monospace, monospace; font-size: 10px; background:#FAFAFA; border:1px solid #ECECEC; border-radius:3px; padding:1px 5px; color:rgba(0,0,0,0.6); }
+
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* документ-список (позиции на mobile вместо сетки) */
+  .doc-list { display: flex; flex-direction: column; }
+  .doc-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 16px; border-bottom: 1px solid var(--divider-default);
+  }
+  .doc-idx { flex-shrink: 0; width: 20px; font-size: 13px; color: var(--text-secondary); font-variant-numeric: tabular-nums; padding-top: 1px; }
+  .doc-main { flex: 1; min-width: 0; }
+  .doc-name { font-size: 14px; color: var(--text-primary); line-height: 1.3; }
+  .doc-meta { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .doc-sum { flex-shrink: 0; font-size: 14px; font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .doc-total {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px; background: var(--bg-secondary); font-weight: 700; font-size: 15px;
+  }
+  .foot { margin-top: 28px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FAFAFA; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Modal — Mobile</div>
+  <div class="page-sub">Organism — overlay + диалог. Композирует Form Field, Button, Table, Alert. Размеры sm / md / lg, состояния loading / error, типы confirm / info / success. На телефоне модалки крепятся снизу как bottom sheet (см. вариант). Здесь — обзор типов.</div>
+
+  <table class="mtable">
+    <thead>
+      <tr><th>Модалка</th><th>Какая и зачем</th></tr>
+    </thead>
+    <tbody>
+
+      <!-- FORM MD -->
+      <tr>
+        <td>
+          <div class="demo-modal">
+            <div class="modal-header">
+              <div class="modal-title">Новый товар<div class="modal-subtitle">Заполните основные поля</div></div>
+              <button class="modal-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            </div>
+            <div class="modal-body">
+              <div class="ff ff--fluid"><div class="ff-label-row"><label class="ff-label">Наименование <span class="ff-req">*</span></label></div><div class="ff-control"><div class="field field--md field--fluid"><div class="field-control"><input class="field-input" type="text" value="Кофе зерновой Lavazza 1кг"/></div></div></div></div>
+              <div class="ff-row">
+                <div class="ff"><div class="ff-label-row"><label class="ff-label">Цена, ₽ <span class="ff-req">*</span></label></div><div class="ff-control"><div class="field field--md field--fluid"><div class="field-control"><input class="field-input" type="text" value="1 290"/><span class="field-suffix">₽</span></div></div></div></div>
+                <div class="ff"><div class="ff-label-row"><label class="ff-label">Категория</label></div><div class="ff-control"><div class="select select--md select--fluid"><div class="select-trigger"><span class="select-value">Бакалея</span><span class="select-chevron"><svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></div></div></div></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn--ghost btn--md">Отмена</button>
+              <button class="btn btn--primary btn--md">Сохранить</button>
+            </div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Форма<span class="sz">md · 560</span></div>
+          <div class="d-why"><b>Создание и редактирование сущности</b> — товар, сотрудник, цена. Поля из Form Field, действия справа: вторичная «Отмена», primary «Сохранить».</div>
+          <div class="d-when">Крестик есть. Закрытие по фону — только с подтверждением, если есть несохранённые данные. <span class="tag">modal--md</span></div>
+        </td>
+      </tr>
+
+      <!-- CONFIRM SM -->
+      <tr>
+        <td>
+          <div class="demo-modal demo-modal--sm">
+            <div class="modal-header modal-header--plain">
+              <span class="modal-icon modal-icon--danger"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></span>
+            </div>
+            <div class="modal-body">
+              <div class="modal-title">Удалить товар?</div>
+              <div style="font-size:14px; color:var(--text-secondary); line-height:1.45;">«Кофе Lavazza 1кг» будет удалён. Действие нельзя отменить.</div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn--ghost btn--md">Отмена</button>
+              <button class="btn btn--danger btn--md">Удалить</button>
+            </div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Подтверждение · danger<span class="sz">sm · 400</span></div>
+          <div class="d-why"><b>Деструктивное действие</b> — удалить, аннулировать чек, закрыть смену. Иконка-предупреждение, primary-кнопка красная.</div>
+          <div class="d-when"><b>Без крестика и без закрытия по фону</b> — только осознанный выбор «Отмена» / «Удалить». <span class="tag">modal--sm</span></div>
+        </td>
+      </tr>
+
+      <!-- INFO SM -->
+      <tr>
+        <td>
+          <div class="demo-modal demo-modal--sm">
+            <div class="modal-body modal-body--center" style="padding-top:24px;">
+              <span class="modal-icon modal-icon--info"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+              <div class="modal-title">Смена ещё открыта</div>
+              <div style="font-size:14px; color:var(--text-secondary); line-height:1.45;">Закройте смену перед выгрузкой отчёта.</div>
+            </div>
+            <div class="modal-footer" style="justify-content:center;"><button class="btn btn--primary btn--md btn--fluid">Понятно</button></div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Инфо / сообщение<span class="sz">sm · 400</span></div>
+          <div class="d-why"><b>Информирование без выбора</b> — одно действие «Понятно». Кнопка одна → fluid по центру.</div>
+          <div class="d-when">Крестик опционален, закрытие по фону разрешено. <span class="tag">modal-icon--info</span></div>
+        </td>
+      </tr>
+
+      <!-- SUCCESS SM -->
+      <tr>
+        <td>
+          <div class="demo-modal demo-modal--sm">
+            <div class="modal-body modal-body--center" style="padding-top:24px;">
+              <span class="modal-icon modal-icon--success"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
+              <div class="modal-title">Смена закрыта</div>
+              <div style="font-size:14px; color:var(--text-secondary); line-height:1.45;">Z-отчёт отправлен в ОФД. Выручка — 84 320 ₽.</div>
+            </div>
+            <div class="modal-footer" style="justify-content:center;"><button class="btn btn--primary btn--md btn--fluid">Готово</button></div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Успех / итог<span class="sz">sm · 400</span></div>
+          <div class="d-why"><b>Результат операции</b> — закрытие смены, Z-отчёт, итоги инвентаризации. Зелёная иконка, сводка цифр.</div>
+          <div class="d-when">Показывается после успешного действия. <span class="tag">modal-icon--success</span></div>
+        </td>
+      </tr>
+
+      <!-- LG TABLE -->
+      <tr>
+        <td>
+          <div class="demo-modal" style="max-width:100%; border-radius:14px 14px 0 0;">
+            <div class="modal-sheet-handle"></div>
+            <div class="modal-header">
+              <div class="modal-title">Приёмка №48<div class="modal-subtitle">«Лавацца Рус» · 6 позиций</div></div>
+              <button class="modal-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+            </div>
+            <div class="modal-body" style="padding:0;">
+              <div class="doc-list">
+                <div class="doc-row">
+                  <span class="doc-idx">1</span>
+                  <div class="doc-main"><div class="doc-name">Кофе Lavazza 1кг</div><div class="doc-meta">12 шт · 399,90 ₽</div></div>
+                  <span class="doc-sum">4 798,80</span>
+                </div>
+                <div class="doc-row">
+                  <span class="doc-idx">2</span>
+                  <div class="doc-main"><div class="doc-name">Виски Highland 0.7л</div><div class="doc-meta">6 шт · 1 899,50 ₽</div></div>
+                  <span class="doc-sum">11 397,00</span>
+                </div>
+                <div class="doc-row">
+                  <span class="doc-idx">3</span>
+                  <div class="doc-main"><div class="doc-name">Вино белое 0.75л</div><div class="doc-meta">8 шт · 549,00 ₽</div></div>
+                  <span class="doc-sum">4 392,00</span>
+                </div>
+                <div class="doc-total"><span>Итого</span><span class="doc-sum">24 423,00 ₽</span></div>
+              </div>
+            </div>
+            <div class="modal-footer" style="flex-direction:column-reverse; gap:8px;">
+              <button class="btn btn--ghost btn--md btn--fluid">Отмена</button>
+              <button class="btn btn--commerce btn--md btn--fluid">Провести</button>
+            </div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Документ с позициями<span class="sz">full-screen sheet</span></div>
+          <div class="d-why"><b>Документ с данными</b> — приёмка, инвентаризация. На телефоне сетка не нужна: каждая позиция — строка-карточка (№ · название/кол-во·цена · сумма справа). Читается легко, числа выровнены вправо.</div>
+          <div class="d-when">Раскрывается как bottom sheet, header/footer прилипают, кнопки fluid в столбик. <span class="tag">.doc-list</span></div>
+        </td>
+      </tr>
+
+      <!-- LOADING -->
+      <tr>
+        <td>
+          <div class="demo-modal demo-modal--sm" style="position:relative;">
+            <div class="modal-loading"><span class="modal-spinner"></span></div>
+            <div class="modal-header"><div class="modal-title">Новый товар</div></div>
+            <div class="modal-body"><div class="ff ff--fluid"><div class="ff-label-row"><label class="ff-label">Наименование</label></div><div class="ff-control"><div class="field field--md field--fluid"><div class="field-control"><input class="field-input" type="text" value="Кофе Lavazza 1кг"/></div></div></div></div></div>
+            <div class="modal-footer"><button class="btn btn--ghost btn--md">Отмена</button><button class="btn btn--primary btn--md"><span class="btn-spinner"></span>Сохранение…</button></div>
+          </div>
+        </td>
+        <td class="desc">
+          <div class="d-name">Состояние · loading</div>
+          <div class="d-why"><b>Асинхронное сохранение по сети.</b> Тело под полупрозрачной вуалью со спиннером, кнопка «Сохранение…» с крутилкой, блокирует повторный submit.</div>
+          <div class="d-when">Касса часто работает с задержкой сети — состояние обязательно. <span class="tag">.modal-loading</span></div>
+        </td>
+      </tr>
+
+      <!-- ERROR -->
+      <tr style="border-bottom:0;">
+        <td style="border-bottom:0;">
+          <div class="demo-modal" style="max-width:460px;">
+            <div class="modal-header"><div class="modal-title">Новый товар</div><button class="modal-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <div class="modal-body">
+              <div class="alert alert--danger" style="margin:0;"><span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span><div class="alert-body"><div class="alert-text">Заполните обязательные поля</div></div></div>
+              <div class="ff ff--fluid ff--error"><div class="ff-label-row"><label class="ff-label">Наименование <span class="ff-req">*</span></label></div><div class="ff-control"><div class="field field--md field--fluid field--error"><div class="field-control"><input class="field-input" type="text" placeholder="Введите название"/></div></div></div><div class="ff-message ff-message--error"><span class="ff-message-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span>Обязательное поле</div></div>
+            </div>
+            <div class="modal-footer"><button class="btn btn--ghost btn--md">Отмена</button><button class="btn btn--primary btn--md">Сохранить</button></div>
+          </div>
+        </td>
+        <td class="desc" style="border-bottom:0;">
+          <div class="d-name">Состояние · ошибка валидации</div>
+          <div class="d-why"><b>Серверная или клиентская ошибка.</b> Alert-баннер сверху тела + проблемные поля в состоянии error с сообщением под ними.</div>
+          <div class="d-when">Композирует Alert + Form Field (error). <span class="tag">alert--danger</span></div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="foot">
+    Organism = overlay + Card-обвязка + Form Field + Button + (Table / Alert внутри). Danger-подтверждение — без крестика. Кнопки футера справа: вторичная слева, primary справа.<br>
+    Файлы: <code>Mobile/Foundations/Component tokens/modal/tokens.css</code> · <code>Mobile/Components/Organisms/Modal/modal.css</code>
+  </div>
+
+</body>
+</html>

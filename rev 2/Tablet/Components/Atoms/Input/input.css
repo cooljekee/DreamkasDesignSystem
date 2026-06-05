@@ -1,0 +1,185 @@
+/* ============================================================
+ * Dreamkas — Input (Web)
+ *
+ * Структура:
+ *   <div class="field field--md">
+ *     <label class="field-label">Email</label>
+ *     <div class="field-control">
+ *       <input class="field-input" type="text" placeholder="name@example.com" />
+ *       <span class="field-suffix">@example.com</span>
+ *     </div>
+ *     <div class="field-helper">Hint text</div>
+ *   </div>
+ *
+ * Модификаторы:
+ *   size:    field--sm | field--md | field--lg
+ *   state:   field--error | field--disabled (на корне)
+ *            is-focus / is-readonly — для preview-эмуляции
+ *   layout:  field--fluid (на 100% ширины)
+ *
+ * ЗАВИСИМОСТИ:
+ *   color/primitive + semantic
+ *   typography/primitive + semantic
+ *   spacing/primitive + semantic
+ *   input/tokens.css
+ * ============================================================ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--input-font-family);
+  width: 280px;
+}
+.field--fluid { width: 100%; }
+
+/* ── Label ─────────────────────────────────────────── */
+.field-label {
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-medium);
+  color: var(--input-label);
+  line-height: 1.3;
+}
+.field-label .req {
+  color: var(--input-label-required);
+  margin-left: 2px;
+}
+
+/* ── Control wrapper (input + icons/suffix) ────────── */
+.field-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--input-bg);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-radius);
+  transition: border-color .12s ease, background-color .12s ease;
+}
+
+/* ── Sizes ─────────────────────────────────────────── */
+.field--sm .field-control { min-height: var(--input-height-sm); padding: 0 var(--input-padding-x-sm); }
+.field--md .field-control { min-height: var(--input-height-md); padding: 0 var(--input-padding-x-md); }
+.field--lg .field-control { min-height: var(--input-height-lg); padding: 0 var(--input-padding-x-lg); }
+
+.field--sm .field-input { font-size: var(--input-font-sm); }
+.field--md .field-input { font-size: var(--input-font-md); }
+.field--lg .field-input { font-size: var(--input-font-lg); }
+
+.field--sm .field-icon { width: var(--input-icon-sm); height: var(--input-icon-sm); }
+.field--md .field-icon { width: var(--input-icon-md); height: var(--input-icon-md); }
+.field--lg .field-icon { width: var(--input-icon-lg); height: var(--input-icon-lg); }
+
+/* ── Input native element ──────────────────────────── */
+.field-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  line-height: var(--input-line-height);
+  color: var(--input-text);
+  padding: 0;
+}
+.field-input::placeholder {
+  color: var(--input-text-placeholder);
+  opacity: 1;
+}
+
+/* ── Suffix icon / text справа ─────────────────────── */
+.field-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--input-icon);
+  margin-left: 8px;
+}
+.field-icon.is-action { cursor: pointer; }
+.field-suffix {
+  flex-shrink: 0;
+  margin-left: 8px;
+  color: var(--input-suffix);
+  font-size: inherit;
+  white-space: nowrap;
+}
+
+/* ── States ────────────────────────────────────────── */
+.field-control:hover { border-color: var(--input-border-hover); }
+
+.field.is-focus .field-control,
+.field-control:focus-within {
+  border-color: var(--input-border-focus);
+  border-width: var(--input-border-width-focus);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.field.is-focus .field-icon,
+.field-control:focus-within .field-icon {
+  color: var(--input-icon-focus);
+}
+
+.field--error .field-control,
+.field.is-error .field-control {
+  border-color: var(--input-border-error);
+}
+
+.field--disabled .field-control,
+.field.is-disabled .field-control {
+  background: var(--input-bg-disabled);
+  border-color: var(--input-border-disabled);
+  cursor: not-allowed;
+}
+.field--disabled .field-input,
+.field.is-disabled .field-input {
+  color: var(--input-text-disabled);
+  cursor: not-allowed;
+}
+.field--disabled .field-input::placeholder,
+.field.is-disabled .field-input::placeholder { color: var(--input-text-disabled); }
+.field--disabled .field-icon,
+.field--disabled .field-suffix,
+.field.is-disabled .field-icon,
+.field.is-disabled .field-suffix { color: var(--input-icon-disabled); }
+
+.field--readonly .field-control,
+.field.is-readonly .field-control {
+  background: var(--input-bg-readonly);
+}
+
+/* ── Helper / Error message ─────────────────────────── */
+.field-helper {
+  font-size: var(--font-size-12);
+  line-height: 1.4;
+  color: var(--input-helper);
+}
+.field--error .field-helper,
+.field.is-error .field-helper {
+  color: var(--input-error);
+}
+
+/* ── Textarea ──────────────────────────────────────── */
+.field-textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  resize: vertical;
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  line-height: var(--input-line-height);
+  color: var(--input-text);
+  padding: var(--input-textarea-padding-y-md) 0;
+  min-height: calc(var(--input-line-height) * 1em * var(--input-textarea-min-rows));
+}
+.field-textarea::placeholder {
+  color: var(--input-text-placeholder);
+  opacity: 1;
+}
+.field--textarea .field-control {
+  align-items: stretch;
+  min-height: 0;
+}
+
+/* ── Focus ring offset для подсветки ───────────────── */
+.field.is-focus .field-control { outline: 0; }

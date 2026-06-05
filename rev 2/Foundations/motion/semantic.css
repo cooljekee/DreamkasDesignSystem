@@ -1,0 +1,19 @@
+/* ============================================================
+ * Dreamkas Design System — Semantic Motion Tokens
+ *
+ * Ролевые motion-токены. Используй ТОЛЬКО их в компонентах.
+ * Каждый — пара «длительность + кривая», готовая для shorthand:
+ *   transition: background-color var(--motion-fast);
+ *   transition: transform var(--motion-control);
+ *
+ * Роли:
+ *   fast      — микро-фидбек: цвет, фон, граница, opacity (hover/focus/checked)
+ *   control   — смена состояния контрола: transform, box-shadow, ширина
+ *   emphasis  — крупные/заметные движения: высота бара графика, раскрытие
+ * ============================================================ */
+
+:root {
+  --motion-fast:     var(--duration-100) var(--ease-standard);
+  --motion-control:  var(--duration-200) var(--ease-standard);
+  --motion-emphasis: var(--duration-300) var(--ease-standard);
+}

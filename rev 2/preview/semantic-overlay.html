@@ -1,0 +1,163 @@
+<!-- @dsCard group="Colors" title="Semantic — Overlay" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px; }
+
+  .group-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.54);
+    margin-bottom: 14px;
+  }
+  .group-sub {
+    font-size: 12px;
+    color: rgba(0,0,0,0.54);
+    margin-top: -8px;
+    margin-bottom: 16px;
+  }
+
+  .state {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    padding: 12px 0;
+    align-items: center;
+  }
+
+  /* === Modal-on-overlay demo === */
+  .scene {
+    width: 280px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    /* fake page content (skeleton-like) underneath */
+    background:
+      linear-gradient(#F2F2F2, #F2F2F2) 16px 18px / 60% 10px no-repeat,
+      linear-gradient(#E0E0E0, #E0E0E0) 16px 36px / 80% 8px no-repeat,
+      linear-gradient(#E0E0E0, #E0E0E0) 16px 52px / 70% 8px no-repeat,
+      linear-gradient(#F2F2F2, #F2F2F2) 16px 80px / 90% 38px no-repeat,
+      linear-gradient(#F2F2F2, #F2F2F2) 16px 132px / 50% 38px no-repeat,
+      #FFFFFF;
+    border: 1px solid #E0E0E0;
+  }
+  .mask {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 17, 19, 0.60);
+  }
+  .modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .modal-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    margin-bottom: 4px;
+  }
+  .modal-text {
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .modal-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+  }
+  .modal-btn {
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 0;
+  }
+  .btn-secondary { background: transparent; color: rgba(0,0,0,0.7); }
+  .btn-primary   { background: #0097A7; color: #fff; }
+
+  .meta-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.87);
+  }
+  .meta-title-en {
+    font-size: 13px;
+    color: rgba(0,0,0,0.54);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .meta-usage {
+    font-size: 13px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+  .meta-tokens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    margin-top: 8px;
+  }
+  .tok {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #F8F8F8;
+    border: 1px solid #E0E0E0;
+    color: rgba(0,0,0,0.7);
+  }
+  .tok-bg { background: #E0F3F4; border-color: #B2E1E5; color: #006978; }
+</style>
+</head>
+<body>
+
+  <div class="group-title">Overlay — затемнение под слоями</div>
+  <div class="group-sub">Тёмная маска поверх контента под модалкой, drawer, диалогом, popover-меню</div>
+
+  <div class="state">
+    <div class="scene">
+      <div class="mask"></div>
+      <div class="modal">
+        <div class="modal-title">Удалить чек?</div>
+        <div class="modal-text">Это действие нельзя отменить. Чек №1024 будет удалён из истории.</div>
+        <div class="modal-actions">
+          <button class="modal-btn btn-secondary">Отмена</button>
+          <button class="modal-btn btn-primary">Удалить</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="meta-title">Mask<span class="meta-title-en">— затемнение фона</span></div>
+      <div class="meta-usage">Закрывает контент под модалкой/диалогом/drawer'ом. Концентрирует внимание на верхнем слое, отсекает клики мимо.</div>
+      <div class="meta-tokens">
+        <span class="tok tok-bg">overlay-mask</span>
+        <span class="tok">rgba(0, 17, 19, 0.60)</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- @dsCard group="Molecules" title="Alert — Web" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/alert/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Molecules/Alert/alert.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 24px 28px 48px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 28px; max-width: 680px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; color:rgba(0,0,0,0.87); }
+  .section + .section { margin-top: 32px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 16px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; max-width: 560px; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .foot { margin-top: 36px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; color:rgba(0,0,0,0.87); }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Alert — Web</div>
+  <div class="page-sub">Inline-баннер для сообщений в потоке страницы. 4 тона (info / success / warning / danger), иконка + заголовок + текст + действия + закрытие. Отдельно — тёмный offline-баннер. Цвета — через <code>--status-*</code>.</div>
+
+  <!-- ТОНА -->
+  <div class="section">
+    <div class="section-title">Тональности</div>
+    <div class="stack">
+      <div class="alert alert--info">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+        <div class="alert-body"><div class="alert-title">Доступно обновление прошивки кассы</div><div class="alert-text">Версия 4.2.1 готова к установке. Обновление займёт ~3 минуты.</div></div>
+        <button class="alert-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+
+      <div class="alert alert--success">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
+        <div class="alert-body"><div class="alert-title">Смена закрыта</div><div class="alert-text">Z-отчёт отправлен в ОФД. Выручка за смену — 84 320 ₽.</div></div>
+        <button class="alert-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+
+      <div class="alert alert--warning">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span>
+        <div class="alert-body"><div class="alert-title">Заканчивается чековая лента</div><div class="alert-text">Осталось ~15 чеков. Замените рулон, чтобы не прерывать продажи.</div></div>
+        <button class="alert-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+
+      <div class="alert alert--danger">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></span>
+        <div class="alert-body">
+          <div class="alert-title">Не удалось отправить чек в ОФД</div>
+          <div class="alert-text">Чек №1021 сохранён локально. Проверьте соединение и повторите отправку.</div>
+          <div class="alert-actions">
+            <button class="btn btn--danger btn--sm">Повторить</button>
+            <button class="btn btn--ghost btn--sm">Подробнее</button>
+          </div>
+        </div>
+        <button class="alert-close"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- БЕЗ ЗАГОЛОВКА -->
+  <div class="section">
+    <div class="section-title">Компактный — только текст</div>
+    <div class="stack">
+      <div class="alert alert--info">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+        <div class="alert-body"><div class="alert-text">Изменения сохранятся автоматически при закрытии формы.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFLINE -->
+  <div class="section">
+    <div class="section-title">Offline-баннер — касса без сети</div>
+    <div style="max-width: 560px; border-radius: 8px; overflow: hidden; border: 1px solid #E5E5E5;">
+      <div class="alert alert--offline">
+        <span class="alert-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M1 1l22 22M16.7 11.7a6 6 0 00-7.4 0M5 13a10 10 0 0114 0M8.5 16.5a5 5 0 017 0M12 20h.01"/></svg></span>
+        <div class="alert-body"><div class="alert-title">Нет соединения с сервером</div><div class="alert-text">Продажи продолжаются в офлайн-режиме. Чеки отправятся автоматически.</div></div>
+      </div>
+      <!-- контекст: под баннером таблица/контент -->
+      <div style="padding:16px; background:#FFF; font-size:13px; color:rgba(0,0,0,0.54);">Рабочая область кассы…</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Композирует Button (в действиях). Тона — <code>--status-info/success/warning/danger-*</code>, offline — <code>--color-neutral-800</code> + <code>--color-amber-300</code>. Левая полоса — <code>--border-width-accent</code> (4).<br>
+    Файлы: <code>Web/Foundations/Component tokens/alert/tokens.css</code> · <code>Web/Components/Molecules/Alert/alert.css</code>
+  </div>
+
+</body>
+</html>

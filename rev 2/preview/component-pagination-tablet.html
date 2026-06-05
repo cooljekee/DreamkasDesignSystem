@@ -1,0 +1,119 @@
+<!-- @dsCard group="Molecules" title="Pagination — Tablet" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/select/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Atoms/Select/select.v2.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/pagination/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Molecules/Pagination/pagination.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 24px 28px 48px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 28px; max-width: 680px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+  .section + .section { margin-top: 32px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 16px; }
+  .frame { background:#FFF; border:1px solid #E5E5E5; border-radius:8px; overflow:hidden; }
+  .foot { margin-top: 36px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Pagination — Tablet</div>
+  <div class="page-sub">Tablet (тач 40px). Под таблицу: счётчик диапазона, номера страниц с prev/next и эллипсисом, выбор «строк на странице». Числа — табличные. Активная страница — бренд-фон. Композирует Select + кнопки-номера.</div>
+
+  <!-- ═══════ ПОЛНЫЙ ═══════ -->
+  <div class="section">
+    <div class="section-title">Полный — под таблицей backoffice</div>
+    <div class="frame">
+      <nav class="pg">
+        <span class="pg-info"><b>1–20</b> из <b>1 248</b></span>
+        <div class="pg-pages">
+          <button class="pg-item pg-nav" disabled title="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="pg-item is-active">1</button>
+          <button class="pg-item">2</button>
+          <button class="pg-item">3</button>
+          <button class="pg-item">4</button>
+          <button class="pg-item">5</button>
+          <span class="pg-ellipsis">…</span>
+          <button class="pg-item">63</button>
+          <button class="pg-item pg-nav" title="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="pg-perpage">
+          <span class="pg-perpage-label">Строк:</span>
+          <div class="select select--sm" style="width:84px;"><div class="select-trigger"><span class="select-value">20</span><span class="select-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div></div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ═══════ СЕРЕДИНА ═══════ -->
+  <div class="section">
+    <div class="section-title">Средняя страница — эллипсис с двух сторон</div>
+    <div class="frame">
+      <nav class="pg">
+        <span class="pg-info"><b>621–640</b> из <b>1 248</b></span>
+        <div class="pg-pages">
+          <button class="pg-item pg-nav" title="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="pg-item">1</button>
+          <span class="pg-ellipsis">…</span>
+          <button class="pg-item">31</button>
+          <button class="pg-item is-active">32</button>
+          <button class="pg-item">33</button>
+          <span class="pg-ellipsis">…</span>
+          <button class="pg-item">63</button>
+          <button class="pg-item pg-nav" title="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="pg-perpage">
+          <span class="pg-perpage-label">Строк:</span>
+          <div class="select select--sm" style="width:84px;"><div class="select-trigger"><span class="select-value">20</span><span class="select-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div></div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ═══════ SIMPLE (mobile) ═══════ -->
+  <div class="section">
+    <div class="section-title">Simple — компактный (mobile / узкие блоки)</div>
+    <div class="frame" style="max-width:390px;">
+      <nav class="pg pg--simple">
+        <div class="pg-pages">
+          <button class="pg-item pg-nav" title="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <span class="pg-simple-label">Стр. 32 из 63</span>
+          <button class="pg-item pg-nav" title="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ═══════ SHOW MORE (mobile альт.) ═══════ -->
+  <div class="section">
+    <div class="section-title">«Показать ещё» — бесконечная лента (mobile)</div>
+    <div class="frame" style="max-width:390px; padding: 16px; text-align:center;">
+      <button class="btn btn--outline btn--md btn--fluid">Показать ещё 20</button>
+      <div style="font-size:12px; color:var(--text-secondary); margin-top:10px;">Показано 40 из 1 248</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Активная страница — <code>--bg-brand-default</code> + <code>--text-on-brand</code>, hover — <code>--bg-hover</code>, числа — tabular-nums. Per-page композирует Select.<br>
+    Файлы: <code>Web/Foundations/Component tokens/pagination/tokens.css</code> · <code>Web/Components/Molecules/Pagination/pagination.css</code>
+  </div>
+
+</body>
+</html>

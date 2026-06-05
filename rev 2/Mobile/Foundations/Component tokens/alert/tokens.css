@@ -1,0 +1,53 @@
+/* ============================================================
+ * Dreamkas — Alert Component Tokens (Web) — Molecule
+ *
+ * Inline-баннер + offline-вариант. Тона: info/success/warning/danger.
+ * Цвета — через --status-*.
+ * ============================================================ */
+
+:root {
+
+  /* ── Layout ───────────────────────────────────────── */
+  --alert-pad-y:        12px;
+  --alert-pad-x:        14px;
+  --alert-gap:          12px;        /* иконка ↔ контент */
+  --alert-radius:       var(--radius-control);   /* 6 */
+  --alert-border-w:     var(--border-width-default);
+  --alert-accent-w:     var(--border-width-accent);  /* 4 — левая полоса */
+  --alert-icon:         var(--size-icon-md);     /* 20 */
+
+  /* ── Typography ───────────────────────────────────── */
+  --alert-title-size:   var(--font-size-14);
+  --alert-title-weight: var(--font-weight-medium);
+  --alert-text-size:    var(--font-size-13);
+  --alert-text-color:   var(--text-primary);
+
+  /* ── Tones (bg / text-accent / border) ────────────── */
+  --alert-info-bg:        var(--status-info-bg);
+  --alert-info-accent:    var(--status-info-border);
+  --alert-info-icon:      var(--status-info-text);
+
+  --alert-success-bg:     var(--status-success-bg);
+  --alert-success-accent: var(--status-success-border);
+  --alert-success-icon:   var(--status-success-text);
+
+  --alert-warning-bg:     var(--status-warning-bg);
+  --alert-warning-accent: var(--status-warning-border);
+  --alert-warning-icon:   var(--status-warning-text);
+
+  --alert-danger-bg:      var(--status-danger-bg);
+  --alert-danger-accent:  var(--status-danger-border);
+  --alert-danger-icon:    var(--status-danger-text);
+
+  /* ── Offline (нейтрально-тёмный, заметный) ────────── */
+  --alert-offline-bg:     var(--surface-inverse);
+  --alert-offline-text:   var(--text-on-inverse);
+  --alert-offline-icon:   var(--color-amber-300);
+  --alert-offline-close:        var(--text-on-inverse-dim);
+  --alert-offline-close-hover:  var(--text-on-inverse);
+  --alert-offline-close-hover-bg: var(--overlay-on-inverse-faint);
+
+  /* ── Close / actions ──────────────────────────────── */
+  --alert-close:        var(--icon-secondary);
+  --alert-close-hover:  var(--text-primary);
+}

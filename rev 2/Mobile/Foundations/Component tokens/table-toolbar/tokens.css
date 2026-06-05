@@ -1,0 +1,50 @@
+/* ============================================================
+ * Dreamkas — Table Toolbar Component Tokens (Web) — Molecule
+ *
+ * Шапка над таблицей: поиск + фильтры-чипы + плотность + actions.
+ * + режим bulk (выбрано N) и плавающая selection-панель.
+ * ============================================================ */
+
+:root {
+
+  /* ── Layout ───────────────────────────────────────── */
+  --ttb-height:           56px;
+  --ttb-pad-x:            16px;
+  --ttb-gap:              12px;
+  --ttb-gap-tight:        8px;
+
+  /* ── Surface ──────────────────────────────────────── */
+  --ttb-bg:               var(--surface-default);
+  --ttb-border:           var(--divider-default);
+  --ttb-radius:           var(--radius-card);
+
+  /* ── Search ───────────────────────────────────────── */
+  --ttb-search-w:         280px;
+  --ttb-search-w-min:     180px;
+
+  /* ── Filter chips row ─────────────────────────────── */
+  --ttb-chips-gap:        8px;
+
+  /* ── Density toggle (segmented) ───────────────────── */
+  --ttb-seg-bg:           var(--bg-secondary);
+  --ttb-seg-active-bg:    var(--surface-default);
+  --ttb-seg-active-shadow: var(--shadow-card);
+  --ttb-seg-text:         var(--text-secondary);
+  --ttb-seg-text-active:  var(--text-primary);
+
+  /* ── Bulk mode (выбрано N) ────────────────────────── */
+  --ttb-bulk-bg:          var(--bg-selected);
+  --ttb-bulk-text:        var(--text-primary);
+  --ttb-bulk-accent:      var(--bg-brand-default);
+
+  /* ── Floating selection bar ───────────────────────── */
+  --ttb-float-bg:         var(--surface-inverse);
+  --ttb-float-text:       var(--text-on-inverse);
+  --ttb-float-shadow:     var(--shadow-dropdown);
+  --ttb-float-radius:     var(--radius-lg);
+  --ttb-float-sep:        var(--divider-on-inverse);
+  --ttb-float-btn-hover:  var(--overlay-on-inverse-faint);
+
+  /* ── Divider между группами ───────────────────────── */
+  --ttb-divider:          var(--divider-default);
+}

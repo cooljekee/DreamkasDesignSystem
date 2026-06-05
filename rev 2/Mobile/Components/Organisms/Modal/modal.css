@@ -1,0 +1,113 @@
+/* ============================================================
+ * Dreamkas — Modal / Dialog (Web) — Organism
+ *
+ *   <div class="modal-overlay">
+ *     <div class="modal modal--md">
+ *       <div class="modal-header">
+ *         <div class="modal-title">Заголовок</div>
+ *         <button class="modal-close">×</button>
+ *       </div>
+ *       <div class="modal-body"> … Form Field … </div>
+ *       <div class="modal-footer"> … Button … </div>
+ *     </div>
+ *   </div>
+ *
+ * Размер: modal--sm | modal--md
+ * Тип-иконка: modal-icon--danger | modal-icon--info (для confirm/info)
+ * Mobile: .modal-overlay--sheet → .modal крепится снизу (bottom sheet)
+ *
+ * ЗАВИСИМОСТИ: foundation, modal/tokens.css + Button/FormField (контент)
+ * ============================================================ */
+
+.modal-overlay {
+  position: absolute;        /* в превью; в проде — fixed */
+  inset: 0;
+  background: var(--modal-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--modal-overlay-pad);
+  font-family: var(--font-family-sans);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--modal-bg);
+  border-radius: var(--modal-radius);
+  box-shadow: var(--modal-shadow);
+  max-height: var(--modal-max-h);
+  overflow: hidden;
+}
+.modal--sm { max-width: var(--modal-w-sm); }
+.modal--md { max-width: var(--modal-w-md); }
+
+/* ── Header ────────────────────────────────────────── */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: var(--modal-pad-y) var(--modal-pad-x);
+  border-bottom: 1px solid var(--modal-divider);
+}
+.modal-header--plain { border-bottom: 0; padding-bottom: 0; }
+.modal-title { flex: 1; min-width: 0; font-size: var(--modal-title-size); font-weight: var(--modal-title-weight); color: var(--text-primary); line-height: 1.35; }
+.modal-subtitle { font-size: var(--font-size-13); color: var(--text-secondary); margin-top: 3px; font-weight: 400; }
+
+.modal-close {
+  flex-shrink: 0; width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-control); color: var(--modal-close);
+  margin: -4px -6px 0 0;
+}
+.modal-close:hover { background: var(--bg-hover); color: var(--modal-close-hover); }
+.modal-close svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── Body ──────────────────────────────────────────── */
+.modal-body {
+  padding: var(--modal-pad-y) var(--modal-pad-x);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modal-gap);
+}
+.modal-body--center { align-items: center; text-align: center; }
+
+/* ── Footer ────────────────────────────────────────── */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: var(--modal-pad-y) var(--modal-pad-x);
+  border-top: 1px solid var(--modal-divider);
+}
+.modal-footer--spread { justify-content: space-between; }
+
+/* ── Тип-иконка (confirm / info) ───────────────────── */
+.modal-icon {
+  width: var(--modal-icon-size); height: var(--modal-icon-size);
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full);
+}
+.modal-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.modal-icon--danger { background: var(--modal-icon-danger-bg); color: var(--modal-icon-danger); }
+.modal-icon--info   { background: var(--modal-icon-info-bg);   color: var(--modal-icon-info); }
+
+/* ── Bottom sheet (mobile) ─────────────────────────── */
+.modal-overlay--sheet { align-items: flex-end; padding: 0; }
+.modal-overlay--sheet .modal {
+  max-width: 100%;
+  border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
+  max-height: 92vh;
+}
+.modal-sheet-handle {
+  width: 36px; height: 4px;
+  background: var(--sheet-handle);
+  border-radius: var(--radius-full);
+  margin: 8px auto 0;
+  flex-shrink: 0;
+}

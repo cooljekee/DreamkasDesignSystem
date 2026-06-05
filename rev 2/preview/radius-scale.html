@@ -1,0 +1,112 @@
+<!-- @dsCard group="Spacing" title="Radius Scale" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px; }
+  .radius-row {
+    display: grid;
+    grid-template-columns: 130px 64px 80px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .radius-row:last-child { border-bottom: 0; }
+  .name {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    white-space: nowrap;
+  }
+  .px {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    text-align: right;
+  }
+  .shape {
+    width: 56px;
+    height: 56px;
+    background: #0097A7;
+  }
+  .usage {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.45;
+  }
+  .usage strong {
+    color: rgba(0,0,0,0.87);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+  <div class="radius-row">
+    <div class="name">--radius-none</div>
+    <div class="px">0px</div>
+    <div><div class="shape" style="border-radius:0;"></div></div>
+    <div class="usage"><strong>Без скругления.</strong> Таблицы, разделители, прямоугольные блоки</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-xs</div>
+    <div class="px">2px</div>
+    <div><div class="shape" style="border-radius:2px;"></div></div>
+    <div class="usage"><strong>Очень мелкое.</strong> Чекбоксы, мелкие тэги, индикаторы</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-sm</div>
+    <div class="px">4px</div>
+    <div><div class="shape" style="border-radius:4px;"></div></div>
+    <div class="usage"><strong>Мелкие контролы.</strong> Бэйджи, small-кнопки, индикаторы статусов</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-md <span style="background:#E0F3F4;color:#006978;font-size:9px;padding:1px 5px;border-radius:3px;font-family:sans-serif;font-weight:700;letter-spacing:0.04em;margin-left:4px;">CONTROL</span></div>
+    <div class="px">6px</div>
+    <div><div class="shape" style="border-radius:6px;"></div></div>
+    <div class="usage"><strong>Кнопки и инпуты.</strong> Все основные интерактивные контролы Dreamkas</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-lg <span style="background:#E0F3F4;color:#006978;font-size:9px;padding:1px 5px;border-radius:3px;font-family:sans-serif;font-weight:700;letter-spacing:0.04em;margin-left:4px;">CARD</span></div>
+    <div class="px">8px</div>
+    <div><div class="shape" style="border-radius:8px;"></div></div>
+    <div class="usage"><strong>Карточки и плашки.</strong> Карточки товаров, info-баннеры, alert</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-xl <span style="background:#E0F3F4;color:#006978;font-size:9px;padding:1px 5px;border-radius:3px;font-family:sans-serif;font-weight:700;letter-spacing:0.04em;margin-left:4px;">SURFACE</span></div>
+    <div class="px">12px</div>
+    <div><div class="shape" style="border-radius:12px;"></div></div>
+    <div class="usage"><strong>Поверхности.</strong> Модалки, попапы, дроверы, контекст-меню</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-2xl</div>
+    <div class="px">16px</div>
+    <div><div class="shape" style="border-radius:16px;"></div></div>
+    <div class="usage"><strong>Крупные блоки.</strong> Hero-секции, featured-карточки, тариф-блоки</div>
+  </div>
+
+  <div class="radius-row">
+    <div class="name">--radius-full <span style="background:#E0F3F4;color:#006978;font-size:9px;padding:1px 5px;border-radius:3px;font-family:sans-serif;font-weight:700;letter-spacing:0.04em;margin-left:4px;">PILL · CIRCLE</span></div>
+    <div class="px">∞</div>
+    <div><div class="shape" style="border-radius:9999px;"></div></div>
+    <div class="usage"><strong>Аватары, чипы, dot-индикаторы.</strong> Pill-кнопки, теги, статусные точки</div>
+  </div>
+
+</body>
+</html>

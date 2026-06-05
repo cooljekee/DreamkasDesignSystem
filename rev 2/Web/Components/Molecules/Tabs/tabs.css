@@ -1,0 +1,122 @@
+/* ============================================================
+ * Dreamkas — Tabs (Web) — Molecule
+ *
+ *   <div class="tabs tabs--underline">
+ *     <button class="tab is-active">Товары <span class="tab-badge">124</span></button>
+ *     <button class="tab">Категории</button>
+ *     <button class="tab" disabled>Архив</button>
+ *   </div>
+ *
+ * Стиль: tabs--underline | tabs--pills | tabs--boxed
+ * Опции: tabs--scroll (горизонтальная прокрутка)
+ * Состояние таба: is-active · disabled
+ *
+ * ЗАВИСИМОСТИ: foundation primitive+semantic, tabs/tokens.css
+ * ============================================================ */
+
+.tabs {
+  display: flex;
+  align-items: center;
+  font-family: var(--tab-font-family);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tab-gap);
+  height: var(--tab-h);
+  padding: 0 var(--tab-pad-x);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--tab-font);
+  font-weight: var(--tab-weight);
+  color: var(--tab-text);
+  white-space: nowrap;
+  transition: color .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+.tab:hover:not(:disabled):not(.is-active) { color: var(--tab-text-hover); }
+.tab:disabled { color: var(--tab-text-disabled); cursor: not-allowed; }
+
+.tab-icon { width: var(--tab-icon); height: var(--tab-icon); flex-shrink: 0; }
+.tab-icon svg { width: 100%; height: 100%; }
+
+/* counter badge */
+.tab-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 18px; padding: 0 6px;
+  border-radius: var(--radius-full);
+  background: var(--tab-badge-bg);
+  color: var(--tab-badge-text);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+.tab.is-active .tab-badge { background: var(--tab-badge-active-bg); color: var(--tab-badge-active-text); }
+
+/* ════════ UNDERLINE ════════ */
+.tabs--underline {
+  border-bottom: 1px solid var(--tab-rail);
+  gap: 2px;
+}
+.tabs--underline .tab {
+  position: relative;
+  margin-bottom: -1px;
+}
+.tabs--underline .tab.is-active { color: var(--tab-text-active); }
+.tabs--underline .tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: var(--tab-pad-x); right: var(--tab-pad-x);
+  bottom: 0;
+  height: var(--tab-underline-w);
+  background: var(--tab-underline);
+  border-radius: var(--tab-underline-w) var(--tab-underline-w) 0 0;
+}
+
+/* ════════ PILLS ════════ */
+.tabs--pills {
+  gap: var(--tab-row-gap);
+  padding: 2px;
+  background: var(--tab-pills-bg);
+  border-radius: calc(var(--tab-pills-radius) + 2px);
+  align-self: flex-start;
+}
+.tabs--pills .tab {
+  height: 32px;
+  border-radius: var(--tab-pills-radius);
+}
+.tabs--pills .tab:hover:not(:disabled):not(.is-active) { background: var(--tab-bg-hover); }
+.tabs--pills .tab.is-active {
+  background: var(--tab-pills-active-bg);
+  box-shadow: var(--tab-pills-active-shadow);
+  color: var(--tab-text-active);
+}
+
+/* ════════ BOXED (папки) ════════ */
+.tabs--boxed {
+  gap: var(--tab-row-gap);
+  border-bottom: 1px solid var(--tab-boxed-border);
+}
+.tabs--boxed .tab {
+  margin-bottom: -1px;
+  border: 1px solid transparent;
+  border-radius: var(--tab-boxed-radius) var(--tab-boxed-radius) 0 0;
+}
+.tabs--boxed .tab:hover:not(:disabled):not(.is-active) { background: var(--tab-bg-hover); }
+.tabs--boxed .tab.is-active {
+  background: var(--tab-boxed-active-bg);
+  border-color: var(--tab-boxed-border);
+  border-bottom-color: var(--tab-boxed-active-bg);
+  color: var(--tab-text-active);
+}
+
+/* ════════ SCROLL (переполнение) ════════ */
+.tabs--scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs--scroll::-webkit-scrollbar { display: none; }
+.tabs--scroll .tab { flex-shrink: 0; }

@@ -1,0 +1,70 @@
+<!-- @dsCard group="Molecules" title="Pagination — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/pagination/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Pagination/pagination.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 40px; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+  .section + .section { margin-top: 28px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .section-note { font-size: 12px; color: rgba(0,0,0,0.54); margin: -6px 0 14px; }
+  .frame { background:#FFF; border:1px solid #E5E5E5; border-radius:10px; overflow:hidden; }
+  .foot { margin-top: 32px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Pagination — Mobile</div>
+  <div class="page-sub">На телефоне номера страниц не нужны — основной паттерн «Показать ещё» (бесконечная лента), запасной — компактный prev/next со счётчиком. Тач-кнопки 44px.</div>
+
+  <!-- ═══════ SHOW MORE — основной ═══════ -->
+  <div class="section">
+    <div class="section-title">«Показать ещё» — основной</div>
+    <div class="section-note">Лента подгружается, без перехода по страницам.</div>
+    <div class="frame" style="padding: 16px; text-align:center;">
+      <button class="btn btn--outline btn--md btn--fluid">Показать ещё 20</button>
+      <div style="font-size:12px; color:var(--text-secondary); margin-top:10px;">Показано 40 из 1 248</div>
+    </div>
+  </div>
+
+  <!-- ═══════ SIMPLE — запасной ═══════ -->
+  <div class="section">
+    <div class="section-title">Simple — prev/next со счётчиком</div>
+    <div class="section-note">Когда нужны именно страницы (отчёт, сверка).</div>
+    <div class="frame">
+      <nav class="pg pg--simple">
+        <div class="pg-pages">
+          <button class="pg-item pg-nav" title="Назад"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <span class="pg-simple-label">Стр. 32 из 63</span>
+          <button class="pg-item pg-nav" title="Вперёд"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="foot">
+    Mobile: «Показать ещё» (infinite) — основной, simple prev/next — запасной. Тач-кнопки 44px (<code>--pg-size</code>).<br>
+    Файлы: <code>Mobile/Components/Molecules/Pagination/pagination.css</code>
+  </div>
+
+</body>
+</html>

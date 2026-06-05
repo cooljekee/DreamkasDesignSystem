@@ -1,0 +1,117 @@
+/* ============================================================
+ * Dreamkas — Table Toolbar (Web) — Molecule
+ *
+ *   <div class="ttb">
+ *     <div class="ttb-left"> search + filter button + chips </div>
+ *     <div class="ttb-right"> density + export + primary </div>
+ *   </div>
+ *
+ * Bulk-режим (выбраны строки):  .ttb--bulk на корне
+ * Плавающая панель:             .ttb-float (отдельный блок)
+ *
+ * ЗАВИСИМОСТИ: foundation primitive+semantic, table-toolbar/tokens.css,
+ *             + атомы Button / Input / Badge / Select
+ * ============================================================ */
+
+.ttb {
+  display: flex;
+  align-items: center;
+  gap: var(--ttb-gap);
+  min-height: var(--ttb-height);
+  padding: var(--ttb-gap-tight) var(--ttb-pad-x);
+  background: var(--ttb-bg);
+  border-bottom: 1px solid var(--ttb-border);
+  font-family: var(--font-family-sans);
+  flex-wrap: wrap;
+}
+.ttb-left  { display: flex; align-items: center; gap: var(--ttb-gap); flex: 1; min-width: 0; flex-wrap: wrap; }
+.ttb-right { display: flex; align-items: center; gap: var(--ttb-gap-tight); flex-shrink: 0; }
+.ttb-spacer { flex: 1; }
+
+/* вертикальный разделитель между группами */
+.ttb-sep { width: 1px; align-self: stretch; margin: 6px 2px; background: var(--ttb-divider); }
+
+/* ── Search ───────────────────────────────────────── */
+.ttb-search { width: var(--ttb-search-w); min-width: var(--ttb-search-w-min); flex-shrink: 1; }
+
+/* ── Filter chips ─────────────────────────────────── */
+.ttb-chips { display: flex; align-items: center; gap: var(--ttb-chips-gap); flex-wrap: wrap; }
+
+/* активный фильтр-чип = badge tag с крестиком (используем .badge--tag) */
+.ttb-chip-clear {
+  font-size: var(--font-size-13);
+  color: var(--bg-brand-default);
+  cursor: pointer;
+  white-space: nowrap;
+  background: none; border: 0; padding: 4px 6px;
+}
+.ttb-chip-clear:hover { text-decoration: underline; }
+
+/* ── Density toggle (segmented control) ───────────── */
+.ttb-seg {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--ttb-seg-bg);
+  border-radius: var(--radius-control);
+}
+.ttb-seg-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 28px; padding: 0 8px;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: calc(var(--radius-control) - 1px);
+  color: var(--ttb-seg-text);
+}
+.ttb-seg-btn svg { width: 16px; height: 16px; }
+.ttb-seg-btn.is-active {
+  background: var(--ttb-seg-active-bg);
+  box-shadow: var(--ttb-seg-active-shadow);
+  color: var(--ttb-seg-text-active);
+}
+
+/* ── Bulk mode (тулбар при выбранных строках) ─────── */
+.ttb--bulk {
+  background: var(--ttb-bulk-bg);
+  box-shadow: inset 3px 0 0 var(--ttb-bulk-accent);
+}
+.ttb-bulk-count {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  color: var(--ttb-bulk-text);
+  white-space: nowrap;
+}
+.ttb-bulk-clear {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border: 0; background: transparent;
+  border-radius: var(--radius-control); cursor: pointer; color: var(--icon-secondary);
+}
+.ttb-bulk-clear:hover { background: var(--bg-hover); color: var(--text-primary); }
+.ttb-bulk-clear svg { width: 16px; height: 16px; }
+
+/* ── Floating selection bar (снизу по центру) ─────── */
+.ttb-float {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px 10px 16px;
+  background: var(--ttb-float-bg);
+  color: var(--ttb-float-text);
+  border-radius: var(--ttb-float-radius);
+  box-shadow: var(--ttb-float-shadow);
+  font-family: var(--font-family-sans);
+}
+.ttb-float-count { font-size: var(--font-size-14); font-weight: var(--font-weight-medium); white-space: nowrap; }
+.ttb-float-actions { display: inline-flex; align-items: center; gap: 4px; }
+.ttb-float-sep { width: 1px; height: 24px; background: var(--ttb-float-sep); }
+.ttb-float-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 32px; padding: 0 12px;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-control);
+  color: var(--ttb-float-text); font-size: var(--font-size-13); font-weight: var(--font-weight-medium);
+}
+.ttb-float-btn:hover { background: var(--ttb-float-btn-hover); }
+.ttb-float-btn svg { width: 16px; height: 16px; }
+.ttb-float-btn.is-danger { color: var(--color-red-300); }
+
+/* ── Mobile: схлопывание ──────────────────────────── */
+.ttb--compact-mobile .ttb-search { width: 100%; }

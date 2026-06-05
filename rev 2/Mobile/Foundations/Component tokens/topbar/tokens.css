@@ -1,0 +1,58 @@
+/* ============================================================
+ * Dreamkas — Topbar / Header Component Tokens (Web) — Organism
+ *
+ * Верхняя панель backoffice. Бургер, поиск, индикатор смены,
+ * offline-статус (чип + баннер), уведомления, профиль.
+ * ============================================================ */
+
+:root {
+
+  /* ── Layout ───────────────────────────────────────── */
+  --tb-height:          56px;
+  --tb-pad-x:           16px;
+  --tb-gap:             12px;
+
+  /* ── Surface ──────────────────────────────────────── */
+  --tb-bg:              var(--surface-default);
+  --tb-border:          var(--divider-default);
+
+  /* ── Кнопки-иконки (бургер, колокол) ──────────────── */
+  --tb-icon-btn:        40px;
+  --tb-icon:            var(--size-icon-md);   /* 20 */
+  --tb-icon-color:      var(--icon-secondary);
+  --tb-icon-hover-bg:   var(--bg-hover);
+  --tb-icon-hover:      var(--text-primary);
+
+  /* ── Заголовок страницы ───────────────────────────── */
+  --tb-title:           var(--text-primary);
+  --tb-title-size:      var(--font-size-16);
+
+  /* ── Поиск ────────────────────────────────────────── */
+  --tb-search-w:        320px;
+  --tb-search-bg:       var(--surface-sunken);
+
+  /* ── Индикатор смены ──────────────────────────────── */
+  --tb-shift-open-bg:    var(--status-success-bg);
+  --tb-shift-open-text:  var(--status-success-text);
+  --tb-shift-closed-bg:  var(--bg-secondary);
+  --tb-shift-closed-text:var(--text-secondary);
+
+  /* ── Offline / sync статус ────────────────────────── */
+  --tb-online:          var(--status-success-text);
+  --tb-offline-bg:      var(--status-danger-bg);
+  --tb-offline-text:    var(--status-danger-text);
+  --tb-sync-bg:         var(--status-warning-bg);
+  --tb-sync-text:       var(--status-warning-text);
+
+  /* ── Offline-баннер (полоса под топбаром) ─────────── */
+  --tb-banner-bg:       var(--color-red-600);
+  --tb-banner-text:     var(--text-on-danger);
+
+  /* ── Колокол-бейдж ────────────────────────────────── */
+  --tb-bell-dot:        var(--bg-danger-default);
+  --tb-bell-count-text: var(--text-on-danger);   /* счётчик на красной точке */
+
+  /* ── Профиль ──────────────────────────────────────── */
+  --tb-profile-hover:   var(--bg-hover);
+  --tb-divider:         var(--divider-default);
+}

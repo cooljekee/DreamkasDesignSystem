@@ -1,0 +1,197 @@
+/* ============================================================
+ * Dreamkas — Sidebar / Nav (Web) — Organism
+ *
+ *   <aside class="sb">
+ *     <div class="sb-logo">…</div>
+ *     <nav class="sb-nav">
+ *       <div class="sb-group">Основное</div>
+ *       <a class="sb-item is-active"><span class="sb-item-icon">…</span>
+ *          <span class="sb-item-label">Товары</span>
+ *          <span class="sb-item-badge">94</span></a>
+ *     </nav>
+ *     <div class="sb-footer">… профиль …</div>
+ *   </aside>
+ *
+ * Свёрнутый режим: .sb--collapsed (только иконки)
+ * Состояние пункта: is-active · disabled
+ *
+ * ЗАВИСИМОСТИ: foundation, sidebar/tokens.css, avatar.css (профиль)
+ * ============================================================ */
+
+.sb {
+  display: flex;
+  flex-direction: column;
+  width: var(--sb-width);
+  height: 100%;
+  background: var(--sb-bg);
+  border-right: 1px solid var(--sb-border);
+  font-family: var(--font-family-sans);
+  transition: width .18s ease;
+}
+.sb--collapsed { width: var(--sb-width-collapsed); }
+
+/* ── Logo ──────────────────────────────────────────── */
+.sb-logo {
+  display: flex; align-items: center; gap: 10px;
+  height: var(--sb-logo-h);
+  padding: 0 var(--sb-pad);
+  flex-shrink: 0;
+}
+.sb-logo-mark {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: var(--radius-control);
+  background: var(--bg-brand-default);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--sb-logo-mark-text); font-weight: 700; font-size: 16px;
+}
+.sb-logo-text { font-size: 16px; font-weight: 700; color: var(--text-primary); white-space: nowrap; }
+.sb--collapsed .sb-logo-text { display: none; }
+
+/* ── Nav ───────────────────────────────────────────── */
+.sb-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sb-pad);
+  display: flex; flex-direction: column; gap: var(--sb-gap);
+}
+
+.sb-group {
+  font-size: var(--sb-group-font);
+  font-weight: var(--font-weight-medium);
+  color: var(--sb-group-text);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 14px var(--sb-item-pad-x) 6px;
+}
+.sb--collapsed .sb-group { text-align: center; padding: 14px 0 6px; font-size: 10px; }
+
+/* ── Item ──────────────────────────────────────────── */
+.sb-item {
+  position: relative;
+  display: flex; align-items: center; gap: var(--sb-item-gap);
+  height: var(--sb-item-h);
+  padding: 0 var(--sb-item-pad-x);
+  border-radius: var(--sb-item-radius);
+  color: var(--sb-item-text);
+  font-size: var(--sb-item-font);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .12s ease, color .12s ease;
+}
+.sb-item-icon { width: var(--sb-icon); height: var(--sb-icon); flex-shrink: 0; color: var(--sb-item-icon); }
+.sb-item-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sb-item-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+.sb-item-badge {
+  flex-shrink: 0;
+  min-width: 20px; height: 18px; padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--sb-badge-bg); color: var(--sb-badge-text);
+  font-size: var(--font-size-12); font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+/* hover */
+.sb-item:hover:not(.is-active):not(.is-disabled) { background: var(--sb-item-bg-hover); color: var(--sb-item-text-hover); }
+.sb-item:hover:not(.is-active):not(.is-disabled) .sb-item-icon { color: var(--sb-item-text-hover); }
+
+/* active */
+.sb-item.is-active {
+  background: var(--sb-item-bg-active);
+  color: var(--sb-item-text-active);
+}
+.sb-item.is-active .sb-item-icon { color: var(--sb-item-icon-active); }
+.sb-item.is-active::before {
+  content: "";
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: var(--sb-item-accent-w); height: 20px;
+  background: var(--sb-item-accent);
+  border-radius: 0 var(--sb-item-accent-w) var(--sb-item-accent-w) 0;
+}
+.sb-item.is-active .sb-item-badge { background: var(--sb-badge-active-bg); color: var(--sb-badge-active-text); }
+
+/* disabled */
+.sb-item.is-disabled { color: var(--sb-item-text-disabled); cursor: not-allowed; pointer-events: none; }
+.sb-item.is-disabled .sb-item-icon { color: var(--sb-item-text-disabled); }
+
+/* collapsed — прячем подписи и бейджи, центрируем иконку */
+.sb--collapsed .sb-item { justify-content: center; padding: 0; }
+.sb--collapsed .sb-item-label,
+.sb--collapsed .sb-item-badge { display: none; }
+
+/* ── Footer / профиль ──────────────────────────────── */
+.sb-footer {
+  flex-shrink: 0;
+  padding: var(--sb-pad);
+  border-top: 1px solid var(--sb-footer-border);
+}
+.sb-profile {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px; border-radius: var(--sb-item-radius);
+  cursor: pointer;
+}
+.sb-profile:hover { background: var(--sb-item-bg-hover); }
+.sb-profile-info { flex: 1; min-width: 0; line-height: 1.3; }
+.sb-profile-name { font-size: var(--font-size-13); font-weight: var(--font-weight-medium); color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-profile-role { font-size: var(--font-size-12); color: var(--text-secondary); }
+.sb--collapsed .sb-profile-info { display: none; }
+.sb--collapsed .sb-profile { justify-content: center; padding: 6px 0; }
+
+/* ── Collapse-кнопка ───────────────────────────────── */
+.sb-collapse {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border: 0; background: transparent;
+  border-radius: var(--radius-control); cursor: pointer; color: var(--icon-secondary);
+  margin-left: auto; flex-shrink: 0;
+}
+.sb-collapse:hover { background: var(--bg-hover); color: var(--text-primary); }
+.sb-collapse svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sb--collapsed .sb-collapse { display: none; }
+
+/* ── Mobile drawer ─────────────────────────────────── */
+.sb-overlay {
+  position: absolute; inset: 0;
+  background: var(--sb-overlay);
+  display: flex;
+}
+.sb-overlay .sb {
+  box-shadow: var(--sb-drawer-shadow);
+  height: 100%;
+}
+
+/* ── Bottom nav (mobile tab bar) ───────────────────── */
+.sb-bottom {
+  display: flex;
+  align-items: stretch;
+  background: var(--sb-bg);
+  border-top: 1px solid var(--sb-border);
+  padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px));
+}
+.sb-bottom-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 56px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--sb-item-text);
+  text-decoration: none;
+  border-radius: var(--sb-item-radius);
+  position: relative;
+}
+.sb-bottom-icon { width: 24px; height: 24px; }
+.sb-bottom-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sb-bottom-label { font-size: 11px; font-weight: var(--font-weight-medium); line-height: 1; }
+.sb-bottom-item.is-active { color: var(--sb-item-text-active); }
+/* бейдж-точка для счётчика */
+.sb-bottom-dot {
+  position: absolute; top: 8px; left: 50%; margin-left: 6px;
+  min-width: 8px; height: 8px; border-radius: var(--radius-full);
+  background: var(--bg-danger-default);
+}

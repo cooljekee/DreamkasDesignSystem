@@ -1,0 +1,109 @@
+<!-- @dsCard group="Molecules" title="Table Toolbar — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/input/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Input/input.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/badge/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Badge/badge.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/table-toolbar/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/TableToolbar/table-toolbar.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 40px; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 24px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+  .section + .section { margin-top: 28px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 14px; }
+  .section-note { font-size: 12px; color: rgba(0,0,0,0.54); margin: -6px 0 14px; }
+  .frame { background:#FFF; border:1px solid #E5E5E5; border-radius:10px; overflow:hidden; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .icon-btn { width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border-default); background:var(--surface-default); border-radius:var(--radius-control); cursor:pointer; color:var(--icon-secondary); flex-shrink:0; }
+  .icon-btn svg { width:20px; height:20px; }
+  .foot { margin-top: 32px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Table Toolbar — Mobile</div>
+  <div class="page-sub">На телефоне тулбар схлопывается: поиск во всю ширину + иконка фильтра, первичное действие — отдельной кнопкой. Чипы переносятся. Bulk-режим компактный.</div>
+
+  <!-- ═══════ СХЛОПНУТЫЙ ═══════ -->
+  <div class="section">
+    <div class="section-title">Основной — поиск + фильтр</div>
+    <div class="frame">
+      <div class="ttb ttb--compact-mobile" style="flex-wrap:nowrap;">
+        <div class="ttb-search field field--md" style="flex:1;">
+          <div class="field-control">
+            <span class="field-icon" style="margin-left:0;margin-right:8px;color:var(--icon-secondary);"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>
+            <input class="field-input" type="text" placeholder="Поиск или ШК"/>
+          </div>
+        </div>
+        <button class="icon-btn" title="Фильтры"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg></button>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+      <button class="btn btn--primary btn--md btn--fluid"><span class="btn-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>Добавить товар</button>
+    </div>
+  </div>
+
+  <!-- ═══════ С ЧИПАМИ ═══════ -->
+  <div class="section">
+    <div class="section-title">Активные фильтры</div>
+    <div class="frame">
+      <div class="ttb ttb--compact-mobile" style="flex-wrap:nowrap;">
+        <div class="ttb-search field field--md" style="flex:1;">
+          <div class="field-control">
+            <span class="field-icon" style="margin-left:0;margin-right:8px;color:var(--icon-secondary);"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>
+            <input class="field-input" type="text" value="кофе"/>
+          </div>
+        </div>
+        <button class="icon-btn" title="Фильтры" style="position:relative;color:var(--bg-brand-default);border-color:var(--bg-brand-default);"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg></button>
+      </div>
+      <div class="ttb-chips" style="padding: 0 16px 14px;">
+        <span class="badge badge--md badge--tag badge--neutral">В наличии<span class="badge-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></span>
+        <span class="badge badge--md badge--tag badge--neutral">Бакалея<span class="badge-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ BULK ═══════ -->
+  <div class="section">
+    <div class="section-title">Bulk — выбраны строки</div>
+    <div class="section-note">Действия уходят в иконки/меню — экономия ширины.</div>
+    <div class="frame">
+      <div class="ttb ttb--bulk" style="flex-wrap:nowrap;">
+        <div class="ttb-left" style="flex:1;">
+          <button class="ttb-bulk-clear" style="width:36px;height:36px;"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          <span class="ttb-bulk-count">Выбрано 3</span>
+        </div>
+        <div class="ttb-right">
+          <button class="icon-btn" title="Экспорт" style="border:0;"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></button>
+          <button class="icon-btn" title="Удалить" style="border:0;color:var(--color-red-600);"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Mobile-паттерн: поиск во всю ширину + иконка фильтра, «Добавить» отдельной fluid-кнопкой, bulk-actions в иконках. Те же токены, что Web.<br>
+    Файлы: <code>Mobile/Components/Molecules/TableToolbar/table-toolbar.css</code>
+  </div>
+
+</body>
+</html>

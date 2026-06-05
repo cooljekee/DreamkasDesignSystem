@@ -1,0 +1,92 @@
+/* ============================================================
+ * Dreamkas — Toast / Snackbar (Web) — Molecule
+ *
+ *   <div class="toast toast--success">
+ *     <span class="toast-icon">…</span>
+ *     <div class="toast-body">
+ *       <span class="toast-text">Чек сохранён</span>
+ *     </div>
+ *     <button class="toast-action">Отменить</button>
+ *     <button class="toast-close">×</button>
+ *   </div>
+ *
+ * Контейнер стека: .toast-region (фиксируется в углу экрана)
+ * Тон: toast--info | toast--success | toast--warning | toast--danger
+ *
+ * ЗАВИСИМОСТИ: foundation primitive+semantic, toast/tokens.css
+ * ============================================================ */
+
+/* ── Region (стек тостов) ──────────────────────────── */
+.toast-region {
+  display: flex;
+  flex-direction: column;
+  gap: var(--toast-stack-gap);
+  width: max-content;
+  max-width: var(--toast-max-w);
+}
+.toast-region--bottom { justify-content: flex-end; }
+
+/* ── Toast ─────────────────────────────────────────── */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--toast-gap);
+  min-width: var(--toast-min-w);
+  max-width: var(--toast-max-w);
+  padding: var(--toast-pad-y) var(--toast-pad-x);
+  background: var(--toast-bg);
+  border-radius: var(--toast-radius);
+  box-shadow: var(--toast-shadow);
+  font-family: var(--font-family-sans);
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-icon { flex-shrink: 0; width: var(--toast-icon); height: var(--toast-icon); color: var(--_icon, var(--toast-text)); }
+.toast-icon svg { width: 100%; height: 100%; }
+
+.toast-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.toast-text  { font-size: var(--font-size-14); font-weight: var(--font-weight-medium); color: var(--toast-text); line-height: 1.35; }
+.toast-sub   { font-size: var(--font-size-13); color: var(--toast-text-dim); line-height: 1.4; }
+
+.toast-action {
+  flex-shrink: 0;
+  border: 0; background: transparent; cursor: pointer;
+  font-family: inherit; font-size: var(--font-size-13); font-weight: var(--font-weight-medium);
+  color: var(--toast-action);
+  padding: 4px 6px; border-radius: var(--radius-sm);
+}
+.toast-action:hover { background: var(--toast-hover-bg); }
+
+.toast-close {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: var(--toast-close); margin: 0 -4px 0 0;
+}
+.toast-close:hover { color: var(--toast-close-hover); background: var(--toast-hover-bg); }
+.toast-close svg { width: 16px; height: 16px; }
+
+/* ── Тоновые иконки ────────────────────────────────── */
+.toast--info    { --_icon: var(--toast-info-icon); }
+.toast--success { --_icon: var(--toast-success-icon); }
+.toast--warning { --_icon: var(--toast-warning-icon); }
+.toast--danger  { --_icon: var(--toast-danger-icon); }
+
+/* ── Прогресс-полоса авто-скрытия ──────────────────── */
+.toast-progress {
+  position: absolute;
+  left: 0; bottom: 0; height: 2px;
+  background: var(--toast-progress);
+}
+
+/* ── Анимация появления (gated) ────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .toast-region[data-animate] .toast { animation: toast-in .2s ease both; }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}

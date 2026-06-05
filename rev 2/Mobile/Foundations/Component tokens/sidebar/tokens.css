@@ -1,0 +1,60 @@
+/* ============================================================
+ * Dreamkas — Sidebar / Nav Component Tokens (Web) — Organism
+ *
+ * Боковое меню backoffice. Состояния пунктов на токенах
+ * (взамен удалённого Semantic — Nav). Развёрнут / свёрнут.
+ * ============================================================ */
+
+:root {
+
+  /* ── Layout ───────────────────────────────────────── */
+  --sb-width:           248px;
+  --sb-width-collapsed: 64px;
+  --sb-pad:             12px;
+  --sb-gap:             2px;
+
+  /* ── Surface ──────────────────────────────────────── */
+  --sb-bg:              var(--surface-default);
+  --sb-border:          var(--divider-default);
+
+  /* ── Logo / header ────────────────────────────────── */
+  --sb-logo-h:          56px;
+  --sb-logo-mark-text:  var(--text-on-brand);   /* буква/знак лого на бренд-подложке */
+
+  /* ── Nav item ─────────────────────────────────────── */
+  --sb-item-h:          48px;
+  --sb-item-radius:     var(--radius-control);
+  --sb-item-gap:        12px;
+  --sb-item-pad-x:      12px;
+  --sb-item-font:       var(--font-size-14);
+  --sb-icon:            var(--size-icon-md);   /* 20 */
+
+  /* состояния пункта */
+  --sb-item-text:           var(--text-secondary);
+  --sb-item-icon:           var(--icon-secondary);
+  --sb-item-text-hover:     var(--text-primary);
+  --sb-item-bg-hover:       var(--bg-hover);
+  --sb-item-text-active:    var(--text-active);      /* brand-500 */
+  --sb-item-icon-active:    var(--text-active);
+  --sb-item-bg-active:      var(--bg-selected);      /* brand-50 */
+  --sb-item-accent:         var(--bg-brand-default); /* левый индикатор */
+  --sb-item-accent-w:       var(--border-width-accent); /* 3-4 */
+  --sb-item-text-disabled:  var(--text-disabled);
+
+  /* ── Group label ──────────────────────────────────── */
+  --sb-group-text:      var(--text-secondary);
+  --sb-group-font:      var(--font-size-12);
+
+  /* ── Badge у пункта ───────────────────────────────── */
+  --sb-badge-bg:        var(--bg-secondary);
+  --sb-badge-text:      var(--text-secondary);
+  --sb-badge-active-bg: var(--color-brand-50);
+  --sb-badge-active-text: var(--bg-brand-default);
+
+  /* ── Footer / профиль ─────────────────────────────── */
+  --sb-footer-border:   var(--divider-default);
+
+  /* ── Mobile drawer ────────────────────────────────── */
+  --sb-overlay:         var(--overlay-mask);
+  --sb-drawer-shadow:   var(--shadow-drawer);
+}

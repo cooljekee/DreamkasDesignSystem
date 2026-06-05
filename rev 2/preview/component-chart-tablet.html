@@ -1,0 +1,179 @@
+<!-- @dsCard group="Molecules" title="KPI & Bar Chart — Tablet" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Tablet/Foundations/Component tokens/chart/tokens.css">
+<link rel="stylesheet" href="../Tablet/Components/Molecules/Chart/chart.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 24px 28px 44px; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 26px; max-width: 700px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; color:rgba(0,0,0,0.87); }
+  .section + .section { margin-top: 32px; }
+  .section-title { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 16px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .chart-card { background:#FFF; border:1px solid var(--divider-default); border-radius:8px; padding:18px; max-width: 560px; }
+  .chart-card-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; }
+  .chart-card-title { font-size:15px; font-weight:700; }
+  .chart-card-sub { font-size:12px; color:rgba(0,0,0,0.54); }
+  .foot { margin-top: 32px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">KPI & Charts — Tablet</div>
+  <div class="page-sub">Дашбордные молекулы для владельца бизнеса: KPI-плитка (значение + тренд + спарклайн) и столбчатый график. Цвета — из <code>Chart Palette</code>. Графики на чистом CSS/SVG-данных, без декоративной отрисовки.</div>
+
+  <!-- KPI -->
+  <div class="section">
+    <div class="section-title">KPI — плитки</div>
+    <div class="kpi-grid">
+
+      <div class="kpi">
+        <div class="kpi-head"><span class="kpi-label">Выручка за день</span><span class="kpi-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span></div>
+        <div class="kpi-value">84 320 <span class="kpi-unit">₽</span></div>
+        <div class="kpi-trend kpi-trend--up"><svg class="ic" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5"/></svg>12% <span>к вчера</span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-head"><span class="kpi-label">Средний чек</span><span class="kpi-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M9 2v4M15 2v4M4 6h16v15H4zM8 11h8M8 15h5"/></svg></span></div>
+        <div class="kpi-value">1 245 <span class="kpi-unit">₽</span></div>
+        <div class="kpi-trend kpi-trend--down"><svg class="ic" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>4% <span>к вчера</span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-head"><span class="kpi-label">Чеков пробито</span><span class="kpi-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span></div>
+        <div class="kpi-value">68</div>
+        <div class="kpi-trend kpi-trend--up"><svg class="ic" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5"/></svg>8 <span>к вчера</span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-head"><span class="kpi-label">Возвраты</span><span class="kpi-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M9 14l-4-4 4-4M5 10h11a4 4 0 010 8h-1"/></svg></span></div>
+        <div class="kpi-value">2</div>
+        <div class="kpi-trend kpi-trend--flat">— <span>как вчера</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KPI + SPARKLINE -->
+  <div class="section">
+    <div class="section-title">KPI со спарклайном</div>
+    <div class="kpi-grid" style="grid-template-columns: repeat(2, minmax(0, 280px));">
+      <div class="kpi kpi--spark">
+        <div class="kpi-main">
+          <span class="kpi-label">Выручка, 7 дней</span>
+          <div class="kpi-value" style="font-size:24px;">512 400 <span class="kpi-unit">₽</span></div>
+          <div class="kpi-trend kpi-trend--up"><svg class="ic" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5"/></svg>9%</div>
+        </div>
+        <div class="kpi-spark">
+          <svg viewBox="0 0 96 36" preserveAspectRatio="none">
+            <polygon class="spark-area" points="0,28 16,24 32,26 48,16 64,18 80,8 96,10 96,36 0,36"/>
+            <polyline class="spark-line" points="0,28 16,24 32,26 48,16 64,18 80,8 96,10"/>
+          </svg>
+        </div>
+      </div>
+      <div class="kpi kpi--spark">
+        <div class="kpi-main">
+          <span class="kpi-label">Средний чек, 7 дней</span>
+          <div class="kpi-value" style="font-size:24px;">1 198 <span class="kpi-unit">₽</span></div>
+          <div class="kpi-trend kpi-trend--down"><svg class="ic" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>3%</div>
+        </div>
+        <div class="kpi-spark">
+          <svg viewBox="0 0 96 36" preserveAspectRatio="none">
+            <polygon class="spark-area" points="0,10 16,14 32,12 48,18 64,16 80,24 96,22 96,36 0,36"/>
+            <polyline class="spark-line" points="0,10 16,14 32,12 48,18 64,16 80,24 96,22"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAR CHART -->
+  <div class="section">
+    <div class="section-title">Bar chart — продажи по дням</div>
+    <div class="chart-card">
+      <div class="chart-card-head">
+        <div><div class="chart-card-title">Выручка по дням</div><div class="chart-card-sub">текущая неделя · ₽</div></div>
+        <div class="chart-legend"><span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--chart-1)"></span>Выручка</span></div>
+      </div>
+      <div class="bars">
+        <div class="bars-plot">
+          <div class="bar"><span class="bar-fill" style="--v:52%"></span></div>
+          <div class="bar"><span class="bar-fill" style="--v:64%"></span></div>
+          <div class="bar"><span class="bar-fill" style="--v:48%"></span></div>
+          <div class="bar"><span class="bar-fill" style="--v:78%"></span></div>
+          <div class="bar bar--accent"><span class="bar-fill" style="--v:96%"></span><span class="bar-val">84 320</span></div>
+          <div class="bar"><span class="bar-fill" style="--v:70%"></span></div>
+          <div class="bar bar--muted"><span class="bar-fill" style="--v:30%"></span></div>
+        </div>
+        <div class="bars-axis"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DONUT + LINE -->
+  <div class="section">
+    <div class="section-title">Donut — структура оплат · Line — динамика выручки</div>
+    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:stretch;">
+
+      <div class="chart-card" style="max-width:340px;">
+        <div class="chart-card-head"><div><div class="chart-card-title">Способы оплаты</div><div class="chart-card-sub">за сегодня</div></div></div>
+        <div class="donut">
+          <div class="donut-ring">
+            <svg viewBox="0 0 42 42">
+              <!-- r=15.915 → длина окружности = 100. dasharray = доля,остаток; offset сдвигает -->
+              <circle class="donut-seg" cx="21" cy="21" r="15.915" stroke="var(--chart-1)" stroke-dasharray="48 52" stroke-dashoffset="0"></circle>
+              <circle class="donut-seg" cx="21" cy="21" r="15.915" stroke="var(--chart-2)" stroke-dasharray="31 69" stroke-dashoffset="-48"></circle>
+              <circle class="donut-seg" cx="21" cy="21" r="15.915" stroke="var(--chart-3)" stroke-dasharray="15 85" stroke-dashoffset="-79"></circle>
+              <circle class="donut-seg" cx="21" cy="21" r="15.915" stroke="var(--chart-6)" stroke-dasharray="6 94" stroke-dashoffset="-94"></circle>
+            </svg>
+            <div class="donut-center"><span class="donut-total">84 320 ₽</span><span class="donut-cap">68 чеков</span></div>
+          </div>
+          <div class="donut-legend">
+            <div class="donut-legend-row"><span class="donut-legend-dot" style="background:var(--chart-1)"></span><span class="donut-legend-name">Карта</span><span class="donut-legend-val">48%</span></div>
+            <div class="donut-legend-row"><span class="donut-legend-dot" style="background:var(--chart-2)"></span><span class="donut-legend-name">СБП</span><span class="donut-legend-val">31%</span></div>
+            <div class="donut-legend-row"><span class="donut-legend-dot" style="background:var(--chart-3)"></span><span class="donut-legend-name">Наличные</span><span class="donut-legend-val">15%</span></div>
+            <div class="donut-legend-row"><span class="donut-legend-dot" style="background:var(--chart-6)"></span><span class="donut-legend-name">Прочее</span><span class="donut-legend-val">6%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card" style="flex:1; min-width:360px; max-width:520px;">
+        <div class="chart-card-head"><div><div class="chart-card-title">Выручка</div><div class="chart-card-sub">7 дней · ₽</div></div><div class="chart-legend"><span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--chart-1)"></span>Эта неделя</span></div></div>
+        <div class="line-chart">
+          <div class="line-plot">
+            <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+              <polygon class="line-area" fill="var(--chart-1)" points="2,30 18,24 34,26 50,15 66,18 82,8 98,11 98,40 2,40"></polygon>
+              <polyline class="line-stroke" stroke="var(--chart-1)" points="2,30 18,24 34,26 50,15 66,18 82,8 98,11"></polyline>
+              <circle class="line-dot" fill="var(--chart-1)" cx="82" cy="8" r="2.4"></circle>
+            </svg>
+          </div>
+          <div class="line-axis"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    KPI — значение (tabular), тренд <code>--chart-positive/negative</code>, спарклайн <code>--chart-1</code> + <code>--color-brand-50</code>. Bar — столбцы <code>--bar-color</code>, выделенный <code>--chart-3</code>, прогноз <code>--chart-track</code>, сетка <code>--chart-grid</code>.<br>
+    Файлы: <code>Tablet/Foundations/Component tokens/chart/tokens.css</code> · <code>Tablet/Components/Molecules/Chart/chart.css</code>
+  </div>
+
+</body>
+</html>

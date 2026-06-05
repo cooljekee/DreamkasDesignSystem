@@ -1,0 +1,116 @@
+<!-- @dsCard group="Organisms" title="Data Table — Mobile" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/button/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Button/button.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/input/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Atoms/Input/input.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/badge/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Badge/badge.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/tabs/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Tabs/tabs.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/table/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Table/table.css">
+<link rel="stylesheet" href="../Mobile/Foundations/Component tokens/pagination/tokens.css">
+<link rel="stylesheet" href="../Mobile/Components/Molecules/Pagination/pagination.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background:#FAFAFA; font-family:var(--font-family-sans); -webkit-font-smoothing:antialiased; color:rgba(0,0,0,0.87); }
+  body { padding: 20px 16px 40px; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 20px; }
+  .data-table { background: var(--surface-default); border: 1px solid #E5E5E5; border-radius: 10px; overflow: hidden; }
+  .dt-header { display:flex; align-items:center; justify-content:space-between; padding: 14px 14px 0; }
+  .dt-title { font-size: 17px; font-weight: 700; }
+  .dt-title .dt-count { color: rgba(0,0,0,0.45); font-weight: 400; font-size: 13px; display:block; margin-top:2px; }
+  .dt-tabs { padding: 8px 14px 0; }
+  .dt-toolbar { display:flex; gap:8px; padding: 12px 14px; }
+  .dt-pagination { padding: 8px 14px 14px; border-top: 1px solid var(--divider-default); }
+  .ic { width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .icon-btn { width:44px; height:44px; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border-default); background:var(--surface-default); border-radius:var(--radius-control); cursor:pointer; color:var(--icon-secondary); }
+  .icon-btn svg { width:20px; height:20px; }
+  .foot { margin-top: 28px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background:#FFF; border:1px solid #ECECEC; padding:1px 5px; border-radius:2px; }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Data Table — Mobile</div>
+  <div class="page-sub">Тот же организм в стопке: tabs прокручиваются, тулбар схлопнут, таблица — stack-карточки, пагинация — «Показать ещё».</div>
+
+  <div class="data-table">
+    <div class="dt-header">
+      <div class="dt-title">Товары <span class="dt-count">1 248 позиций</span></div>
+    </div>
+
+    <div class="dt-tabs">
+      <div class="tabs tabs--underline tabs--scroll">
+        <button class="tab is-active">Все <span class="tab-badge">1 248</span></button>
+        <button class="tab">В наличии <span class="tab-badge">1 102</span></button>
+        <button class="tab">Заканчиваются <span class="tab-badge">94</span></button>
+        <button class="tab">Нет</button>
+      </div>
+    </div>
+
+    <div class="dt-toolbar">
+      <div class="field field--md" style="flex:1;">
+        <div class="field-control">
+          <span class="field-icon" style="margin-left:0;margin-right:8px;color:var(--icon-secondary);"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></span>
+          <input class="field-input" type="text" placeholder="Поиск или ШК"/>
+        </div>
+      </div>
+      <button class="icon-btn" title="Фильтры"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg></button>
+    </div>
+
+    <table class="tbl tbl--stack tbl--touch">
+      <thead><tr><th>Товар</th><th>Категория</th><th>Остаток</th><th>Цена</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr class="tr">
+          <td class="td td--row-title">Кофе зерновой Lavazza 1кг</td>
+          <td class="td" data-label="Категория">Бакалея</td>
+          <td class="td td--num" data-label="Остаток">124</td>
+          <td class="td td--num" data-label="Цена">1 290 ₽</td>
+          <td class="td" data-label="Статус"><span class="badge badge--sm badge--success">В наличии</span></td>
+        </tr>
+        <tr class="tr tr--selected">
+          <td class="td td--row-title">Сахар-песок 1кг</td>
+          <td class="td" data-label="Категория">Бакалея</td>
+          <td class="td td--num" data-label="Остаток">8</td>
+          <td class="td td--num" data-label="Цена">79 ₽</td>
+          <td class="td" data-label="Статус"><span class="badge badge--sm badge--warning">Заканчивается</span></td>
+        </tr>
+        <tr class="tr">
+          <td class="td td--row-title">Молоко 3.2% 1л</td>
+          <td class="td" data-label="Категория">Молочное</td>
+          <td class="td td--num" data-label="Остаток">0</td>
+          <td class="td td--num" data-label="Цена">89 ₽</td>
+          <td class="td" data-label="Статус"><span class="badge badge--sm badge--neutral">Нет</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="dt-pagination">
+      <nav class="pg pg--simple">
+        <button class="btn btn--outline btn--md btn--fluid">Показать ещё 20</button>
+      </nav>
+      <div style="text-align:center; font-size:12px; color:rgba(0,0,0,0.54); margin-top:8px;">Показано 20 из 1 248</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Тот же организм, что Web/Tablet — меняется только раскладка молекул: <code>tabs--scroll</code>, схлопнутый toolbar, <code>tbl--stack</code>, simple-пагинация «Показать ещё».
+  </div>
+
+</body>
+</html>

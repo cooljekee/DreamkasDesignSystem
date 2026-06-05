@@ -1,0 +1,103 @@
+<!-- @dsCard group="Colors" title="Semantic — Text" -->
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8" /><style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 20px 24px; }
+  .sem-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .sem-item:last-child { border-bottom: 0; }
+  .sem-sw {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    margin-top: 1px;
+    background-clip: padding-box;
+  }
+  .checker {
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
+      linear-gradient(-45deg, #ccc 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ccc 75%),
+      linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+  }
+  .sem-info { min-width: 0; }
+  .sem-key {
+    font-family: ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+    line-height: 1.3;
+  }
+  .sem-usage {
+    font-size: 11px;
+    color: rgba(0,0,0,0.7);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .sem-ref {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    color: rgba(0,0,0,0.45);
+    margin-top: 2px;
+    text-transform: lowercase;
+  }
+</style></head><body>
+      <div class="sem-item">
+        <div class="sem-sw checker" style="background:rgba(0,0,0,0.87)"></div>
+        <div class="sem-info">
+          <div class="sem-key">--text-primary</div>
+          <div class="sem-usage">Основной текст параграфов, заголовки H1–H6</div>
+          <div class="sem-ref">→ alpha-black-87</div>
+        </div>
+      </div>
+    
+      <div class="sem-item">
+        <div class="sem-sw checker" style="background:rgba(0,0,0,0.54)"></div>
+        <div class="sem-info">
+          <div class="sem-key">--text-secondary</div>
+          <div class="sem-usage">Подписи, мета-информация, helper-текст</div>
+          <div class="sem-ref">→ alpha-black-54</div>
+        </div>
+      </div>
+    
+      <div class="sem-item">
+        <div class="sem-sw checker" style="background:rgba(0,0,0,0.24)"></div>
+        <div class="sem-info">
+          <div class="sem-key">--text-disabled</div>
+          <div class="sem-usage">Текст в задизейбленных кнопках, инпутах, меню</div>
+          <div class="sem-ref">→ alpha-black-24</div>
+        </div>
+      </div>
+    
+      <div class="sem-item">
+        <div class="sem-sw " style="background:#0097A7"></div>
+        <div class="sem-info">
+          <div class="sem-key">--text-active</div>
+          <div class="sem-usage">Текст активного пункта меню, выбранного селектора</div>
+          <div class="sem-ref">→ brand-500</div>
+        </div>
+      </div>
+    
+      <div class="sem-item">
+        <div class="sem-sw " style="background:#0E61C8"></div>
+        <div class="sem-info">
+          <div class="sem-key">--text-link</div>
+          <div class="sem-usage">Обычные гипертекстовые ссылки</div>
+          <div class="sem-ref">→ blue-600</div>
+        </div>
+      </div>
+    </body></html>

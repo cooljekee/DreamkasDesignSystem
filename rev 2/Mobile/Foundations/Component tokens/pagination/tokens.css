@@ -1,0 +1,30 @@
+/* ============================================================
+ * Dreamkas — Pagination Component Tokens (Mobile) — Molecule
+ *
+ * Пагинатор под таблицу: номера страниц + prev/next +
+ * выбор «строк на странице» + счётчик диапазона.
+ * ============================================================ */
+
+:root {
+
+  /* ── Page item ────────────────────────────────────── */
+  --pg-size:            44px;     /* квадрат номера страницы */
+  --pg-gap:             4px;
+  --pg-radius:          var(--radius-control);
+  --pg-font:            var(--font-size-13);
+
+  --pg-text:            var(--text-primary);
+  --pg-text-muted:      var(--text-secondary);
+  --pg-bg:              transparent;
+  --pg-bg-hover:        var(--bg-hover);
+  --pg-bg-active:       var(--bg-brand-default);
+  --pg-text-active:     var(--text-on-brand);
+  --pg-border-active:   var(--bg-brand-default);
+  --pg-text-disabled:   var(--text-disabled);
+  --pg-ellipsis:        var(--text-secondary);
+
+  /* ── Range info / per-page ────────────────────────── */
+  --pg-info:            var(--text-secondary);
+  --pg-info-font:       var(--font-size-13);
+  --pg-bar-gap:         16px;
+}

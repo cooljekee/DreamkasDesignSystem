@@ -1,0 +1,40 @@
+/* ============================================================
+ * Dreamkas — Toast Component Tokens (Web) — Molecule
+ *
+ * Всплывающее уведомление с авто-скрытием. Тёмная inverse-поверхность.
+ * Тоновый акцент — цветная иконка слева.
+ * ============================================================ */
+
+:root {
+
+  /* ── Layout ───────────────────────────────────────── */
+  --toast-pad-y:        12px;
+  --toast-pad-x:        14px;
+  --toast-gap:          12px;
+  --toast-radius:       var(--radius-lg);        /* 8 */
+  --toast-icon:         var(--size-icon-md);     /* 20 */
+  --toast-min-w:        280px;
+  --toast-max-w:        420px;
+  --toast-shadow:       var(--shadow-dropdown);
+  --toast-stack-gap:    10px;
+
+  /* ── Surface (тёмная) ─────────────────────────────── */
+  --toast-bg:           var(--surface-inverse);
+  --toast-text:         var(--text-on-inverse);
+  --toast-text-dim:     var(--text-on-inverse-dim);
+
+  /* ── Тоновые иконки ───────────────────────────────── */
+  --toast-info-icon:    var(--color-brand-300);
+  --toast-success-icon: var(--color-green-300);
+  --toast-warning-icon: var(--color-amber-300);
+  --toast-danger-icon:  var(--color-red-300);
+
+  /* ── Action / close ───────────────────────────────── */
+  --toast-action:       var(--color-brand-300);   /* ссылка-действие */
+  --toast-close:        var(--text-on-inverse-dim);
+  --toast-close-hover:  var(--text-on-inverse);
+  --toast-hover-bg:     var(--overlay-on-inverse-faint);   /* вуаль под action/close при hover */
+
+  /* ── Прогресс авто-скрытия ────────────────────────── */
+  --toast-progress:     var(--overlay-on-inverse-track);
+}

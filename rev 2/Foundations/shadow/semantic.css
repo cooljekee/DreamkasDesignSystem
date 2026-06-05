@@ -1,0 +1,34 @@
+/* ============================================================
+ * Dreamkas Design System — Semantic Shadow Tokens
+ *
+ * Ролевые тени. ИМЕННО ЭТИ использовать в продукте.
+ *
+ * Шкала примитивов: sm → md → lg.
+ * 13 семантических ролей — все ложатся на 3 уровня.
+ * ============================================================ */
+
+:root {
+
+  /* ── sm: карточки в покое ────────────────────────── */
+  --shadow-card:        var(--shadow-sm);
+
+  /* ── md: floating-элементы ───────────────────────── */
+  --shadow-card-hover:  var(--shadow-md);
+  --shadow-sticky:      var(--shadow-md);   /* sticky-хедер таблицы, прилипший toolbar */
+  --shadow-dropdown:    var(--shadow-md);   /* select, combobox, выпадающее меню */
+  --shadow-popover:     var(--shadow-md);   /* поповер с контентом / подсказкой */
+  --shadow-menu:        var(--shadow-md);   /* контекст-меню, action-меню */
+  --shadow-tooltip:     var(--shadow-md);   /* tooltip */
+  --shadow-fab:         var(--shadow-md);   /* плавающая кнопка действия */
+
+  /* ── lg: оверлейные ──────────────────────────────── */
+  --shadow-modal:       var(--shadow-lg);   /* модалка / диалог */
+  --shadow-drawer:      var(--shadow-lg);   /* выезжающая панель сбоку */
+  --shadow-dialog:      var(--shadow-lg);   /* alias для modal */
+  --shadow-toast:       var(--shadow-lg);   /* snackbar / уведомление */
+  --shadow-fab-hover:   var(--shadow-lg);   /* hover на FAB — подъём на уровень выше */
+
+  /* ── Focus / валидация (отдельная семантика) ─────── */
+  --shadow-focus:        var(--shadow-focus-ring);
+  --shadow-focus-danger: var(--shadow-focus-ring-danger);
+}

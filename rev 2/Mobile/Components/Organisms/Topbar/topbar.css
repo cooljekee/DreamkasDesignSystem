@@ -1,0 +1,142 @@
+/* ============================================================
+ * Dreamkas — Topbar / Header (Web) — Organism
+ *
+ *   <header class="tb">
+ *     <button class="tb-icon-btn">☰</button>
+ *     <div class="tb-title">Товары</div>
+ *     <div class="tb-search">…</div>
+ *     <div class="tb-spacer"></div>
+ *     <span class="tb-shift is-open">Смена открыта</span>
+ *     <span class="tb-status tb-status--offline">Оффлайн</span>
+ *     <button class="tb-icon-btn tb-bell">🔔</button>
+ *     <div class="tb-profile">…</div>
+ *   </header>
+ *   <div class="tb-banner">Нет соединения…</div>  ← опц. при offline
+ *
+ * ЗАВИСИМОСТИ: foundation, topbar/tokens.css, avatar.css, input.css (поиск)
+ * ============================================================ */
+
+.tb {
+  display: flex;
+  align-items: center;
+  gap: var(--tb-gap);
+  height: var(--tb-height);
+  padding: 0 var(--tb-pad-x);
+  background: var(--tb-bg);
+  border-bottom: 1px solid var(--tb-border);
+  font-family: var(--font-family-sans);
+}
+
+/* ── Icon button (бургер, колокол) ─────────────────── */
+.tb-icon-btn {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--tb-icon-btn); height: var(--tb-icon-btn);
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-control);
+  color: var(--tb-icon-color);
+}
+.tb-icon-btn:hover { background: var(--tb-icon-hover-bg); color: var(--tb-icon-hover); }
+.tb-icon-btn svg { width: var(--tb-icon); height: var(--tb-icon); stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* колокол с точкой непрочитанного */
+.tb-bell .tb-bell-dot {
+  position: absolute; top: 8px; right: 9px;
+  min-width: 8px; height: 8px; border-radius: var(--radius-full);
+  background: var(--tb-bell-dot); border: 2px solid var(--tb-bg);
+}
+.tb-bell .tb-bell-count {
+  position: absolute; top: 4px; right: 4px;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--tb-bell-dot); color: var(--tb-bell-count-text);
+  font-size: 10px; font-weight: 600; border-radius: var(--radius-full);
+  border: 2px solid var(--tb-bg); font-variant-numeric: tabular-nums;
+}
+
+/* ── Page title ────────────────────────────────────── */
+.tb-title {
+  font-size: var(--tb-title-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--tb-title);
+  white-space: nowrap;
+}
+
+/* ── Search ────────────────────────────────────────── */
+.tb-search {
+  display: flex; align-items: center; gap: 8px;
+  width: var(--tb-search-w); max-width: 40vw;
+  height: 36px; padding: 0 12px;
+  background: var(--tb-search-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+}
+.tb-search:focus-within { border-color: var(--border-focus); background: var(--surface-default); }
+.tb-search svg { width: 16px; height: 16px; color: var(--icon-secondary); flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tb-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-family: inherit; font-size: var(--font-size-14); color: var(--text-primary); }
+.tb-search input::placeholder { color: var(--text-secondary); }
+.tb-search kbd {
+  flex-shrink: 0; font-family: ui-monospace, monospace; font-size: 11px;
+  color: var(--text-secondary); background: var(--surface-default);
+  border: 1px solid var(--divider-default); border-radius: 4px; padding: 1px 5px;
+}
+
+/* ── Spacer ────────────────────────────────────────── */
+.tb-spacer { flex: 1; }
+
+/* ── Shift indicator ───────────────────────────────── */
+.tb-shift {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 10px; border-radius: var(--radius-full);
+  font-size: var(--font-size-13); font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  background: var(--tb-shift-closed-bg); color: var(--tb-shift-closed-text);
+}
+.tb-shift::before { content: ""; width: 7px; height: 7px; border-radius: var(--radius-full); background: currentColor; opacity: .7; }
+.tb-shift.is-open { background: var(--tb-shift-open-bg); color: var(--tb-shift-open-text); }
+
+/* ── Connectivity status ───────────────────────────── */
+.tb-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 10px; border-radius: var(--radius-full);
+  font-size: var(--font-size-13); font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+.tb-status svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tb-status--online  { color: var(--tb-online); }
+.tb-status--offline { background: var(--tb-offline-bg); color: var(--tb-offline-text); }
+.tb-status--sync    { background: var(--tb-sync-bg); color: var(--tb-sync-text); }
+.tb-status--sync svg { animation: tb-spin 1s linear infinite; }
+@keyframes tb-spin { to { transform: rotate(360deg); } }
+
+/* ── Divider ───────────────────────────────────────── */
+.tb-sep { width: 1px; height: 24px; background: var(--tb-divider); flex-shrink: 0; }
+
+/* ── Profile ───────────────────────────────────────── */
+.tb-profile {
+  display: flex; align-items: center; gap: 8px;
+  height: 40px; padding: 0 6px 0 8px; border-radius: var(--radius-control);
+  cursor: pointer; flex-shrink: 0;
+}
+.tb-profile:hover { background: var(--tb-profile-hover); }
+.tb-profile-info { line-height: 1.25; text-align: right; }
+.tb-profile-name { font-size: var(--font-size-13); font-weight: var(--font-weight-medium); color: var(--text-primary); white-space: nowrap; }
+.tb-profile-role { font-size: var(--font-size-12); color: var(--text-secondary); }
+.tb-profile-chevron { width: 16px; height: 16px; color: var(--icon-secondary); flex-shrink: 0; }
+.tb-profile-chevron svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── Offline banner (полоса под топбаром) ──────────── */
+.tb-banner {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 36px; padding: 6px 16px;
+  background: var(--tb-banner-bg); color: var(--tb-banner-text);
+  font-size: var(--font-size-13); font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+.tb-banner svg { width: 16px; height: 16px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tb-banner-count { font-variant-numeric: tabular-nums; opacity: .85; }
+
+/* ── Mobile: компактнее ────────────────────────────── */
+.tb--mobile .tb-title { font-size: var(--font-size-15); }
+.tb--mobile { gap: 8px; padding: 0 8px; }

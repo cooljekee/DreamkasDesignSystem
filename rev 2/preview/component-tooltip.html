@@ -1,0 +1,97 @@
+<!-- @dsCard group="Atoms" title="Tooltip" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../Foundations/color/primitives.css">
+<link rel="stylesheet" href="../Foundations/color/semantic.css">
+<link rel="stylesheet" href="../Foundations/typography/fonts.css">
+<link rel="stylesheet" href="../Foundations/typography/primitives.css">
+<link rel="stylesheet" href="../Foundations/typography/semantic.css">
+<link rel="stylesheet" href="../Foundations/spacing/primitives.css">
+<link rel="stylesheet" href="../Foundations/spacing/semantic.css">
+<link rel="stylesheet" href="../Foundations/shadow/primitives.css">
+<link rel="stylesheet" href="../Foundations/shadow/semantic.css">
+<link rel="stylesheet" href="../Web/Foundations/Component tokens/tooltip/tokens.css">
+<link rel="stylesheet" href="../Web/Components/Atoms/Tooltip/tooltip.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 40px; }
+
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .page-sub { font-size: 12px; color: rgba(0,0,0,0.54); margin-bottom: 32px; }
+  .page-sub code { font-family: ui-monospace, monospace; font-size: 11px; background: #FAFAFA; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+
+  .section + .section { margin-top: 44px; }
+  .section-title {
+    font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.45);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-bottom: 8px; border-bottom: 1px solid #E5E5E5; margin-bottom: 28px;
+  }
+
+  .dirs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 760px;
+  }
+  .dir-item { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .dir-label { font-family: ui-monospace, monospace; font-size: 11px; color: rgba(0,0,0,0.54); }
+
+  .lengths { display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
+
+  .foot { margin-top: 40px; font-size: 11px; color: rgba(0,0,0,0.54); line-height: 1.5; }
+  .foot code { font-family: ui-monospace, monospace; font-size: 11px; background: #FAFAFA; padding: 1px 5px; border-radius: 2px; color: rgba(0,0,0,0.87); }
+</style>
+</head>
+<body>
+
+  <div class="page-title">Tooltip</div>
+  <div class="page-sub">Короткая подсказка при наведении. Светлая поверхность <code>--surface-raised</code> с обводкой <code>--border-subtle</code> и тенью <code>--shadow-tooltip</code>, стрелка по 4 направлениям.</div>
+
+  <!-- ═══════ DIRECTIONS ═══════ -->
+  <div class="section">
+    <div class="section-title">Направления</div>
+    <div class="dirs">
+      <div class="dir-item">
+        <span class="tooltip tooltip--top">Подсказка сверху<span class="tooltip-arrow"></span></span>
+        <span class="dir-label">top</span>
+      </div>
+      <div class="dir-item">
+        <span class="tooltip tooltip--bottom">Подсказка снизу<span class="tooltip-arrow"></span></span>
+        <span class="dir-label">bottom</span>
+      </div>
+      <div class="dir-item">
+        <span class="tooltip tooltip--left">Подсказка слева<span class="tooltip-arrow"></span></span>
+        <span class="dir-label">left</span>
+      </div>
+      <div class="dir-item">
+        <span class="tooltip tooltip--right">Подсказка справа<span class="tooltip-arrow"></span></span>
+        <span class="dir-label">right</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ LENGTHS ═══════ -->
+  <div class="section">
+    <div class="section-title">Длина текста</div>
+    <div class="lengths">
+      <span class="tooltip tooltip--top">Сохранить<span class="tooltip-arrow"></span></span>
+      <span class="tooltip tooltip--top">Скопировать ссылку в буфер обмена<span class="tooltip-arrow"></span></span>
+      <span class="tooltip tooltip--top">Длинная подсказка переносится по строкам, когда текст превышает максимальную ширину 240px.<span class="tooltip-arrow"></span></span>
+    </div>
+  </div>
+
+  <div class="foot">
+    Токены: фон — <code>--surface-raised</code>, текст — <code>--text-primary</code>, обводка — <code>--border-subtle</code>, тень — <code>--shadow-tooltip</code>, радиус — <code>--radius-sm</code>, max-width 240.<br>
+    Файлы: <code>Web/Foundations/Component tokens/tooltip/tokens.css</code> · <code>Web/Components/Atoms/Tooltip/tooltip.css</code>
+  </div>
+
+</body>
+</html>

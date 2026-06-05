@@ -1,0 +1,32 @@
+/* ============================================================
+ * Dreamkas Design System — Primitive Motion Tokens
+ *
+ * Raw duration + easing values. Do NOT use directly in product
+ * code — use semantic motion tokens from semantic.css instead.
+ *
+ * Шкала длительности (ms) — числовая, как у spacing.
+ *   50/100  — микро-фидбек (hover, opacity, цвет)
+ *   150/200 — смена состояния контрола, transform, box-shadow
+ *   300/500 — крупные перемещения, раскрытие, графика
+ *
+ * Кривые: один «стандарт» (вход+выход, симметрично-замедленная),
+ * плюс decelerate/accelerate для появления/исчезновения.
+ * Базовая логика — Material-подобная, но мягче.
+ * ============================================================ */
+
+:root {
+
+  /* ── duration ─────────────────────────────────────── */
+  --duration-50:  50ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+
+  /* ── easing ───────────────────────────────────────── */
+  --ease-linear:     linear;
+  --ease-standard:   cubic-bezier(0.2, 0, 0, 1);    /* вход и выход, базовый UI-переход */
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);      /* появление (быстро→медленно) */
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);    /* исчезновение (медленно→быстро) */
+}

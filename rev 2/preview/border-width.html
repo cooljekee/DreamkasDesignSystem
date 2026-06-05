@@ -1,0 +1,182 @@
+<!-- @dsCard group="Spacing" title="Border Width" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0,0,0,0.87);
+  }
+  body { padding: 24px 28px 32px; }
+
+  .intro {
+    font-size: 12px;
+    color: rgba(0,0,0,0.54);
+    line-height: 1.45;
+    margin-bottom: 22px;
+    max-width: 560px;
+  }
+
+  /* ───── секции ───── */
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 4px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  .section + .section { margin-top: 28px; }
+
+  /* ───── строка примитива ───── */
+  .row {
+    display: grid;
+    grid-template-columns: 130px 56px 200px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  .row:last-child { border-bottom: 0; }
+
+  .name {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+  }
+  .px {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+    text-align: right;
+  }
+
+  /* визуализация: линия заданной толщины + образец рамки */
+  .viz {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .line {
+    width: 80px;
+    background: #0097A7;
+    border-radius: 1px;
+  }
+  .sample {
+    width: 56px;
+    height: 28px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.3);
+    border-radius: 4px;
+    background: #FAFAFA;
+  }
+  .sample.brand { border-color: #0097A7; }
+
+  .usage {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.4;
+  }
+  .usage code {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.87);
+    background: #FAFAFA;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+
+  /* семантическая строка чуть шире — без бара, два примера справа */
+  .sem-row {
+    grid-template-columns: 200px 220px 1fr;
+  }
+  .sem-row .map {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.54);
+  }
+  .sem-row .map b {
+    font-weight: 600;
+    color: rgba(0,0,0,0.87);
+  }
+</style>
+</head>
+<body>
+
+  <div class="intro">
+    Толщины обводок. Primitive — сырые значения. Semantic — роли (default, focus, strong, accent). В продукте используем только semantic.
+  </div>
+
+  <!-- ───── PRIMITIVE ───── -->
+  <div class="section">
+    <div class="section-title">Primitive</div>
+
+    <div class="row">
+      <div class="name">--border-1</div>
+      <div class="px">1px</div>
+      <div class="viz">
+        <div class="line" style="height: 1px;"></div>
+        <div class="sample" style="border-width: 1px;"></div>
+      </div>
+      <div class="usage">Базовая толщина — карточки, инпуты, таблицы, разделители.</div>
+    </div>
+
+    <div class="row">
+      <div class="name">--border-2</div>
+      <div class="px">2px</div>
+      <div class="viz">
+        <div class="line" style="height: 2px;"></div>
+        <div class="sample brand" style="border-width: 2px;"></div>
+      </div>
+      <div class="usage">Focus ring контролов, усиленные обводки на hover/selected.</div>
+    </div>
+
+    <div class="row">
+      <div class="name">--border-4</div>
+      <div class="px">4px</div>
+      <div class="viz">
+        <div class="line" style="height: 4px;"></div>
+        <div class="sample brand" style="border-width: 0 0 4px 0; border-radius: 0;"></div>
+      </div>
+      <div class="usage">Индикатор активного таба, акцент-underline под текстом.</div>
+    </div>
+  </div>
+
+  <!-- ───── SEMANTIC ───── -->
+  <div class="section">
+    <div class="section-title">Semantic</div>
+
+    <div class="row sem-row">
+      <div class="name">--border-width-default</div>
+      <div class="map">→ <b>--border-1</b> · 1px</div>
+      <div class="usage">Карточки, инпуты, таблицы, обычные обводки <code>border-default</code> / <code>border-subtle</code>.</div>
+    </div>
+
+    <div class="row sem-row">
+      <div class="name">--border-width-focus</div>
+      <div class="map">→ <b>--border-2</b> · 2px</div>
+      <div class="usage">Focus ring кнопок и инпутов, поверх <code>border-focus</code>.</div>
+    </div>
+
+    <div class="row sem-row">
+      <div class="name">--border-width-strong</div>
+      <div class="map">→ <b>--border-2</b> · 2px</div>
+      <div class="usage">Выделенные/важные обводки: selected card, активные чипы.</div>
+    </div>
+
+    <div class="row sem-row">
+      <div class="name">--border-width-accent</div>
+      <div class="map">→ <b>--border-4</b> · 4px</div>
+      <div class="usage">Индикатор активного пункта таба или сайдбара, акцент-underline.</div>
+    </div>
+  </div>
+
+</body>
+</html>

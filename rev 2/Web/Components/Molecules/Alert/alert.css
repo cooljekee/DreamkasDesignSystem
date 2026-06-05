@@ -1,0 +1,79 @@
+/* ============================================================
+ * Dreamkas — Alert (Web) — Molecule
+ *
+ *   <div class="alert alert--danger">
+ *     <span class="alert-icon">…</span>
+ *     <div class="alert-body">
+ *       <div class="alert-title">Заголовок</div>
+ *       <div class="alert-text">Описание</div>
+ *       <div class="alert-actions"> <button class="btn …">…</button> </div>
+ *     </div>
+ *     <button class="alert-close">×</button>
+ *   </div>
+ *
+ * Тон: alert--info | alert--success | alert--warning | alert--danger
+ * Вариант: alert--offline (тёмный баннер «нет сети»)
+ * Композирует Button (в alert-actions).
+ *
+ * ЗАВИСИМОСТИ: foundation primitive+semantic, alert/tokens.css, button.css (для actions)
+ * ============================================================ */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--alert-gap);
+  padding: var(--alert-pad-y) var(--alert-pad-x);
+  border-radius: var(--alert-radius);
+  border: var(--alert-border-w) solid transparent;
+  font-family: var(--font-family-sans);
+  position: relative;
+}
+/* левая акцент-полоса */
+.alert::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: var(--alert-accent-w);
+  border-radius: var(--alert-radius) 0 0 var(--alert-radius);
+  background: var(--_accent);
+}
+
+.alert-icon { flex-shrink: 0; width: var(--alert-icon); height: var(--alert-icon); color: var(--_icon); margin-top: 1px; }
+.alert-icon svg { width: 100%; height: 100%; }
+
+.alert-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.alert-title { font-size: var(--alert-title-size); font-weight: var(--alert-title-weight); color: var(--text-primary); line-height: 1.35; }
+.alert-text  { font-size: var(--alert-text-size); color: var(--text-primary); line-height: 1.45; }
+.alert-actions { display: flex; gap: 8px; margin-top: 10px; }
+
+.alert-close {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: var(--alert-close);
+  margin: -2px -4px 0 0;
+}
+.alert-close:hover { color: var(--alert-close-hover); background: rgba(0,0,0,0.06); }
+.alert-close svg { width: 16px; height: 16px; }
+
+/* ── Tones ─────────────────────────────────────────── */
+.alert--info    { background: var(--alert-info-bg);    --_accent: var(--alert-info-accent);    --_icon: var(--alert-info-icon); }
+.alert--success { background: var(--alert-success-bg); --_accent: var(--alert-success-accent); --_icon: var(--alert-success-icon); }
+.alert--warning { background: var(--alert-warning-bg); --_accent: var(--alert-warning-accent); --_icon: var(--alert-warning-icon); }
+.alert--danger  { background: var(--alert-danger-bg);  --_accent: var(--alert-danger-accent);  --_icon: var(--alert-danger-icon); }
+
+/* ── Offline (тёмный, во всю ширину) ───────────────── */
+.alert--offline {
+  background: var(--alert-offline-bg);
+  border-radius: 0;
+  align-items: center;
+}
+.alert--offline::before { display: none; }
+.alert--offline .alert-icon { color: var(--alert-offline-icon); margin-top: 0; }
+.alert--offline .alert-title,
+.alert--offline .alert-text { color: var(--alert-offline-text); }
+.alert--offline .alert-body { flex-direction: row; align-items: center; gap: 8px; }
+.alert--offline .alert-close { color: var(--alert-offline-close); }
+.alert--offline .alert-close:hover { color: var(--alert-offline-close-hover); background: var(--alert-offline-close-hover-bg); }

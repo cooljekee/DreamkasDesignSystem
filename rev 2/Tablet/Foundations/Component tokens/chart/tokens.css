@@ -1,0 +1,45 @@
+/* ============================================================
+ * Dreamkas — KPI / Stat + Bar Chart Tokens (Web) — Molecule
+ *
+ * Дашбордные блоки. Цвета — из chart-палитры (semantic).
+ * ============================================================ */
+
+:root {
+
+  /* ── KPI card ─────────────────────────────────────── */
+  --kpi-pad:           var(--padding-card);      /* 16 */
+  --kpi-radius:        var(--radius-card);        /* 8 */
+  --kpi-bg:            var(--surface-default);
+  --kpi-border:        var(--divider-default);
+
+  --kpi-label:         var(--text-secondary);
+  --kpi-label-size:    var(--font-size-13);
+  --kpi-value:         var(--text-primary);
+  --kpi-value-size:    28px;
+  --kpi-value-weight:  var(--font-weight-bold);
+  --kpi-unit:          var(--text-secondary);
+
+  --kpi-trend-up:      var(--chart-positive);
+  --kpi-trend-down:    var(--chart-negative);
+  --kpi-trend-flat:    var(--text-secondary);
+  --kpi-trend-size:    var(--font-size-12);
+
+  --kpi-icon-size:     40px;
+  --kpi-icon-bg:       var(--bg-secondary);
+  --kpi-icon-color:    var(--icon-secondary);
+
+  /* ── Sparkline ────────────────────────────────────── */
+  --spark-stroke:      var(--chart-1);
+  --spark-fill:        var(--color-brand-50);
+  --spark-h:           36px;
+
+  /* ── Bar chart ────────────────────────────────────── */
+  --bar-color:         var(--chart-1);
+  --bar-color-muted:   var(--chart-track);
+  --bar-radius:        3px;
+  --bar-gap:           10px;
+  --bar-grid:          var(--chart-grid);
+  --bar-label:         var(--chart-label);
+  --bar-label-size:    var(--font-size-12);
+  --bar-plot-h:        180px;
+}
