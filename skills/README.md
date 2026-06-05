@@ -1,13 +1,25 @@
 # Skills
 
-Skill-файлы для Claude Code / Claude SDK, которые помогают потребителям Dreamkas Design System.
+Skill-файлы для Claude Code / Claude SDK, которые помогают работать с Dreamkas Design System — со стороны дизайнера и со стороны frontend-потребителя.
+
+## dreamkas-ds-designer
+
+**Назначение.** Роль «Софонов Дизайнер» для UX/UI работы с Dreamkas. Доменный контекст (кассир / администратор / склад / владелец), atomic-design методология Brad Frost'а, правила работы с rev 2, канон визуальной подачи превью. Используется, когда нужно создать новый компонент / экран / фичу, расширить ДС, провести ревью или interface inventory.
+
+**Как установить себе.**
+```bash
+cp -r skills/dreamkas-ds-designer ~/.claude/skills/
+```
+
+**Что внутри.** TL;DR из 5 правил, доменный контекст с UX-приоритетами по ролям, маппинг atomic-design на нашу структуру (Foundations/Atoms/Molecules/Organisms), что уже сделано в rev 2, правила работы и канон превью, процесс interface inventory.
+
+**Связанный референс.** Полный конспект книги «Atomic Design» Brad Frost'а — [`docs/atomic-design-brad-frost.md`](../docs/atomic-design-brad-frost.md). Скилл даёт выжимку, документ — детали.
 
 ## dreamkas-ds-frontend
 
 **Назначение.** Правила, антипаттерны и рабочие сниппеты для frontend-разработчика, который подключает Dreamkas DS к веб-проекту (React / Vue / чистый HTML). Содержит 5 критических правил, обнаруженных при реальной интеграции, плюс канонические структуры Sidebar / Topbar / App Shell и пошаговый setup.
 
-**Как установить себе.** Скопируй папку `dreamkas-ds-frontend/` в `~/.claude/skills/` (либо в `.claude/skills/` своего проекта):
-
+**Как установить себе.**
 ```bash
 cp -r skills/dreamkas-ds-frontend ~/.claude/skills/
 ```
@@ -20,7 +32,7 @@ cp -r skills/dreamkas-ds-frontend ~/.claude/skills/
 
 ## Добавление нового скилла
 
-1. Создай папку `<skill-name>/` рядом с `dreamkas-ds-frontend/`.
+1. Создай папку `<skill-name>/` рядом с существующими.
 2. Положи внутрь `SKILL.md` с frontmatter:
    ```
    ---
