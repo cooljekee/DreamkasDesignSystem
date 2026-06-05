@@ -514,8 +514,258 @@ getComputedStyle(document.body).backgroundColor
 
 ---
 
+## Workflow для масштабирования на все продукты Dreamkas
+
+Если ты подключаешь ДС к **очередному** продукту в линейке Dreamkas — антиштраф, касса, backoffice, отчёты, мониторинг — это раздел для тебя.
+
+### Источник истины и обновления
+
+Репозиторий ДС: `github.com/cooljekee/DreamkasDesignSystem`, ветка `main`, текущая ревизия — `rev 2/` (см. также `rev 1/` на корне как первый релиз).
+
+Если репо ещё не опубликован как npm-пакет (это в feedback пункт #10) — используй **git submodule** или ручную копию через CI-скрипт:
+
+```bash
+# Опция A — git submodule (рекомендуется при отсутствии npm-публикации)
+git submodule add https://github.com/cooljekee/DreamkasDesignSystem.git \
+  vendor/dreamkas-ds
+git config -f .gitmodules submodule.vendor/dreamkas-ds.branch main
+
+# В index.css проекта:
+# @import "../vendor/dreamkas-ds/rev 2/index.css";
+# (если агрегатор уже есть в репо ДС) или собственный агрегатор поверх vendor/
+
+# Обновление при выходе rev 3:
+git submodule update --remote vendor/dreamkas-ds
+```
+
+```bash
+# Опция B — git-installable npm-пакет (если package.json есть в репо)
+npm install "github:cooljekee/DreamkasDesignSystem#main"
+
+# В index.css:
+# @import "@dreamkas/ds/index.css";
+```
+
+```bash
+# Опция C — холодная копия через CI (последнее средство; не позволяет нормальное обновление)
+git clone --depth 1 https://github.com/cooljekee/DreamkasDesignSystem.git \
+  /tmp/ds
+cp -r "/tmp/ds/rev 2/." design-system/
+echo "rev 2, copied $(date -u +%Y-%m-%d)" > design-system/VERSION.md
+```
+
+### Зафиксируй ревизию явно
+
+В `design-system/VERSION.md` (или эквиваленте) пиши строго:
+
+```
+Source: github.com/cooljekee/DreamkasDesignSystem
+Revision: rev 2
+Imported: 2026-06-05
+Method: git submodule | npm @ #main | manual copy
+```
+
+Это спасает при дебаге («какая ревизия ДС у нас на проде?») и при обновлении («что нам нужно подтянуть?»).
+
+---
+
+## Антипаттерн: расхождение между продуктами
+
+### Симптом
+
+В продукте A `<Sidebar>` имеет focus-trap при drawer-открытии. В продукте B — нет. В C — есть, но через `react-focus-lock`. Визуально одинаково, по поведению разные.
+
+### Причина
+
+DS rev 2 даёт только CSS. React-обёртки каждый продукт пишет с нуля. Тимы не синхронизируются.
+
+### Что делать пока DS не опубликовал `@dreamkas/react`
+
+**Создать внутренний пакет `@dreamkas-internal/ui-react`** в шаренном monorepo / приватном npm registry. Все продукты Dreamkas зависят от него вместо собственных реализаций.
+
+Минимальный состав:
+
+```typescript
+// packages/ui-react/src/AppShell.tsx
+export interface AppShellProps {
+  sidebar: React.ReactNode;
+  topbar: React.ReactNode;
+  banner?: React.ReactNode;
+  children: React.ReactNode;
+}
+
+export const AppShell: React.FC<AppShellProps> = ({ sidebar, topbar, banner, children }) => {
+  const { collapsed, isMobile, open, toggle } = useShellState();
+  return (
+    <div className="app">
+      {sidebar}
+      <div className="app-main">
+        {React.cloneElement(topbar as React.ReactElement, { onBurgerClick: toggle })}
+        {banner}
+        <main className="app-content">{children}</main>
+      </div>
+      {isMobile && open && <div className="sb-overlay" onClick={toggle} />}
+    </div>
+  );
+};
+```
+
+И единый `useShellState` хук, и единый `<Sidebar items={...}>` с одной a11y-реализацией.
+
+Когда DS опубликует `@dreamkas/react` — переезд = смена импорта.
+
+---
+
+## Антипаттерн: «обновим ДС когда-нибудь»
+
+### Симптом
+
+Продукт A на rev 2, продукт B на rev 1, продукт C на rev 2 + три локальных правки. Никто не обновляется, потому что страшно — не понятно, что сломается.
+
+### Причина
+
+Нет CHANGELOG (#12 в feedback), нет codemods (#13). Каждое обновление = ручной разбор diff'ов.
+
+### Что делать пока ДС не закрыл
+
+1. **Один человек в команде Dreamkas-frontend** еженедельно читает `git log` в репо ДС и пишет внутренний CHANGELOG в Confluence / Notion.
+2. **Перед обновлением ревизии** — прогон визуальной регрессии через playwright по ключевым экранам продукта; diff скриншотов до/после ревизии.
+3. **Для типичных правок** (переименование токена, удаление класса) держать в каждом продукте `migrate/` папку с готовыми `sed`-скриптами от прошлых ревизий — как живая документация.
+
+```bash
+# migrate/rev-2-to-rev-3.sh — пример
+set -e
+echo "Renaming --bg-primary → --bg-page in src/"
+find src -type f \( -name "*.tsx" -o -name "*.css" \) \
+  -exec sed -i.bak 's/--bg-primary/--bg-page/g' {} \;
+find src -name "*.bak" -delete
+echo "Done. Run tests + visual regression."
+```
+
+---
+
+## Антипаттерн: опечатки в `className` уходят в продакшн
+
+### Симптом
+
+В JSX написано `className="sb-iten"`. Пункт меню без стилей. Глаз не зацепился, прошло в прод. Пользователь сообщил через неделю.
+
+### Причина
+
+DS не даёт TypeScript-типов для своих классов (#14 в feedback). `className` — это просто строка.
+
+### Что делать пока ДС не закрыл
+
+Создать в проекте `types/ds-classnames.ts`:
+
+```typescript
+// Один раз руками или через generator-скрипт
+export type SidebarClass =
+  | "sb" | "sb--collapsed"
+  | "sb-logo" | "sb-logo-mark" | "sb-logo-text"
+  | "sb-nav" | "sb-group"
+  | "sb-item" | "sb-item-icon" | "sb-item-label" | "sb-item-badge"
+  | "sb-item is-active" | "sb-item is-disabled"
+  | "sb-footer" | "sb-profile" | "sb-profile-info"
+  | "sb-profile-name" | "sb-profile-role";
+
+export type TopbarClass =
+  | "tb" | "tb-icon-btn" | "tb-title"
+  | "tb-search" | "tb-spacer"
+  | "tb-status tb-status--online" | "tb-status tb-status--offline"
+  | "tb-bell" | "tb-bell-count" | "tb-bell-dot"
+  | "tb-profile" | "tb-profile-info" | "tb-profile-name"
+  | "tb-profile-role" | "tb-profile-chevron"
+  | "tb-banner" | "tb-banner-count";
+
+export type DSClass = SidebarClass | TopbarClass /* | ... */;
+```
+
+И помощник:
+
+```typescript
+export function ds(...classes: DSClass[]): string {
+  return classes.filter(Boolean).join(" ");
+}
+
+// Использование:
+<aside className={ds("sb", collapsed && "sb--collapsed")} />
+// Опечатка "sb-iten" — compile error
+```
+
+Генерация автоматически: `grep -oE '\.[a-z][a-z0-9-]+' design-system/web/Components/**/*.css | sort -u | …`. Можно даже пакетнуть в npm-скрипт `npm run generate-ds-types`.
+
+---
+
+## Антипаттерн: «a11y потом»
+
+### Симптом
+
+Sidebar выглядит идеально, но Tab между пунктами не работает, ScreenReader не озвучивает активный пункт, ESC на mobile drawer не закрывает. Аудит axe в CI показал 8 нарушений уровня serious.
+
+### Причина
+
+DS даёт визуал, не поведение. Если ты копируешь только разметку из preview, ARIA-атрибутов нет. Каждый компонент требует ручной a11y-обвязки (#15 в feedback).
+
+### Что делать пока ДС не закрыл
+
+Минимум для каждого организма:
+
+**Sidebar:**
+```tsx
+<aside className="sb" aria-label="Главная навигация">
+  <nav className="sb-nav" aria-label="Разделы">
+    <a
+      className="sb-item is-active"
+      role="link"
+      tabIndex={0}
+      aria-current="page"
+      onClick={...}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') ...; }}
+    >...</a>
+  </nav>
+</aside>
+```
+
+**Topbar:**
+```tsx
+<header className="tb" role="banner">
+  <button className="tb-icon-btn" aria-label="Открыть меню" onClick={toggle}>
+    <BurgerIcon aria-hidden="true" />
+  </button>
+  <div className="tb-title" role="heading" aria-level={1}>{title}</div>
+  <input
+    className="..." type="text"
+    aria-label="Поиск по странице"
+    placeholder="Поиск..."
+  />
+</header>
+```
+
+**Modal:**
+```tsx
+<div className="modal-overlay" role="presentation" onClick={close}>
+  <div
+    className="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <h2 id="modal-title">{title}</h2>
+    {/* + focus trap через react-focus-lock или собственный */}
+    {/* + Esc handler в useEffect */}
+  </div>
+</div>
+```
+
+**В CI поставить axe** через `@axe-core/playwright` или `jest-axe`. Завалить PR при serious/critical нарушениях. Это разово вложение, постоянная страховка.
+
+---
+
 ## Связанное
 
-- `FEEDBACK-2026-06-05.md` — обратная связь от первого реального интегратора (антиштраф), 9 находок с конкретными кейсами и рекомендациями ДС. Полезно прочитать, чтобы понимать «откуда взялись правила в этом скилле».
-- `CLAUDE.md` (в корне репо) — контекст роли «Софонов Дизайнер», работающего над самой ДС. Не для frontend-потребителя.
-- `README.md` — общий обзор архитектуры ДС.
+- `../rev 2/FEEDBACK-2026-06-05.md` — обратная связь от первого реального интегратора (антиштраф), 15 находок с конкретными кейсами и рекомендациями ДС. Полезно прочитать, чтобы понимать «откуда взялись правила в этом скилле» и какие пробелы в самой ДС ещё не закрыты.
+- `../CLAUDE.md` (в корне репо) — контекст роли «Софонов Дизайнер», работающего над самой ДС. Не для frontend-потребителя.
+- `../README.md` — общий обзор архитектуры ДС.
+- `./README.md` — установка скилла себе в `.claude/skills/`.
