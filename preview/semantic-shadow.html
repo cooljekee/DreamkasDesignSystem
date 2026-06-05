@@ -9,7 +9,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     background: #F8F8F8;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: rgba(0,0,0,0.87);
   }
@@ -251,9 +251,58 @@
     line-height: 1.45;
   }
   .role strong { color: rgba(0,0,0,0.87); font-weight: 600; }
+
+  .intro {
+    max-width: 720px;
+    margin-bottom: 8px;
+  }
+  .intro p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(0,0,0,0.6);
+  }
+  .intro p strong { color: rgba(0,0,0,0.8); font-weight: 600; }
+  .ladder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 12px;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    color: rgba(0,0,0,0.7);
+  }
+  .ladder .rung {
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+  .ladder .rung b { color: #0097A7; font-weight: 700; }
+  .ladder .arr { color: rgba(0,0,0,0.3); }
+  .ladder .rung.l1 { box-shadow: var(--shadow-card); }
+  .ladder .rung.l2 { box-shadow: var(--shadow-sticky); }
+  .ladder .rung.l3 { box-shadow: var(--shadow-dropdown); }
+  .ladder .rung.l4 { box-shadow: var(--shadow-modal); }
+  .ladder .rung.l5 { box-shadow: var(--shadow-toast); }
 </style>
 </head>
 <body>
+
+  <div class="intro">
+    <p>Тень в enterprise-UI — не декор, а <strong>кодировка «этажа» (elevation)</strong>: она показывает, что над чем висит. Семантические токены привязывают <strong>роль компонента</strong> к фиксированной ступени глубины, чтобы depth-иерархия оставалась консистентной на всех экранах и трёх платформах — вместо того чтобы каждый лепил свой <code style="font-family:ui-monospace,monospace;font-size:12px;">box-shadow</code> на глаз.</p>
+    <div class="ladder">
+      <span class="rung l1">покой <b>1</b></span>
+      <span class="arr">‹</span>
+      <span class="rung l2">sticky <b>2</b></span>
+      <span class="arr">‹</span>
+      <span class="rung l3">меню/поповер <b>3</b></span>
+      <span class="arr">‹</span>
+      <span class="rung l4">модалка/drawer <b>4</b></span>
+      <span class="arr">‹</span>
+      <span class="rung l5">тост <b>5</b></span>
+    </div>
+  </div>
 
   <h1 class="title">Поверхности</h1>
   <div class="row">

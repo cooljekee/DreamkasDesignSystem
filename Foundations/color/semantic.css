@@ -26,6 +26,7 @@
   --surface-sunken: var(--color-neutral-100);  /* Утоплённая поверхность (input bg, fieldset) */
   --surface-inverse: var(--color-neutral-900);  /* Тёмная поверхность на светлой теме (tooltip, поповер-подсказка) */
   --text-on-inverse: var(--color-alpha-white-100);  /* Текст/иконка на тёмной inverse-поверхности */
+  --text-on-inverse-dim: var(--color-alpha-white-70);  /* Приглушённый текст/иконка (close, вторичный) на inverse */
   --surface-hover: var(--color-neutral-50);  /* Hover на белой поверхности (карточка, плашка) */
   --surface-pressed: var(--color-neutral-100);  /* Активное нажатие на белой поверхности */
   --surface-disabled: var(--color-neutral-50);  /* Заблокированная поверхность (инпут, карточка) */
@@ -72,6 +73,10 @@
 
   /* ── overlay ─────────────────────────────────────── */
   --overlay-mask: var(--color-alpha-black-60);  /* Dark_mask — затемнение под диалогами */
+  --overlay-veil-light: var(--color-alpha-white-60);  /* Светлый scrim поверх белой поверхности (loading над телом модала) */
+  --overlay-on-inverse-faint: var(--color-alpha-white-12);  /* Слабый hover-вуаль на тёмной поверхности */
+  --overlay-on-inverse-track: var(--color-alpha-white-35);  /* Дорожка прогресса на тёмной поверхности */
+  --divider-on-inverse: var(--color-alpha-white-20);  /* Разделитель/линия на тёмной inverse-поверхности */
 
   /* ── nav (navigation item states) ───────────────── */
   --nav-item-bg-default: transparent;  /* Фон обычного пункта (без подсветки) */
@@ -129,4 +134,18 @@
   /* ── divider (separators) ─────────────────────────── */
   --divider-default: var(--color-neutral-200);  /* Тонкая горизонтальная линия между строками/блоками */
   --divider-strong: var(--color-neutral-300);  /* Жирная линия между крупными секциями */
+
+  /* ── chart (data viz) ─────────────────────────────── */
+  --chart-1: var(--color-brand-500);   /* основная серия — бренд */
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-amber-500);
+  --chart-4: var(--color-green-500);
+  --chart-5: var(--color-red-500);
+  --chart-6: var(--color-neutral-400);
+  --chart-grid: var(--color-neutral-200);    /* линии сетки */
+  --chart-axis: var(--color-neutral-300);    /* оси */
+  --chart-label: var(--color-alpha-black-54);/* подписи осей */
+  --chart-track: var(--color-neutral-100);   /* фон-дорожка (progress, пустая часть) */
+  --chart-positive: var(--color-green-600);  /* рост */
+  --chart-negative: var(--color-red-600);    /* падение */
 }

@@ -43,9 +43,11 @@ CLAUDE.md                     скилл «Софонов Дизайнер» —
 
 **Atoms** — Button, Input, Selection (checkbox/radio/switch), Select (×3 платформы: различается тач-таргет) · Badge, Avatar, Tooltip (×1).
 
-**Molecules** — Card (5 типов), Table (сетка ↔ stack-адаптив), Form Field.
+**Molecules** — Card (5 типов), Table (сетка ↔ stack-адаптив), Form Field, Tabs, Pagination, Table Toolbar (поиск + фильтры + bulk-actions), Alert, Toast, Chart (KPI + бар-чарт).
 
-Бренд — teal `#0097A7`. Текст — Roboto, числа — моноширинные (tabular), русский формат `1 290,90`.
+**Organisms** — Modal, Sidebar, Topbar · композиты App Shell (Sidebar + Topbar) и Data Table (Table + Toolbar + Pagination).
+
+Бренд — teal `#0097A7`. Текст — Dreamkas Sans (встроенный variable), числа — моноширинные (tabular), русский формат `1 290,90`.
 
 ---
 

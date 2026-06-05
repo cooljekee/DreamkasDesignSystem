@@ -7,7 +7,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     background: #FFFFFF;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Dreamkas Sans', 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: rgba(0,0,0,0.87);
   }
@@ -175,9 +175,25 @@
     color: rgba(0,0,0,0.7);
   }
   .tok-bg { background: #E0F3F4; border-color: #B2E1E5; color: #006978; }
+
+  .intro {
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+  .intro p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(0,0,0,0.6);
+  }
+  .intro p strong { color: rgba(0,0,0,0.8); font-weight: 600; }
+  .intro p + p { margin-top: 8px; }
 </style>
 </head>
 <body>
+<div class="intro">
+  <p><strong>Skeleton — это состояние загрузки.</strong> Пока данные ещё не пришли с сервера, на месте будущего контента показываются серые плашки той же формы. Это снижает <strong>ощущаемое время ожидания</strong>, убирает рывок макета (layout shift) при появлении данных и чётко отличает «грузится» от «пусто» и «ошибка».</p>
+  <p>В Dreamkas это критично для <strong>data-heavy экранов</strong>: большие таблицы товаров, отчёты, история продаж — и для кассы, которая синхронизируется после offline. Сами цвета живут в токенах <code style="font-family:ui-monospace,monospace;font-size:12px;">bg-skeleton</code> / <code style="font-family:ui-monospace,monospace;font-size:12px;">bg-skeleton-shine</code>, анимация shimmer — на стороне компонента.</p>
+</div>
 <div class="group-title">Skeleton — плашки загрузки</div>
   <div class="group-sub">Анимированные плейсхолдеры пока данные не загрузились</div>
 
